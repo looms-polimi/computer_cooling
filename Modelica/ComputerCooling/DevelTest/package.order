@@ -2,4 +2,4 @@ test_dp_liq
 test_dp_header_liq
 test_CentrifugalPump
 test_VolumetricPump
-test_ValveOnOff_TwoPort
+test_ValveModulating_TwoPort
