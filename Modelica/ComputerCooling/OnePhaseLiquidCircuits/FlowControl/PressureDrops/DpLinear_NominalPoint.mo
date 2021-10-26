@@ -10,4 +10,6 @@ equation
   w   = k * dp;
   hob = hia;
   hoa = hib;
+annotation(
+    Icon(graphics = {Rectangle(fillColor = {226, 226, 226}, fillPattern = FillPattern.HorizontalCylinder, extent = {{-100, 20}, {100, -20}}), Text(origin = {0, 44}, extent = {{-62, 30}, {62, -30}}, textString = "linear")}));
 end DpLinear_NominalPoint;

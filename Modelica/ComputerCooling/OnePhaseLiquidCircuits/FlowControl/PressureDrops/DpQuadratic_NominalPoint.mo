@@ -10,4 +10,6 @@ equation
   w   = Functions.sqrtReg(k*dp);
   hob = hia;
   hoa = hib;
+annotation(
+    Icon(graphics = {Rectangle(fillColor = {226, 226, 226}, fillPattern = FillPattern.HorizontalCylinder, extent = {{-100, 20}, {100, -20}}), Text(origin = {1, 48}, extent = {{-87, 46}, {87, -46}}, textString = "quadratic")}));
 end DpQuadratic_NominalPoint;

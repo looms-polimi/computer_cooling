@@ -1,5 +1,5 @@
 within ComputerCooling;
 
 package OnePhaseLiquidCircuits
-  extends Modelica.Icons.Package;
+  extends Icons.OnePhaseLiquidCircuitsIcon;
 end OnePhaseLiquidCircuits;
