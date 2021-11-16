@@ -1,7 +1,7 @@
 within ComputerCooling.OnePhaseLiquidCircuits.FlowControl.Valves;
 
 model ValveModulating_TwoPort
-  extends OnePhaseLiquidCircuits.BaseClasses.TwoPorts_pwh;  //valve with reversable direction?
+  extends OnePhaseLiquidCircuits.BaseClasses.TwoPorts_pwh;
   replaceable model medium = Media.SubCooledWater_Incompressible;
   medium m;
   
@@ -13,12 +13,14 @@ protected
   final parameter Real kv = w_nom / ComputerCooling.Functions.sqrtReg(dp_nom) annotation(Evaluate = true);
   
 equation
+  //liquid coordinates
   m.p = pwh_a.p;
   m.h = pwh_a.h;
   
+  //modulated flow
   w = ComputerCooling.Functions.Clamp(cmd) * kv * ComputerCooling.Functions.sqrtReg(dp);
   
-  hoa = hib;
+  hoa = hib;  //no change in enthalpy
   hob = hia;
 
 end ValveModulating_TwoPort;

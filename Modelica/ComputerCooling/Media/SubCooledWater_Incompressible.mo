@@ -2,23 +2,31 @@ within ComputerCooling.Media;
 
 model SubCooledWater_Incompressible "Subcooled water, no compressibility"
   extends Modelica.Icons.MaterialProperty;
+  
   import MAC = ComputerCooling.Media.Constants;
+  
   input Pressure p "pressure";
   input SpecificEnthalpy h "specific enthalpy";
   //-----------------------------------------------------------------------------
-  Density d "density";
   Temperature T "temperature";
   SpecificEnergy e;
+  
+  Density d "density";
   SpecificHeatCapacity cp "specific heat";
   ThermalConductivity lambda "thermal conductivity";
   DynamicViscosity mu "dynamic viscosity";
+  
 equation
-  d = MAC.d_w;
-  cp = MAC.cp_w;
+  //medium physical characteristics
+  d      = MAC.d_w;
+  cp     = MAC.cp_w;
   lambda = MAC.lambda_w;
-  mu = MAC.mu_w;
+  mu     = MAC.mu_w;
+  
+  //medium energy equations
   e = cp*T;
   h = e+p/d;
+  
   annotation(
     Documentation(info = "<html>
 <p>This is the moist air model that is based on Mollier Diagram.</p>

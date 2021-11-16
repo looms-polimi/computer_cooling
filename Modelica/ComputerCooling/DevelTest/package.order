@@ -3,3 +3,6 @@ test_dp_header_liq
 test_CentrifugalPump
 test_VolumetricPump
 test_ValveModulating_TwoPort
+test_VentedTank
+test_TJunction
+test_streamLiquid

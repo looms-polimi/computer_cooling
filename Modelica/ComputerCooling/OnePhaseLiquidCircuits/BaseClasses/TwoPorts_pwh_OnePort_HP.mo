@@ -18,7 +18,7 @@ partial model TwoPorts_pwh_OnePort_HP
   SpecificEnthalpy hoa "enthalpy presented from inside on a side";
   SpecificEnthalpy hob "enthalpy presented from inside on b side";
 
-  Temperature T(start=293.15) "inside temperature";
+  Temperature T(start=273.15+20) "inside temperature";
 
   Power Qport "power from heat port, positive entering";
 equation

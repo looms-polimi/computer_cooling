@@ -6,7 +6,7 @@ partial model TwoPorts_pwh
   ComputerCooling.Interfaces.pwh pwh_b annotation(
     Placement(visible = true, transformation(origin = {120, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   
-  parameter Boolean pbhi=false "true if convention is pb>pa";
+  parameter Boolean pbhi = false "true if convention is pb>pa";
   PressureDifference dp "pressure drop according to dphi";
   
   MassFlowRate w "mass flowrate, positive if entering a";

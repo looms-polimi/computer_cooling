@@ -9,9 +9,11 @@ model PressuriserIdeal
   parameter Pressure p = 101325;
   
 equation
+  //pressure imposed via parameter
   pwh_a.p = p;
   pwh_b.p = p;
   
+  //enthalpy
   pwh_a.h = inStream(pwh_b.h);
   pwh_b.h = inStream(pwh_a.h);
 

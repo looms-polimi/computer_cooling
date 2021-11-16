@@ -16,9 +16,11 @@ protected
   final parameter Real kp = dp_nom / (w_nom^2) annotation(Evaluate = true);
   
 equation
+  //liquid coordinates
   m.p = pwh_a.p;
   m.h = pwh_a.h;
   
+  //pump equations
   dp = dp_nom * ComputerCooling.Functions.Clamp(cmd) - kp*w^2;
   
   hoa = hib - dp/m.d;
