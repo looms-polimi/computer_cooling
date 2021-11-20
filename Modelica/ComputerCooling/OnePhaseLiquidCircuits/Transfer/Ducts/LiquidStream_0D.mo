@@ -1,8 +1,8 @@
 within ComputerCooling.OnePhaseLiquidCircuits.Transfer.Ducts;
 
-model LiquidStreamZeroD
+model LiquidStream_0D
   extends OnePhaseLiquidCircuits.BaseClasses.TwoPorts_pwh;
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp annotation(
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp(T(start=TStart)) annotation(
     Placement(visible = true, transformation(origin = {0, -70}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   
   //liquid model
@@ -23,7 +23,7 @@ model LiquidStreamZeroD
   parameter Temperature TStart = 273.15 + 20 "Flow starting temperature";
   Temperature T(start = TStart);
   
-  parameter Boolean fluidHeats = false "True if liquid is heating environment, false otherwise";  //variable?
+  parameter Boolean fluidHeats = false "True if liquid is heating environment, false otherwise";
   
 protected
   final parameter Real kf(fixed=false) annotation(Evaluate = true);
@@ -58,4 +58,4 @@ equation
 initial equation
   dp_nom / m.d = kf * w_nom^2;
 
-end LiquidStreamZeroD;
+end LiquidStream_0D;
