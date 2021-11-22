@@ -8,7 +8,7 @@ model ValveModulating_TwoPort
   parameter PressureDifference dp_nom = 5e4 "nominal pressure difference at w_nom and cmd = 1";
   parameter MassFlowRate w_nom = 1 "nominal mass flow rate at dp_nom and cmd = 1";
   Modelica.Blocks.Interfaces.RealInput cmd annotation(
-    Placement(visible = true, transformation(origin = {-100, 70}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-46, 90}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-100, 70}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {2, 118}, extent = {{-20, -20}, {20, 20}}, rotation = -90)));
 protected
   final parameter Real kv = w_nom / ComputerCooling.Functions.sqrtReg(dp_nom) annotation(Evaluate = true);
   

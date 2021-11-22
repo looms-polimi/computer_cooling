@@ -6,7 +6,7 @@ model VentedTank
   Interfaces.pwh pwh_b annotation(
     Placement(visible = true, transformation(origin = {140, 4}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {140, 4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp annotation(
-    Placement(visible = true, transformation(origin = {-2, -62}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-36, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {3.55271e-15, -112}, extent = {{-26, -26}, {26, 26}}, rotation = 0), iconTransformation(origin = {1, -117}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
   
   replaceable model medium = Media.SubCooledWater_Incompressible;
   medium m;

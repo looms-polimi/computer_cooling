@@ -52,8 +52,8 @@ equation
                           + hp.Q_flow;
   
   //enthalpy at outer edges
-  hoa = m.cp * T;
-  hob = m.cp * T;
+  hoa = m.h;
+  hob = m.h;
 
 initial equation
   dp_nom / m.d = kf * w_nom^2;
