@@ -11,14 +11,15 @@ model Tube_0D
 
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp(T(start = TStart)) annotation(
     Placement(visible = true, transformation(origin = {0, 100}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, 120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.HeatTransfer.StreamSeparators.TubeWall_0D tubeWall_0D(L = L, W = W, t = t, material = material, TStart = TStart) annotation(
+  ComputerCooling.HeatTransfer.StreamSeparators.TubeWall_0D tubeWall_0D(L = L, W = W, t = t, TStart = TStart, material = material) annotation(
     Placement(visible = true, transformation(origin = {0, 50}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
   parameter Length D = 0.75 "Tube inner diameter";
   parameter Length L = 1 "Tube length";
   parameter Length dz = 0 "Tube height difference [port b over port a]";
   parameter Length t = 0.01 "Tube wall thickness";
-  parameter String material "Tube wall material";
+  replaceable record materialRecord = SolidMaterials.Steel;
+  materialRecord material;
   
   parameter MassFlowRate w_nom = 0.1 "Nominal mass flow rate through tube given nominal pressure differential";
   parameter PressureDifference dp_nom = 0.1 "Nominal pressure differential in tube";
