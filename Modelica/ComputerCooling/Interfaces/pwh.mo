@@ -9,5 +9,5 @@ connector pwh
   stream SpecificEnthalpy h "kJ/kg";
   
     annotation(
-    Icon(graphics = {Text( lineColor = {255, 255, 255}, extent = {{-50, 50}, {50, -50}}, textString = "pwh")}));
+    Icon(graphics = {Text( fillPattern = FillPattern.Solid, extent = {{-50, 50}, {50, -50}}, textString = "pwh")}));
 end pwh;

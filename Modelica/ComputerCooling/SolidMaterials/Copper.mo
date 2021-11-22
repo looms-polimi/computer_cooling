@@ -1,10 +1,6 @@
 within ComputerCooling.SolidMaterials;
 
 record Copper
-
-  parameter String Material = "Copper";
-  parameter Density d = 8920 "Density";
-  parameter SpecificHeatCapacity c = 385 "Specific heat capacity";
-  parameter ThermalConductivity lambda = 390 "Thermal conductivity";
-
+  extends BaseClasses.Base_solid_constant_props
+          (name="Copper",d=8920,c=385,lambda=390);
 end Copper;

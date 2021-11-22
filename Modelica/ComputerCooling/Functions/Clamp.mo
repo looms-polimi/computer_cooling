@@ -1,5 +1,5 @@
 within ComputerCooling.Functions;
-function Clamp "Derivative of sqrtReg"
+function Clamp "Clamping function"
   extends Modelica.Icons.Function;
   input Real x;
   input Real minValue = 0 "minimum value of x";

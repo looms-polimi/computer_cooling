@@ -10,7 +10,8 @@ model TubeWall_1D
   parameter Length W = 1 "Layer width";
   parameter Length t = 0.01 "Layer thickness";
   
-  replaceable record materialRecord = SolidMaterials.Steel;
+  replaceable record materialRecord = SolidMaterials.Steel
+              constrainedby SolidMaterials.BaseClasses.Base_solid_constant_props;
   materialRecord material;
   
   parameter Temperature TStart = 273.15 + 20 "Layer starting temperature";
