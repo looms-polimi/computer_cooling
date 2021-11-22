@@ -20,7 +20,9 @@ model Tube_1D
   parameter Length L = 1 "Tube length";
   parameter Length dz = 0 "Tube height difference [port b over port a]";
   parameter Length t = 0.01 "Tube wall thickness";
-  parameter String material "Tube wall material";
+  
+  replaceable record materialRecord = SolidMaterials.Steel;
+  materialRecord material;
   
   parameter MassFlowRate w_nom = 0.1 "Nominal mass flow rate through tube given nominal pressure differential";
   parameter PressureDifference dp_nom = 0.1 "Nominal pressure differential in tube";

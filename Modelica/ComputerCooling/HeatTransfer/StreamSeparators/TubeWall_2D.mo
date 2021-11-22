@@ -10,11 +10,8 @@ model TubeWall_2D
   parameter Length W = 1 "Layer width";
   parameter Length t = 0.01 "Layer thickness";
   
-  //TODO: material record
-  parameter String material = "Material";
-  parameter Density d = 7600;
-  parameter SpecificHeatCapacity c = 600;
-  parameter ThermalConductivity lambda = 40;
+  replaceable record materialRecord = SolidMaterials.Steel;
+  materialRecord material;
   
   parameter Temperature TStart = 273.15 + 20 "Layer starting temperature";
   Temperature T[s,n](each start = TStart);
@@ -24,8 +21,8 @@ model TubeWall_2D
   
 protected
   final parameter Area A = L * W;
-  final parameter ThermalConductance G = lambda * A / t / n;
-  final parameter HeatCapacity C = c * d * A * t / n;
+  final parameter ThermalConductance G = material.lambda * A / t / n;
+  final parameter HeatCapacity C = material.c * material.d * A * t / n;
 
 equation
   

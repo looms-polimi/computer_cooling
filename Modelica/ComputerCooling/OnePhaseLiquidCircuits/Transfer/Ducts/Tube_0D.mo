@@ -18,6 +18,7 @@ model Tube_0D
   parameter Length L = 1 "Tube length";
   parameter Length dz = 0 "Tube height difference [port b over port a]";
   parameter Length t = 0.01 "Tube wall thickness";
+  
   replaceable record materialRecord = SolidMaterials.Steel;
   materialRecord material;
   
