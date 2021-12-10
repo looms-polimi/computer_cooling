@@ -1,6 +1,6 @@
 within ComputerCooling.Interfaces;
 
-connector vHP "vector heah port"
+connector vHP "vector heat port"
   parameter Integer n=3;
   Temperature T[n];
   flow Power Q_flow[n];
