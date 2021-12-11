@@ -1,7 +1,7 @@
 within ComputerCooling.Tutorial.T00_Introduction_to_EBM.EBM_multiphysics_examples;
 
 model Read_trace
-  parameter String fname = "EEB_intro_trace1.txt" "trace file name";
+  parameter String fname = "EBM_intro_trace1.txt" "trace file name";
   parameter String fdir = "Data" "path of trace file within Resource folder";
   Modelica.Blocks.Interfaces.RealOutput y annotation(
     Placement(visible = true, transformation(origin = {50, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {121, -1}, extent = {{-21, -21}, {21, 21}}, rotation = 0)));

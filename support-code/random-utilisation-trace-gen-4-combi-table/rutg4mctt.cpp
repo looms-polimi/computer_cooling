@@ -20,7 +20,7 @@ char* strip_file_name(char* path)
 
 float frand(void)
 {
-   return (float)rand()/(float)(RAND_MAX);
+   return (float)(rand())/(float)(RAND_MAX);
 }
 
 // C++ stuff ------------------------------------------------------------------
@@ -44,15 +44,17 @@ public:
    
    virtual float get_val(float time)
    {
-      if(time>=time_last_switch+period && frand()>=switch_prob)
+      float foo = frand();
+      if(time>=time_last_switch+period & foo<=switch_prob/100) //FIXME
       {
          output = output>0? 0 : 1;
          time_last_switch = time;
+         
+         //printf("%f %f %f SWITCH\n",time,foo,switch_prob);
       }
       return output;
    }
-   
-   ~prbs01() {}
+
 };
 
 extern "C" double get_prbs01(prbs01* p, float time) // wrapper function
@@ -98,13 +100,14 @@ int main(int argc, char* argv[])
    printf("Generating %f seconds at timestep %f, %lu data points\n",
           duration,timestep,ndata);
           
-   prbs01 p1(5,0.8);
-   prbs01 p2(1,0.4); 
-   prbs01 p3(0.1,0.6); 
+   prbs01 p1(20,0.1);
+   prbs01 p2(5,0.2); 
+   prbs01 p3(1,0.4); 
+   prbs01 p4(0.1,0.6);
    
-   time_t t;
-   srand((unsigned) time(&t));
-   float val = 0;
+   //time_t t;
+   srand(time(NULL));
+   float rndval = 0;
    float pole = 0.5; 
    
    // Main loop ---------------------------------------------------------------
@@ -120,12 +123,20 @@ int main(int argc, char* argv[])
       float seq1 = get_prbs01(&p1,sim_time);
       float seq2 = get_prbs01(&p2,sim_time);
       float seq3 = get_prbs01(&p3,sim_time);
+      float seq4 = get_prbs01(&p4,sim_time);
       
-      float nval = 0.5*seq1+0.3*seq2+0.1*seq3+0.2*frand();
+      float krunz = frand();
+      printf("%f\n",krunz);
       
-      val = fmax(0,fmin(1,pole*val+(1-pole)*nval));
+      float seqval  = 0.3*seq1+0.2*seq2+0.2*seq3+0.2*seq4;
+      float drndval = 0.2*krunz;
+      rndval = pole*rndval+(1-pole)*drndval;
+      
+      float val = fmax(0,fmin(1,seqval+rndval));
       
       fprintf(h,"%f,%f\n",sim_time,val);
+      
+      //fprintf(h,"%f,%f,%f,%f,%f\n",sim_time,val,seq1,seq2,seq3);
       
    }
    
