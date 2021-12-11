@@ -54,7 +54,7 @@ equation
   connect(V.y, VG.v) annotation(
     Line(points = {{-159, 10}, {-141, 10}}, color = {0, 0, 127}));
   connect(Gconv.y, G3e.Rc) annotation(
-    Line(points = {{83, -32}, {91, -32}, {91, 0}}, color = {0, 0, 127}));
+    Line(points = {{83, -32}, {92, -32}, {92, 0}}, color = {0, 0, 127}));
   connect(E.T, Te.y) annotation(
     Line(points = {{144, 10}, {160, 10}}, color = {0, 0, 127}));
   connect(R.heatPort, G12.port_a) annotation(
