@@ -1,6 +1,6 @@
 within ComputerCooling.Media;
 
-model SubCooledWater_Incompressible "Subcooled water, no compressibility"
+model SubCooledWater_BulkModulus "Subcooled water, bulk modulus"
   extends Modelica.Icons.MaterialProperty;
   
   import MAC = ComputerCooling.Media.Constants;
@@ -36,4 +36,4 @@ equation
 <p>where C is the number of components (in this case, vapor and dry air), P the number of phases in thermodynamic equilibrium (in this case the only phase is the gas one), and F the number of degrees of freedom.</p>
 <p>Thus, dealing with moist air, C is two (vapor and dry air), P is one (gas phase only) and therefore F is equal to three. So we need to know the total pressure, the specific enthalpy h (using convetion that h=0 if T=0&deg;C and no water vapour is present), and the mass fraction X, which is the vapor and dry air mass ratio.</p>
 </html>"));
-end SubCooledWater_Incompressible;
+end SubCooledWater_BulkModulus;
