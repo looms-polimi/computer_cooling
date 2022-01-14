@@ -50,20 +50,20 @@ equation
   
   //energy equations
   hp[1].Q_flow = HT.gamma * AreaLateral * (hp[1].T - T[1]);
-  m.cp * m.d * V / s * der(T[1]) = pwh_a.w*actualStream(pwh_a.h)
-                                 + w * m.cp * (if w>0 then -T[1] else -T[2])
+  m.c * m.d * V / s * der(T[1]) = pwh_a.w*actualStream(pwh_a.h)
+                                 + w * m.c * (if w>0 then -T[1] else -T[2])
                                  + hp[1].Q_flow;
                                  
   for i in 2:s-1 loop
     hp[i].Q_flow = HT.gamma * AreaLateral * (hp[i].T - T[i]);
     
-    m.cp * m.d * V / s * der(T[i]) = w * m.cp * (if w>0 then (T[i-1]-T[i]) else (T[i]-T[i+1]))
+    m.c * m.d * V / s * der(T[i]) = w * m.c * (if w>0 then (T[i-1]-T[i]) else (T[i]-T[i+1]))
                                    + hp[i].Q_flow;
   end for;
   
   hp[s].Q_flow = HT.gamma * AreaLateral * (hp[s].T - T[s]);
-  m.cp * m.d * V / s * der(T[s]) = pwh_b.w*actualStream(pwh_b.h)
-                                 + w * m.cp * (if w>0 then T[s-1] else T[s])
+  m.c * m.d * V / s * der(T[s]) = pwh_b.w*actualStream(pwh_b.h)
+                                 + w * m.c * (if w>0 then T[s-1] else T[s])
                                  + hp[s].Q_flow;
   
   Ta = T[1];

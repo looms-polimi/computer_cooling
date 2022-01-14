@@ -5,6 +5,10 @@ h_v_3pt
 Ra
 Rv
 d_w
+pref_d_w
+Tref_d_w
+K_w
+alpha_w
 MMa
 MMw
 patm

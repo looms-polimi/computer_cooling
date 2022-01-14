@@ -1,24 +1,16 @@
 within ComputerCooling.Media;
 
-model SubCooledWater_BulkModulus "Subcooled water, bulk modulus"
+model SubCooledWater_Bulk_VolExp
+  "Subcooled water, bulk modulus and volumteric expansion coefficient"
   extends Modelica.Icons.MaterialProperty;
-  
+  extends BaseClasses.base_SubCooledWater;
   import MAC = ComputerCooling.Media.Constants;
-  
-  input Pressure p "pressure";
-  input SpecificEnthalpy h "specific enthalpy";
-  //-----------------------------------------------------------------------------
-  Temperature T "temperature";
-  SpecificEnergy e;
-  
-  Density d "density";
-  SpecificHeatCapacity c "specific heat";
-  ThermalConductivity lambda "thermal conductivity";
-  DynamicViscosity mu "dynamic viscosity";
   
 equation
   //medium physical characteristics
-  d      = MAC.d_w;
+  d      = MAC.d_w
+           *(1+(p-MAC.pref_d_w)/MAC.K_w)
+           *(1-MAC.alpha_w*(T-MAC.Tref_d_w));
   c      = MAC.c_w;
   lambda = MAC.lambda_w;
   mu     = MAC.mu_w;
@@ -26,7 +18,7 @@ equation
   //medium energy equations
   e = c*T;
   h = e+p/d;
-  
+
   annotation(
     Documentation(info = "<html>
 <p>This is the moist air model that is based on Mollier Diagram.</p>
@@ -36,4 +28,4 @@ equation
 <p>where C is the number of components (in this case, vapor and dry air), P the number of phases in thermodynamic equilibrium (in this case the only phase is the gas one), and F the number of degrees of freedom.</p>
 <p>Thus, dealing with moist air, C is two (vapor and dry air), P is one (gas phase only) and therefore F is equal to three. So we need to know the total pressure, the specific enthalpy h (using convetion that h=0 if T=0&deg;C and no water vapour is present), and the mass fraction X, which is the vapor and dry air mass ratio.</p>
 </html>"));
-end SubCooledWater_BulkModulus;
+end SubCooledWater_Bulk_VolExp;

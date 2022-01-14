@@ -3,8 +3,8 @@ within ComputerCooling.Tutorial.T02_Modelling_principles;
 model Mass_energy_storage_gas_filled
   extends Icons.TutorialModel;
   parameter Volume V=0.1;
-  parameter MolarMass MM=29;             /* approx. value for air */
-  parameter SpecificHeatCapacity cv=720; /* approx. value for air */
+  parameter MolarMass MM=24;              /* approx. value for air */
+  parameter SpecificHeatCapacity cv=1005; /* approx. value for air */
   parameter Pressure pstart=101325;
   parameter Temperature Tstart=273.15+20;
   Pressure               p(start=pstart,stateSelect=StateSelect.always);

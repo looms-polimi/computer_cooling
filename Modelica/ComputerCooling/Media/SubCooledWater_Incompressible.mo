@@ -2,19 +2,8 @@ within ComputerCooling.Media;
 
 model SubCooledWater_Incompressible "Subcooled water, no compressibility"
   extends Modelica.Icons.MaterialProperty;
-  
+  extends BaseClasses.base_SubCooledWater;
   import MAC = ComputerCooling.Media.Constants;
-  
-  input Pressure p "pressure";
-  input SpecificEnthalpy h "specific enthalpy";
-  //-----------------------------------------------------------------------------
-  Temperature T "temperature";
-  SpecificEnergy e;
-  
-  Density d "density";
-  SpecificHeatCapacity c "specific heat";
-  ThermalConductivity lambda "thermal conductivity";
-  DynamicViscosity mu "dynamic viscosity";
   
 equation
   //medium physical characteristics
