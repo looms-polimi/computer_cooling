@@ -1,5 +1,6 @@
 within ComputerCooling.MoistAirComponents;
 
 package BoundaryConditions
-  //extends Icons.BoundaryConditionsIcon;
+  extends Icons.BoundaryConditionsIcon;
 end BoundaryConditions;
+

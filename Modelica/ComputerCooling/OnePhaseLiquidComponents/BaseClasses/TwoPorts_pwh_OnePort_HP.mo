@@ -32,3 +32,4 @@ equation
   T     = hp.T;
   Qport = hp.Q_flow;
 end TwoPorts_pwh_OnePort_HP;
+

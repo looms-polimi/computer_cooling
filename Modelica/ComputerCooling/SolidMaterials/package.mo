@@ -1,5 +1,6 @@
 within ComputerCooling;
 
 package SolidMaterials
-  extends Modelica.Icons.MaterialPropertiesPackage;
+  extends Icons.SolidIcon;
+
 end SolidMaterials;
