@@ -35,7 +35,7 @@ model LiquidStream_1D
   Energy E[n];
   MassFlowRate wl_a[n],wl_b[n] "loop flowrates on a and b facing side (+ entering)";
 
-//protected
+protected
   final parameter Real kf(fixed=false) annotation(Evaluate = true);
   final parameter Area Ac = Modelica.Constants.pi * (Dstream/2)^2 "cross area";
   final parameter Area All = Modelica.Constants.pi * Dstream * L/n "lump lateral area";
@@ -65,7 +65,7 @@ equation
                 
   for i in 2:n-1 loop
     wl_a[i]   =  kf*ComputerCooling.Functions.sqrtReg(m[i-1].p-m[i].p);
-    wl_b[i]   =  kf*ComputerCooling.Functions.sqrtReg(m[i+1].p-m[i].p);
+    wl_b[i]   = -wl_a[i+1];//kf*ComputerCooling.Functions.sqrtReg(m[i+1].p-m[i].p);
     der(M[i]) =  wl_a[i]+wl_b[i];
     der(E[i]) =  wl_a[i]*(if wl_a[i]>0 then m[i-1].h else m[i].h)
                 +wl_b[i]*(if wl_b[i]>0 then m[i+1].h else m[i].h)

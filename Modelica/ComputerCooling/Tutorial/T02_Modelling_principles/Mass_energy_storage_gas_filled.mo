@@ -3,7 +3,7 @@ within ComputerCooling.Tutorial.T02_Modelling_principles;
 model Mass_energy_storage_gas_filled
   extends Icons.TutorialModel;
   parameter Volume V=0.1;
-  parameter MolarMass MM=24;              /* approx. value for air */
+  parameter MolarMass MM=0.029;           /* approx. value for air */
   parameter SpecificHeatCapacity cv=1005; /* approx. value for air */
   parameter Pressure pstart=101325;
   parameter Temperature Tstart=273.15+20;
@@ -31,7 +31,7 @@ equation
   Ti     = 273.15+10;
   wi     = if time>10 and time<20 then 0.05 else 0;
   Q      = if time>30 and time<40 then 5000 else 0;
-  wo     = if time>50 and time<60 then 0.15 else 0;
+  wo     = if time>50 and time<60 then 0.05 else 0;
 annotation(
     experiment(StartTime = 0, StopTime = 80, Tolerance = 1e-6, Interval = 0.16),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian",
