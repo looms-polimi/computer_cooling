@@ -1,7 +1,7 @@
-within ComputerCooling.MoistAirCircuits.Volumes;
+within ComputerCooling.MoistAirComponents.Volumes;
 
 model Tank
-    extends ComputerCooling.MoistAirCircuits.BaseClasses.TwoPort_pwhx_OnePort_HP;
+    extends ComputerCooling.MoistAirComponents.BaseClasses.TwoPort_pwhx_OnePort_HP;
   ComputerCooling.Media.MoistAir air;
   
   parameter Volume V = 10;

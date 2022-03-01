@@ -1,4 +1,4 @@
-within ComputerCooling.MoistAirCircuits.FlowControl.PressureDrops;
+within ComputerCooling.MoistAirComponents.FlowControl.PressureDrops;
 
 model DpQuadratic_NominalPoint
   extends BaseClasses.TwoPort_pwhx;

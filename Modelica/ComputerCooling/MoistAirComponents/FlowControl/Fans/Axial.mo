@@ -1,4 +1,4 @@
-within ComputerCooling.MoistAirCircuits.FlowControl.Fans;
+within ComputerCooling.MoistAirComponents.FlowControl.Fans;
 
 model Axial
   extends BaseClasses.TwoPort_pwhx;

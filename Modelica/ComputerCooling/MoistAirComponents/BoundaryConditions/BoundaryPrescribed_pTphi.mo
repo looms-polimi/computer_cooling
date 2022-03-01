@@ -1,4 +1,4 @@
-within ComputerCooling.MoistAirCircuits.BoundaryConditions;
+within ComputerCooling.MoistAirComponents.BoundaryConditions;
 
 model BoundaryPrescribed_pTphi
   extends BaseClasses.OnePort_pwhx;

@@ -1,9 +1,9 @@
 within ComputerCooling.DevelTest;
 
 model test_dp_moistAir
-  ComputerCooling.MoistAirComponents.BoundaryConditions.BoundaryFixed_pTx src annotation(
+  ComputerCooling.MoistAirComponents.BoundaryConditions.BoundaryFixed_pTphi src annotation(
     Placement(visible = true, transformation(origin = {-80, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.MoistAirComponents.BoundaryConditions.BoundaryFixed_pTx snk annotation(
+  ComputerCooling.MoistAirComponents.BoundaryConditions.BoundaryFixed_pTphi snk annotation(
     Placement(visible = true, transformation(origin = {80, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   ComputerCooling.MoistAirComponents.FlowControl.PressureDrops.DpQuadratic_NominalPoint dpQuadratic_NominalPoint annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));

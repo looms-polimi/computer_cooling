@@ -32,7 +32,7 @@ equation
   ha = MAC.cp_a * (T - 273.15);
   hv = MAC.h_v_3pt + MAC.cp_v * (T - 273.15);
   h = ha + X * hv;
-  hl = MAC.cp_w * (T - 273.15);
+  hl = MAC.c_w * (T - 273.15);
   d = (p - pv) / (MAC.Ra * T) + pv / (MAC.Rv * T);
   cp = MAC.cp_a + X * MAC.cp_v;
   R = MAC.Ra + MAC.Rv * X;
