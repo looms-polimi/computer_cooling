@@ -2,11 +2,11 @@ within ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas;
 
 model Gas_example_003
   extends Icons.TutorialModel;
-  ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas.IdealgasNode_wT src annotation(
+  ComputerCooling.IdealGasComponents.IdealgasNode_wT src annotation(
     Placement(visible = true, transformation(origin = {-150, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas.IdealGasPdropQ dpi1 annotation(
+  ComputerCooling.IdealGasComponents.IdealGasPdropQ dpi1 annotation(
     Placement(visible = true, transformation(origin = {-120, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas.IdealgasNode_pT snk annotation(
+  ComputerCooling.IdealGasComponents.IdealgasNode_pT snk annotation(
     Placement(visible = true, transformation(origin = {150, -30}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression wi(y = 0.001 * sign(sin(time / 100)))  annotation(
     Placement(visible = true, transformation(origin = {-180, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -16,25 +16,25 @@ model Gas_example_003
     Placement(visible = true, transformation(origin = {180, -20}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression To(y = 293.15)  annotation(
     Placement(visible = true, transformation(origin = {180, -42}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas.IdealGasVolume V1(V = 0.02)  annotation(
+  ComputerCooling.IdealGasComponents.IdealGasVolume V1(V = 0.02)  annotation(
     Placement(visible = true, transformation(origin = {-90, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas.IdealGasPdropQ dp4o annotation(
+  ComputerCooling.IdealGasComponents.IdealGasPdropQ dp4o annotation(
     Placement(visible = true, transformation(origin = {120, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Thermal.HeatTransfer.Components.ThermalConductor Ge1(G = 1)  annotation(
     Placement(visible = true, transformation(origin = {-90, 10}, extent = {{10, -10}, {-10, 10}}, rotation = 90)));
   Modelica.Thermal.HeatTransfer.Sources.FixedTemperature Te(T = 298.15)  annotation(
     Placement(visible = true, transformation(origin = {-150, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas.IdealGasPdropQ dp12 annotation(
+  ComputerCooling.IdealGasComponents.IdealGasPdropQ dp12 annotation(
     Placement(visible = true, transformation(origin = {-60, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas.IdealGasVolume V2(V = 0.02) annotation(
+  ComputerCooling.IdealGasComponents.IdealGasVolume V2(V = 0.02) annotation(
     Placement(visible = true, transformation(origin = {-30, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas.IdealGasVolume V3(V = 0.02) annotation(
+  ComputerCooling.IdealGasComponents.IdealGasVolume V3(V = 0.02) annotation(
     Placement(visible = true, transformation(origin = {30, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas.IdealGasPdropQ dp23 annotation(
+  ComputerCooling.IdealGasComponents.IdealGasPdropQ dp23 annotation(
     Placement(visible = true, transformation(origin = {0, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas.IdealGasPdropQ dp34 annotation(
+  ComputerCooling.IdealGasComponents.IdealGasPdropQ dp34 annotation(
     Placement(visible = true, transformation(origin = {60, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas.IdealGasVolume V4(V = 0.02) annotation(
+  ComputerCooling.IdealGasComponents.IdealGasVolume V4(V = 0.02) annotation(
     Placement(visible = true, transformation(origin = {90, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Thermal.HeatTransfer.Components.ThermalConductor Ge2(G = 1) annotation(
     Placement(visible = true, transformation(origin = {-30, 10}, extent = {{10, -10}, {-10, 10}}, rotation = 90)));

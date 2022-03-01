@@ -1,11 +1,11 @@
 within ComputerCooling.DevelTest;
 
 model test_streamLiquid
-  OnePhaseLiquidCircuits.BoundaryConditions.BoundaryFixed_pT snk(p = 99999.99999999999) annotation(
+  OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_pT snk(p = 99999.99999999999) annotation(
     Placement(visible = true, transformation(origin = {80, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
-  OnePhaseLiquidCircuits.Transfer.Ducts.LiquidStream_0D liquidStream(Dstream = 0.025, dp_nom(displayUnit = "Pa") = 100)  annotation(
+  OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_0D liquidStream(Dstream = 0.025, dp_nom(displayUnit = "Pa") = 100)  annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidCircuits.BoundaryConditions.BoundaryFixed_wT src(w = 0.05)  annotation(
+  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_wT src(w = 0.05)  annotation(
     Placement(visible = true, transformation(origin = {-80, -1.9984e-15}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow P(Q_flow = 4186)  annotation(
     Placement(visible = true, transformation(origin = {-50, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

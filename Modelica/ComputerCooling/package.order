@@ -4,10 +4,12 @@ Functions
 Interfaces
 SolidMaterials
 Media
-OnePhaseLiquidCircuits
-MoistAirCircuits
+OnePhaseLiquidComponents
+IdealGasComponents
+MoistAirComponents
 HeatTransfer
 ThermalMachines
 HeatSources
 DevelTest
 Tutorial
+

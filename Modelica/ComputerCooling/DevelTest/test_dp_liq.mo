@@ -1,11 +1,11 @@
 within ComputerCooling.DevelTest;
 
 model test_dp_liq
-  ComputerCooling.OnePhaseLiquidCircuits.FlowControl.PressureDrops.DpQuadratic_NominalPoint dp annotation(
+  ComputerCooling.OnePhaseLiquidComponents.FlowControl.PressureDrops.DpQuadratic_NominalPoint dp annotation(
     Placement(visible = true, transformation(origin = {-10, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidCircuits.BoundaryConditions.BoundaryPrescribed_pT src annotation(
+  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryPrescribed_pT src annotation(
     Placement(visible = true, transformation(origin = {-70, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidCircuits.BoundaryConditions.BoundaryFixed_pT snk(T = 283.15)  annotation(
+  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_pT snk(T = 283.15)  annotation(
     Placement(visible = true, transformation(origin = {50, 10}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression ip(y = 1e5 * (1 + 0.5 * sin(time)))  annotation(
     Placement(visible = true, transformation(origin = {-130, 28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

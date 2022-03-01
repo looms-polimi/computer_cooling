@@ -1,17 +1,17 @@
 within ComputerCooling.DevelTest;
 
 model test_ValveModulating_TwoPort
-  ComputerCooling.OnePhaseLiquidCircuits.FlowControl.PressureDrops.DpLinear_NominalPoint dpLinear_NominalPoint1(w_nom = 1) annotation(
+  ComputerCooling.OnePhaseLiquidComponents.FlowControl.PressureDrops.DpLinear_NominalPoint dpLinear_NominalPoint1(w_nom = 1) annotation(
     Placement(visible = true, transformation(origin = {30, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidCircuits.BoundaryConditions.BoundaryFixed_pT boundaryFixed_pT1(p = 99999.99999999999) annotation(
+  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_pT boundaryFixed_pT1(p = 99999.99999999999) annotation(
     Placement(visible = true, transformation(origin = {70, 0}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidCircuits.BoundaryConditions.BoundaryFixed_pT boundaryFixed_pT(p = 499999.9999999999) annotation(
+  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_pT boundaryFixed_pT(p = 499999.9999999999) annotation(
     Placement(visible = true, transformation(origin = {-70, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression realExpression(y = sin(0.1 * time)) annotation(
     Placement(visible = true, transformation(origin = {-42, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidCircuits.FlowControl.PressureDrops.DpLinear_NominalPoint dpLinear_NominalPoint(w_nom = 1) annotation(
+  ComputerCooling.OnePhaseLiquidComponents.FlowControl.PressureDrops.DpLinear_NominalPoint dpLinear_NominalPoint(w_nom = 1) annotation(
     Placement(visible = true, transformation(origin = {-30, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidCircuits.FlowControl.Valves.ValveModulating_TwoPort valveModulating_TwoPort annotation(
+  ComputerCooling.OnePhaseLiquidComponents.FlowControl.Valves.ValveModulating_TwoPort valveModulating_TwoPort annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(boundaryFixed_pT.pwh_a, dpLinear_NominalPoint.pwh_a) annotation(

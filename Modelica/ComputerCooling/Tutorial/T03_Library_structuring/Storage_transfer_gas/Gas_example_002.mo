@@ -2,11 +2,11 @@ within ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas;
 
 model Gas_example_002
   extends Icons.TutorialModel;
-  ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas.IdealgasNode_wT src annotation(
+  ComputerCooling.IdealGasComponents.IdealgasNode_wT src annotation(
     Placement(visible = true, transformation(origin = {-90, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   IdealGasPdropQ dp0 annotation(
     Placement(visible = true, transformation(origin = {-50, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas.IdealgasNode_pT snk annotation(
+  ComputerCooling.IdealGasComponents.IdealgasNode_pT snk annotation(
     Placement(visible = true, transformation(origin = {70, 10}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression wi(y = 0.001 * sign(sin(time / 100)))  annotation(
     Placement(visible = true, transformation(origin = {-130, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -16,9 +16,9 @@ model Gas_example_002
     Placement(visible = true, transformation(origin = {110, 30}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression To(y = 293.15)  annotation(
     Placement(visible = true, transformation(origin = {110, -10}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas.IdealGasVolume V1(V = 0.02)  annotation(
+  ComputerCooling.IdealGasComponents.IdealGasVolume V1(V = 0.02)  annotation(
     Placement(visible = true, transformation(origin = {-10, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.Tutorial.T03_Library_structuring.Storage_transfer_gas.IdealGasPdropQ dp1 annotation(
+  ComputerCooling.IdealGasComponents.IdealGasPdropQ dp1 annotation(
     Placement(visible = true, transformation(origin = {30, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Thermal.HeatTransfer.Components.ThermalConductor Ge(G = 1)  annotation(
     Placement(visible = true, transformation(origin = {10, 50}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));

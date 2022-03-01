@@ -1,19 +1,19 @@
 within ComputerCooling.DevelTest;
 
 model test_dp_header_liq
-  ComputerCooling.OnePhaseLiquidCircuits.FlowControl.PressureDrops.DpQuadratic_NominalPoint dp1(dp_nom = 49999.99999999999, w_nom = 1)  annotation(
+  ComputerCooling.OnePhaseLiquidComponents.FlowControl.PressureDrops.DpQuadratic_NominalPoint dp1(dp_nom = 49999.99999999999, w_nom = 1)  annotation(
     Placement(visible = true, transformation(origin = {-50, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidCircuits.BoundaryConditions.BoundaryPrescribed_pT src annotation(
+  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryPrescribed_pT src annotation(
     Placement(visible = true, transformation(origin = {-112, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidCircuits.BoundaryConditions.BoundaryFixed_pT snk(T = 293.15, p(displayUnit = "Pa") = 1e5)  annotation(
+  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_pT snk(T = 293.15, p(displayUnit = "Pa") = 1e5)  annotation(
     Placement(visible = true, transformation(origin = {112, 10}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression ip(y = 2e5)  annotation(
     Placement(visible = true, transformation(origin = {-172, 28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression iT(y = 273.15 + 25)  annotation(
     Placement(visible = true, transformation(origin = {-178, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidCircuits.FlowControl.PressureDrops.DpQuadratic_NominalPoint dp2(dp_nom = 49999.99999999999, w_nom = 1)  annotation(
+  ComputerCooling.OnePhaseLiquidComponents.FlowControl.PressureDrops.DpQuadratic_NominalPoint dp2(dp_nom = 49999.99999999999, w_nom = 1)  annotation(
     Placement(visible = true, transformation(origin = {60, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidCircuits.Storage.Header h(T(fixed = true), Tstart = 273.15 + 25)  annotation(
+  ComputerCooling.OnePhaseLiquidComponents.Storage.Header h(T(fixed = true), Tstart = 273.15 + 25)  annotation(
     Placement(visible = true, transformation(origin = {2, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow Ph annotation(
     Placement(visible = true, transformation(origin = {-26, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

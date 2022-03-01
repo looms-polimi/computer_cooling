@@ -1,17 +1,17 @@
 within ComputerCooling.DevelTest;
 
 model test_CentrifugalPump
-  OnePhaseLiquidCircuits.FlowControl.PressureDrops.DpLinear_NominalPoint dp_upstream(w_nom = 0.1) annotation(
+  OnePhaseLiquidComponents.FlowControl.PressureDrops.DpLinear_NominalPoint dp_upstream(w_nom = 0.1) annotation(
     Placement(visible = true, transformation(origin = {-50, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidCircuits.FlowControl.Pumps.CentrifugalPump centrifugalPump(dp_nom = 200000, w_nom = 0.1) annotation(
+  ComputerCooling.OnePhaseLiquidComponents.FlowControl.Pumps.CentrifugalPump centrifugalPump(dp_nom = 200000, w_nom = 0.1) annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression cmd(y = 1 + sin(10 * time)) annotation(
     Placement(visible = true, transformation(origin = {-36, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OnePhaseLiquidCircuits.BoundaryConditions.BoundaryFixed_pT src(p = 499999.9999999999) annotation(
+  OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_pT src(p = 499999.9999999999) annotation(
     Placement(visible = true, transformation(origin = {-90, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OnePhaseLiquidCircuits.FlowControl.PressureDrops.DpLinear_NominalPoint dp_downstream(w_nom = 0.1) annotation(
+  OnePhaseLiquidComponents.FlowControl.PressureDrops.DpLinear_NominalPoint dp_downstream(w_nom = 0.1) annotation(
     Placement(visible = true, transformation(origin = {50, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OnePhaseLiquidCircuits.BoundaryConditions.BoundaryFixed_pT snk annotation(
+  OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_pT snk annotation(
     Placement(visible = true, transformation(origin = {90, 0}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
 equation
   connect(centrifugalPump.pwh_b, dp_downstream.pwh_a) annotation(
