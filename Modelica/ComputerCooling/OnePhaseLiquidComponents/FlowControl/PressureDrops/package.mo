@@ -1,5 +1,5 @@
 within ComputerCooling.OnePhaseLiquidComponents.FlowControl;
 
 package PressureDrops
-  extends Icons.LPressureDropsIcon;
+  extends Icons.PressureDropsIcon;
 end PressureDrops;

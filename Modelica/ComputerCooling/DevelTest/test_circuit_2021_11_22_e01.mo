@@ -1,6 +1,8 @@
 within ComputerCooling.DevelTest;
 
 model test_circuit_2021_11_22_e01
+  extends Icons.TestModel;
+  
   ComputerCooling.OnePhaseLiquidComponents.FlowControl.Pumps.CentrifugalPump pump(dp_nom (displayUnit = "Pa") = 10000, w_nom = 0.1) annotation(
     Placement(visible = true, transformation(origin = {-70, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression cmd_pump(y = 1) annotation(

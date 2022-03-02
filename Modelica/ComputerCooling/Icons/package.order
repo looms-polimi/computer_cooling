@@ -2,11 +2,14 @@ LiquidConnectorIcon
 MoistAirConnectorIcon
 BaseClassesIcons
 BoundaryConditionsIcon
-OnePhaseLiquidCircuitsIcon
+MoistAirComponentsIcon
+OnePhaseLiquidComponentsIcon
 LFlowControlIcon
-LPressureDropsIcon
 PumpsIcon
+SolidIcon
 TutorialModel
 TutorialModelComponent
 TutorialFunction
-
+PressureDropsIcon
+FansIcon
+TestModel

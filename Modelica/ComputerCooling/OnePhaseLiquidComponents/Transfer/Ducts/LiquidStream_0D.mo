@@ -47,9 +47,9 @@ equation
   //energy equations
   hp.Q_flow = HT.gamma * AreaLateral * (hp.T - T);
   
-  m.cp * m.d * V * der(T) = pwh_a.w * actualStream(pwh_a.h)
-                          + pwh_b.w * actualStream(pwh_b.h)
-                          + hp.Q_flow;
+  m.c * m.d * V * der(T) = pwh_a.w * actualStream(pwh_a.h)
+                         + pwh_b.w * actualStream(pwh_b.h)
+                         + hp.Q_flow;
   
   //enthalpy at outer edges
   hoa = m.h;

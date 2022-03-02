@@ -7,8 +7,9 @@ test_VentedTank
 test_TJunction
 test_streamLiquid
 test_circuit_2021_11_22_e01
-foo
 test_dp_moistAir
-test_fan_Axial_simplified
 test_airCircuit_01
 test_ExpansionVessel
+test_fan_Axial
+test_pressuriser
+test_header

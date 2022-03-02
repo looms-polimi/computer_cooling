@@ -1,12 +1,13 @@
 within ComputerCooling.MoistAirComponents.Volumes;
 
 model Plenum
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp_in annotation(
-    Placement(visible = true, transformation(origin = {0, -70}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, -120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp_ext annotation(
-    Placement(visible = true, transformation(origin = {0, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  
+    extends ComputerCooling.MoistAirComponents.BaseClasses.TwoPort_pwhx;
   ComputerCooling.Media.MoistAir air;
+  
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp_in annotation(
+    Placement(visible = true, transformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, -120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp_ext annotation(
+    Placement(visible = true, transformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, 120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   
   parameter Volume V = 10;
   parameter Area A = 5;
@@ -14,17 +15,15 @@ model Plenum
   parameter Temperature T_start = 273.15 + 20;
   parameter Real phi_start = 0.5;
   
+  parameter ThermalConductivity lambda = 0.02587 "Thermal conductivity of air at 20°C, 1 atm";
+  
   Pressure p;
   Temperature T;
-  //MassFraction x;
   Mass m_dry;
   Mass m_vap;
-  ComputerCooling.Interfaces.pwhx pwhx_a annotation(
-    Placement(visible = true, transformation(origin = {-116, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.Interfaces.pwhx pwhx_b annotation(
-    Placement(visible = true, transformation(origin = {-18, -28}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  
 protected
-  parameter Length t;
+  parameter Length t = V/A;
 
 initial equation
   air.p = p_start;
@@ -33,19 +32,28 @@ initial equation
   
 equation
 
+  air.p = pwhx_a.p;
+  air.p = pwhx_b.p;
   air.p = p;
-  air.T = T;
-//air.x = x;
+  
   m_dry + m_vap = V * air.d;
   m_vap = (m_dry + m_vap) * air.x;
-  der(m_dry + m_vap) = 0;
+  der(m_dry + m_vap) = pwhx_a.w + pwhx_b.w;
+  der(m_vap) = pwhx_a.w * actualStream(pwhx_a.x) + pwhx_b.w * actualStream(pwhx_b.x);
   
-  hp_in.Q_flow = 2 * 0.028 * A/t * (hp_in.T - T);
+  hp_in.Q_flow = 2 * lambda * A/t * (hp_in.T - T);
   
-  p * V = (V * air.d) * air.R * T;
-  (V * air.d) * air.cp * der(T) = hp_in.Q_flow + hp_ext.Q_flow;
+  (V * air.d) * air.cp * der(T) = pwhx_a.w * actualStream(pwhx_a.h) + pwhx_b.w * actualStream(pwhx_b.h)
+                                  + hp_in.Q_flow + hp_ext.Q_flow;
   
-  hp_ext.Q_flow = 2 * 0.028 * A/t * (hp_ext.T - T);
+  hp_ext.Q_flow = 2 * lambda * A/t * (hp_ext.T - T);
+            
+  air.T = T;
+  hoa = air.h;
+  hob = air.h;
+  xoa = air.x;
+  xob = air.x;
+  
 //TODO: assert for dew
 //assert(air.h <= air.hl, "condensation present in plenum");
 end Plenum;
