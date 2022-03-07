@@ -1,13 +1,12 @@
 within ComputerCooling.OnePhaseLiquidComponents.Storage;
 
 model Header
-  extends OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_HP(T(start=Tstart));
+  extends OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_HP(T(start=TStart));
   
   replaceable model medium = Media.SubCooledWater_Incompressible;
   medium m;
   
   parameter Volume V=0.1;
-  parameter Temperature Tstart=273.15+20;
   
 equation
   //liquid coordinates

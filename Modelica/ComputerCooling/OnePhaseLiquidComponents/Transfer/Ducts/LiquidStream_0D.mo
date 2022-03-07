@@ -31,6 +31,9 @@ protected
   final parameter Area AreaLateral = Modelica.Constants.pi * Dstream * L;
   final parameter Volume V = AreaCross * L;
   
+initial equation  //NEW
+  HT.m.T = TStart;
+  
 equation
   //liquid coordinates
   m.p = pwh_a.p;

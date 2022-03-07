@@ -6,7 +6,7 @@ partial model TwoPorts_pwh_OnePort_HP
   ComputerCooling.Interfaces.pwh pwh_b annotation(
     Placement(visible = true, transformation(origin = {120, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp annotation(
-    Placement(visible = true, transformation(origin = {-20, -78}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {2.66454e-15, -120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-20, -78}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {2.66454e-15, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
   parameter Boolean pbhi=false "true if convention is pb>pa";
   PressureDifference dp "pressure drop according to dphi";
@@ -18,9 +18,14 @@ partial model TwoPorts_pwh_OnePort_HP
   SpecificEnthalpy hoa "enthalpy presented from inside on a side";
   SpecificEnthalpy hob "enthalpy presented from inside on b side";
 
-  Temperature T(start=273.15+20) "inside temperature";
+  parameter Temperature TStart = 273.15 + 20 "Initial temperature";
+  Temperature T(start=TStart) "inside temperature";
 
   Power Qport "power from heat port, positive entering";
+  
+initial equation
+  T = TStart;
+  
 equation
   dp    = if pbhi then pwh_b.p-pwh_a.p else pwh_a.p-pwh_b.p;
   0     = pwh_a.w+pwh_b.w;
@@ -32,4 +37,3 @@ equation
   T     = hp.T;
   Qport = hp.Q_flow;
 end TwoPorts_pwh_OnePort_HP;
-
