@@ -1,0 +1,17 @@
+
+setCommandLineOptions("-d=initialization");
+getErrorString();
+
+loadFile("../3d-ice/heatsink_plugin/common/libraries/ThermalBlocks.mo");
+getErrorString();
+loadFile("../3d-ice/heatsink_plugin/common/HeatsinkBlocks.mo");
+getErrorString();
+loadFile("../computer_cooling/Modelica/ComputerCooling/package.mo");
+getErrorString();
+loadFile("T05_3DICE_Integration.mo");
+getErrorString();
+
+
+// https://build.openmodelica.org/Documentation/OpenModelica.Scripting.translateModelFMU.html
+translateModelFMU(T05_3DICE_Integration.T05_Interface3DICE, version="2.0", fmuType="cs");
+getErrorString();
