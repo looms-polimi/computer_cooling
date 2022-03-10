@@ -13,14 +13,14 @@ model test_dp_header_liq
     Placement(visible = true, transformation(origin = {-198, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.FlowControl.PressureDrops.DpQuadratic_NominalPoint dp2(dp_nom = 49999.99999999999, w_nom = 1) annotation(
     Placement(visible = true, transformation(origin = {60, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Storage.Header h(T(fixed = true), Tstart = 273.15 + 25) annotation(
+  ComputerCooling.OnePhaseLiquidComponents.Storage.Header h(TStart = 273.15 + 20) annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow Ph annotation(
-    Placement(visible = true, transformation(origin = {-26, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression iPh(y = 2500 + 1000 * time * sin(time)) annotation(
-    Placement(visible = true, transformation(origin = {-96, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_wT snk(w = -0.1)  annotation(
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
+  Modelica.Blocks.Sources.RealExpression iPh(y = 2500 + 1000 * time * sin(time)) annotation(
+    Placement(visible = true, transformation(origin = {-70, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  ComputerCooling.HeatSources.HeatSource_0D heatSource_0D(n = 1)  annotation(
+    Placement(visible = true, transformation(origin = {-30, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(src.pwh_a, dp1.pwh_a) annotation(
     Line(points = {{-98, -5.32908e-16}, {-84, -5.32908e-16}}));
@@ -32,10 +32,10 @@ equation
     Line(points = {{-36, 0}, {-24, 0}}));
   connect(h.pwh_b, dp2.pwh_a) annotation(
     Line(points = {{24, 0}, {36, 0}}));
-  connect(Ph.port, h.hp) annotation(
-    Line(points = {{-16, -38}, {0, -38}, {0, -24}}, color = {191, 0, 0}));
-  connect(iPh.y, Ph.Q_flow) annotation(
-    Line(points = {{-85, -38}, {-36, -38}}, color = {0, 0, 127}));
   connect(dp2.pwh_b, snk.pwh_a) annotation(
     Line(points = {{84, 0}, {96, 0}}));
+  connect(iPh.y, heatSource_0D.P) annotation(
+    Line(points = {{-58, -30}, {-42, -30}}, color = {0, 0, 127}));
+  connect(heatSource_0D.hp, h.hp) annotation(
+    Line(points = {{-18, -30}, {0, -30}, {0, -12}}));
 end test_dp_header_liq;

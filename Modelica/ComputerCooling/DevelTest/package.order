@@ -6,10 +6,8 @@ test_ValveModulating_TwoPort
 test_VentedTank
 test_TJunction
 test_streamLiquid
-test_circuit_2021_11_22_e01
 test_dp_moistAir
 test_airCircuit_01
 test_ExpansionVessel
 test_fan_Axial
 test_pressuriser
-test_header

@@ -15,6 +15,10 @@ model test_fan_Axial
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.MoistAirComponents.FlowControl.PressureDrops.DpLinear_NominalPoint dpLinear_NominalPoint annotation(
     Placement(visible = true, transformation(origin = {60, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  HeatSources.HeatSource_0D heatSource_0D(n = 1)  annotation(
+    Placement(visible = true, transformation(origin = {-30, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Blocks.Sources.RealExpression iPh(y = 2500 + 1000 * time * sin(time)) annotation(
+    Placement(visible = true, transformation(origin = {-70, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(cmd.y, axial.cmd01) annotation(
     Line(points = {{-99, 30}, {-93, 30}, {-93, 16}, {-85, 16}}, color = {0, 0, 127}));
@@ -26,5 +30,9 @@ equation
     Line(points = {{24, 0}, {36, 0}}));
   connect(dpLinear_NominalPoint.pwhx_b, snk.pwhx_a) annotation(
     Line(points = {{84, 0}, {100, 0}}));
+  connect(iPh.y, heatSource_0D.P) annotation(
+    Line(points = {{-58, -50}, {-42, -50}}, color = {0, 0, 127}));
+  connect(heatSource_0D.hp, tank.hp) annotation(
+    Line(points = {{-18, -50}, {0, -50}, {0, -16}}));
 protected
 end test_fan_Axial;

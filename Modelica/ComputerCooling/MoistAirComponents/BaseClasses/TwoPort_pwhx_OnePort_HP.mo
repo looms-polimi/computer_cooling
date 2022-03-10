@@ -5,6 +5,10 @@ partial model TwoPort_pwhx_OnePort_HP
     Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.Interfaces.pwhx pwhx_b annotation(
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  ComputerCooling.Interfaces.vHP hp(n = n) annotation(
+    Placement(visible = true, transformation(origin = {-1.9984e-15, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+
+  parameter Integer n = 3 "number of volume lumps (1 on a side)";
 
   parameter Boolean pbhi = false "True if convention is pb > pa"; 
   PressureDifference dp;
@@ -22,10 +26,15 @@ partial model TwoPort_pwhx_OnePort_HP
   MassFraction xoa "mass fraction presented from inside on a side";
   MassFraction xob "mass fraction presented from inside on b side";
   
-  Temperature T(start = 273.15 + 20) "inside temperature";
-  Power Qport "power from heat port, positive entering";
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp(T(start = 273.15+20)) annotation(
-    Placement(visible = true, transformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {2.66454e-15, -120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  parameter Temperature TStart = 273.15 + 20 "Initial temperature";
+  Temperature T[n] "Inside temperature";
+  Power Qport[n] "power from heat port, positive entering";
+  
+initial equation
+  for i in 1:hp.n loop
+    T[i] = TStart;
+  end for;
+  
 equation
   dp  = if pbhi then pwhx_b.p-pwhx_a.p else pwhx_a.p-pwhx_b.p;
   
@@ -42,7 +51,9 @@ equation
   xoa = pwhx_a.x;
   xob = pwhx_b.x;
   
-  T     = hp.T;
-  Qport = hp.Q_flow;
+  for i in 1:hp.n loop
+    T[i]     = hp.T[i];
+    Qport[i] = hp.Q_flow[i];
+  end for;
 
 end TwoPort_pwhx_OnePort_HP;

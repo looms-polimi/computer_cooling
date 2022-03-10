@@ -1,23 +1,23 @@
 within ComputerCooling.MoistAirComponents.Volumes;
 
 model Tank
-    extends ComputerCooling.MoistAirComponents.BaseClasses.TwoPort_pwhx_OnePort_HP;
+  extends ComputerCooling.MoistAirComponents.BaseClasses.TwoPort_pwhx_OnePort_HP(T(each start=TStart), n = 1);
   ComputerCooling.Media.MoistAir air;
   
   parameter Volume V = 10;
-  parameter Pressure p_start = 101325;
-  parameter Temperature T_start = 273.15 + 20;
-  parameter Real phi_start = 0.5;
+  parameter Pressure pStart = 101325;
+  parameter Temperature TStart = 273.15 + 20;
+  parameter Real phiStart = 0.5;
   
-  Mass m_dry "dry air mass";
-  Mass m_vap "vapour mass";
-  Energy E "TOTAL energy";
-  Pressure p "pressure";
+  Mass m_dry "Dry air mass";
+  Mass m_vap "Vapour mass";
+  Energy E "Total energy";
+  Pressure p "Pressure";
 
 initial equation
-  air.p = p_start;
-  air.T = T_start;
-  air.phi = phi_start;
+  air.p = pStart;
+  air.T = TStart;
+  air.phi = phiStart;
   
 equation
 
@@ -32,9 +32,9 @@ equation
   
   E = (m_dry + m_vap) * (air.h - air.p / air.d);
   der(E) = wa * actualStream(pwhx_a.h) + wb * actualStream(pwhx_b.h)
-         + hp.Q_flow;
+         + hp.Q_flow[1];
             
-  air.T = hp.T;
+  air.T = hp.T[1];
   hoa = air.h;
   hob = air.h;
   xoa = air.x;

@@ -2,11 +2,13 @@ within ComputerCooling.OnePhaseLiquidComponents.BaseClasses;
 
 partial model TwoPorts_pwh_OnePort_HP
   ComputerCooling.Interfaces.pwh pwh_a annotation(
-    Placement(visible = true, transformation(origin = {110, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-120, -2.66454e-15}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, -2.66454e-15}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.Interfaces.pwh pwh_b annotation(
-    Placement(visible = true, transformation(origin = {120, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp annotation(
-    Placement(visible = true, transformation(origin = {-20, -78}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {2.66454e-15, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  ComputerCooling.Interfaces.vHP hp(n = n) annotation(
+    Placement(visible = true, transformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+
+  parameter Integer n = 3 "number of volume lumps (1 on a side)";
 
   parameter Boolean pbhi=false "true if convention is pb>pa";
   PressureDifference dp "pressure drop according to dphi";
@@ -19,12 +21,13 @@ partial model TwoPorts_pwh_OnePort_HP
   SpecificEnthalpy hob "enthalpy presented from inside on b side";
 
   parameter Temperature TStart = 273.15 + 20 "Initial temperature";
-  Temperature T(start=TStart) "inside temperature";
-
-  Power Qport "power from heat port, positive entering";
+  Temperature T[n] "Inside temperature";
+  Power Qport[n] "power from heat port, positive entering";
   
 initial equation
-  T = TStart;
+  for i in 1:hp.n loop
+    T[i] = TStart;
+  end for;
   
 equation
   dp    = if pbhi then pwh_b.p-pwh_a.p else pwh_a.p-pwh_b.p;
@@ -34,6 +37,10 @@ equation
   hib   = inStream(pwh_b.h);
   hoa   = pwh_a.h;
   hob   = pwh_b.h;
-  T     = hp.T;
-  Qport = hp.Q_flow;
+  
+  for i in 1:hp.n loop
+    T[i]     = hp.T[i];
+    Qport[i] = hp.Q_flow[i];
+  end for;
+  
 end TwoPorts_pwh_OnePort_HP;
