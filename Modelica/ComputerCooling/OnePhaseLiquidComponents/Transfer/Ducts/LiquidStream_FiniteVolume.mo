@@ -49,7 +49,7 @@ equation
     HT[i].p        = m[i].p;
     HT[i].h        = m[i].h;
     HT[i].w        = 0.5*abs(wl_a[i]-wl_b[i]);
-    surf.Q_flow[i] = HT[i].gamma*(surf.T[i]-T[i]);
+    surf.Q_flow[i] = HT[i].gamma*All*(surf.T[i]-T[i]);
   end for; 
   
   pwh_a.w   =  wl_a[1];
@@ -86,7 +86,9 @@ equation
 
 initial equation
   w_nom = kf*ComputerCooling.Functions.sqrtReg(dp_nom/n);
+  
   for i in 1:n loop
-    m[i].p = pwh_a.p+(pwh_b.p-pwh_a.p)/n*i;
+    m[i].p = pwh_a.p+i*(pwh_b.p-pwh_a.p)/(n+1);
   end for;
+  
 end LiquidStream_FiniteVolume;

@@ -1,7 +1,6 @@
 within ComputerCooling.Icons;
 
 partial model PressureDropsIcon
-  extends Modelica.Icons.Package;
 equation
 
 annotation(
