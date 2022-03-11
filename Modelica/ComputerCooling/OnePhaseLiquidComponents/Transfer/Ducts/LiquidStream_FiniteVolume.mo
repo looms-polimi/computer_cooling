@@ -15,7 +15,7 @@ model LiquidStream_FiniteVolume
   parameter MassFlowRate       w_nom      = 0.1 "nominal mass flowrate";
   parameter PressureDifference dp_nom     = 1000 "nominal pressure difference";  
   parameter Temperature        TStart     = 273.15 + 20 "initial temperature";
-  parameter Integer            n          = 3 "number of volume lumps (1 on a side)";
+  parameter Integer            n          = 3 "number of volume lumps (lump 1 is on side a)";
   parameter Boolean            fluidHeats = false "stream (nominally) heats the outside";
   
   /* liquid model (one per lump) */
