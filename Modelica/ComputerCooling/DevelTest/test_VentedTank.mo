@@ -34,4 +34,8 @@ equation
   connect(heatSource_0D.hp, ventedTank.hp) annotation(
     Line(points = {{-38, -50}, {-30, -50}, {-30, -10}}));
 protected
+  annotation(
+    experiment(StartTime = 0, StopTime = 100, Tolerance = 1e-6, Interval = 0.2),
+    __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian",
+    __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"));
 end test_VentedTank;
