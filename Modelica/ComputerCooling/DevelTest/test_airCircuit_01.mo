@@ -5,7 +5,7 @@ model test_airCircuit_01
   
   MoistAirComponents.FlowControl.PressureDrops.DpLinear_NominalPoint dpLinear_NominalPoint annotation(
     Placement(visible = true, transformation(origin = {60, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.MoistAirComponents.BoundaryConditions.BoundaryFixed_wTphi snk annotation(
+  ComputerCooling.MoistAirComponents.BoundaryConditions.BoundaryFixed_wTphi snk(q = -0.1)  annotation(
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression T(y = 273.15 + 20) annotation(
     Placement(visible = true, transformation(origin = {-130, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -38,4 +38,8 @@ equation
     Line(points = {{-60, 0}, {-24, 0}}));
   connect(tank.pwhx_b, dpLinear_NominalPoint.pwhx_a) annotation(
     Line(points = {{24, 0}, {36, 0}}));
+annotation(
+    experiment(StartTime = 0, StopTime = 1000, Tolerance = 1e-6, Interval = 2),
+    __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian",
+    __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"));
 end test_airCircuit_01;

@@ -17,7 +17,7 @@ model test_dp_header_liq
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_wT snk(w = -0.1)  annotation(
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression iPh(y = 2500 + 1000 * time * sin(time)) annotation(
+  Modelica.Blocks.Sources.RealExpression iPh(y = 2500 + 500 * sin(time)) annotation(
     Placement(visible = true, transformation(origin = {-70, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.HeatSources.HeatSource_0D heatSource_0D(n = 1)  annotation(
     Placement(visible = true, transformation(origin = {-30, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -38,4 +38,8 @@ equation
     Line(points = {{-58, -30}, {-42, -30}}, color = {0, 0, 127}));
   connect(heatSource_0D.hp, h.hp) annotation(
     Line(points = {{-18, -30}, {0, -30}, {0, -12}}));
+annotation(
+    experiment(StartTime = 0, StopTime = 10000, Tolerance = 1e-6, Interval = 20),
+    __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian",
+    __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"));
 end test_dp_header_liq;
