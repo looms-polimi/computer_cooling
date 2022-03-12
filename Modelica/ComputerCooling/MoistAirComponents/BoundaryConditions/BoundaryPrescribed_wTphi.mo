@@ -4,7 +4,7 @@ model BoundaryPrescribed_wTphi
 
   extends BaseClasses.OnePort_pwhx;
 
-  Modelica.Blocks.Interfaces.RealInput q annotation(
+  Modelica.Blocks.Interfaces.RealInput w annotation(
     Placement(visible = true, transformation(origin = {-120, 60}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-118, 40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput T annotation(
     Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-118, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
@@ -16,7 +16,7 @@ equation
   air.T = T;
   air.phi = phi;
   
-  pwhx_a.w = q*air.d;
+  pwhx_a.w = w;
   pwhx_a.h = air.h;
   pwhx_a.x = air.x;
 
