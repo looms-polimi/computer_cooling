@@ -2,8 +2,6 @@ within ComputerCooling.OnePhaseLiquidComponents.FlowControl.Valves;
 
 model ValveModulating_TwoPort
   extends OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh;
-  replaceable model medium = Media.SubCooledWater_Incompressible;
-  medium m;
   
   parameter PressureDifference dp_nom = 5e4 "nominal pressure difference at w_nom and cmd = 1";
   parameter MassFlowRate w_nom = 1 "nominal mass flow rate at dp_nom and cmd = 1";
@@ -13,12 +11,9 @@ protected
   final parameter Real kv = w_nom / ComputerCooling.Functions.sqrtReg(dp_nom) annotation(Evaluate = true);
   
 equation
-  //liquid coordinates
-  m.p = pwh_a.p;
-  m.h = pwh_a.h;
   
   //modulated flow
-  w = ComputerCooling.Functions.Clamp(cmd) * kv * ComputerCooling.Functions.sqrtReg(dp);
+  w = if cmd <= 0 then 1e-6 else ComputerCooling.Functions.Clamp(cmd) * kv * ComputerCooling.Functions.sqrtReg(dp);
   
   hoa = hib;  //no change in enthalpy
   hob = hia;
