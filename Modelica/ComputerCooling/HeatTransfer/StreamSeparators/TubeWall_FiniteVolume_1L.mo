@@ -26,9 +26,9 @@ protected
 equation
 
   for i in 1:n loop
+    hp_in.Q_flow[i] = G/2 * (hp_in.T[i] - T[i]);
+    C * der(T[i]) = hp_in.Q_flow[i] + hp_ext.Q_flow[i];
     hp_ext.Q_flow[i] = G/2 * (hp_ext.T[i] - T[i]);
-    C * der(T[i]) = hp_ext.Q_flow[i] + hp_in.Q_flow[i];
-    hp_in.Q_flow[i] = G/2 * (T[i] - hp_in.T[i]);
   end for;
 
 end TubeWall_FiniteVolume_1L;

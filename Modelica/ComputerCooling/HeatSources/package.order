@@ -1,5 +1,3 @@
-HeatSource_0D
-PrescribedPower
-HeatSource
-HeatCapacitor
 HeatSource_1D
+HeatSource_Temperature
+HeatSource_Power

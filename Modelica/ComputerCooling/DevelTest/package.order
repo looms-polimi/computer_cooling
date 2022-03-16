@@ -11,3 +11,5 @@ test_airCircuit_01
 test_ExpansionVessel
 test_fan_Axial
 test_pressuriser
+test_tube1D
+test_tube2D
