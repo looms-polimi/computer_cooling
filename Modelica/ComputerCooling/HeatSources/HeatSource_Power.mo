@@ -22,7 +22,7 @@ equation
 
   for i in 1:n loop
     hp.T[i] = T[i];
-    C * der(T[i]) = P/n + hp.Q_flow[i];
+    C/n * der(T[i]) = P/n + hp.Q_flow[i];
   end for;
 
 annotation(

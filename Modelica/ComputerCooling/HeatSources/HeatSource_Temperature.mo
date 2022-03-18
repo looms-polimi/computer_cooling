@@ -23,7 +23,7 @@ equation
 
   for i in 1:n loop
     T[i] = T_input;
-    C * der(T[i]) = G * (hp.T[i] - T[i]) - hp.Q_flow[i];
+    C/n * der(T[i]) = G/n * (hp.T[i] - T[i]) - hp.Q_flow[i];
   end for;
 
 annotation(
