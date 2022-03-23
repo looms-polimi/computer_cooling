@@ -21,4 +21,6 @@ equation
     vHP.T[i]      = mHP[i].T;
   end for;
 
+annotation(
+    Icon(graphics = {Rectangle(origin = {1, 3}, fillColor = {240, 102, 3}, fillPattern = FillPattern.CrossDiag, extent = {{-7, -67}, {7, 67}})}));
 end hpConnector;

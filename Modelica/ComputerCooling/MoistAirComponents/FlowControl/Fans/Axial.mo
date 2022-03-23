@@ -1,6 +1,7 @@
 within ComputerCooling.MoistAirComponents.FlowControl.Fans;
 
 model Axial
+  extends Icons.FansIcon;
   extends BaseClasses.TwoPort_pwhx;
   replaceable model medium = Media.MoistAir;
   medium air;
