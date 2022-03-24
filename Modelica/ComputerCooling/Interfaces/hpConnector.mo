@@ -17,7 +17,7 @@ initial equation
 
 equation
   for i in 1:n loop
-    vHP.Q_flow[i] = mHP[i].Q_flow;
+    vHP.Q_flow[i] = -1 * mHP[i].Q_flow;
     vHP.T[i]      = mHP[i].T;
   end for;
 
