@@ -12,13 +12,7 @@ model HeatSource_Power
   parameter Temperature TStart = 273.15 + 20;
   Temperature T[n](each start = TStart);
   parameter HeatCapacity C = 502;
-  
-initial equation
-  
-  for i in 1:n loop
-    T[i] = TStart; 
-  end for;
-  
+ 
 equation
 
   for i in 1:n loop
