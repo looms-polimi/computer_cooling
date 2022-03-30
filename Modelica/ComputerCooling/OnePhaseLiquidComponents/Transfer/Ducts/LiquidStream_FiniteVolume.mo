@@ -36,7 +36,8 @@ model LiquidStream_FiniteVolume
   MassFlowRate wl_a[n],wl_b[n] "loop flowrates on a and b facing side (+ entering)";
 
 protected
-  final parameter Real kf(fixed=false) annotation(Evaluate = true);
+//  final parameter Real kf(fixed=false) annotation(Evaluate = true);
+  final parameter Real kf = w_nom^2/dp_nom * n;
   final parameter Area Ac = Modelica.Constants.pi * (Dstream/2)^2 "cross area";
   final parameter Area All = Modelica.Constants.pi * Dstream * L/n "lump lateral area";
   final parameter Volume Vl = Ac * L/n "lump volume";
@@ -85,7 +86,11 @@ equation
                 
 
 initial equation
-  w_nom = kf*ComputerCooling.Functions.sqrtReg(dp_nom/n);
+//  w_nom = kf*ComputerCooling.Functions.sqrtReg(dp_nom/n);
+  
+  for i in 1:n loop
+    surf.T[i] = TStart;
+  end for;
 
   
 annotation(

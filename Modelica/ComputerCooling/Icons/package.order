@@ -17,3 +17,6 @@ HeatSourceIcon
 HeatTransferModelIcon
 StorageIcon
 JunctionsIcon
+ValveIcon
+PressuriserIcon
+DuctIcon

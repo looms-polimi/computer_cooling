@@ -14,11 +14,11 @@ model HeatSource_Temperature
   parameter HeatCapacity C = 502;
   parameter ThermalConductance G = 160;
   
-initial equation
+//initial equation
   
-  for i in 1:n loop
-    T[i] = TStart; 
-  end for;
+//  for i in 1:n loop
+//    T[i] = TStart; 
+//  end for;
   
 equation
 
