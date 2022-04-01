@@ -14,7 +14,7 @@ model Tube_1D
   ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume liquidStream(Dstream = Dstream, L = L, dz = dz, w_nom = w_nom, dp_nom = dp_nom, TStart = TStart, n = n, fluidHeats = fluidHeats) annotation(
     Placement(visible = true, transformation(origin = {0, -40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
-  parameter Length             Dstream    = 0.05 "stream diameter";
+  parameter Length             Dstream    = 0.005 "stream diameter";
   parameter Length             L          = 10 "stream length";
   parameter Length             W          = 1 "Wall width";
   parameter Length             t          = 0.05 "Wall layer thickness";
