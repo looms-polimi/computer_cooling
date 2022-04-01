@@ -23,7 +23,7 @@ package T05_3DICE_Integration
     extends HeatsinkBlocks.PartialModels.Heatsink(cellBottomConductance = 2 * base.gz, bottomLength = baseLength, bottomWidth = baseWidth, bottomRows = baseRows, bottomCols = baseCols);
     // Thermal model of copper heatsink base plate
     HeatsinkBlocks.LayerOptimized base(cp = cp, rho = rho, k = k, length = baseLength, width = baseWidth, height = baseHeight, rows = baseRows, cols = baseCols, Tstart = initialTemperature) annotation(
-      Placement(visible = true, transformation(origin = {120, -60}, extent = {{-40, -40}, {40, 40}}, rotation = 0)));
+      Placement(visible = true, transformation(origin = {110, -20}, extent = {{-40, -40}, {40, 40}}, rotation = 0)));
     // primary heatsink
     // connector
     // External cooling environment
@@ -57,8 +57,8 @@ package T05_3DICE_Integration
   equation
     for i in 1:baseRows loop
       for j in 1:baseCols loop
-        connect(bottom[i, j], base.pGen.port[i, j]);
-        connect(waterBlock.mHP[i,j], base.top.port[i,j]);
+  //      connect(bottom[i, j], base.pGen.port[i, j]);
+  //      connect(waterBlock.mHP[i,j], base.top.port[i,j]);
       end for;
     end for;
     
@@ -76,6 +76,10 @@ package T05_3DICE_Integration
       Line(points = {{-36, -60}, {20, -60}, {20, -44}}));
   connect(waterBlock.pwh_b, tube_cold.pwh_a) annotation(
       Line(points = {{20, 4}, {20, 20}, {4, 20}}));
+    connect(bottom, base.pGen.port) annotation(
+      Line(points = {{2, -90}, {146, -90}, {146, -56}}, color = {191, 0, 0}));
+  connect(waterBlock.mHP, base.top) annotation(
+      Line(points = {{36, -20}, {56, -20}, {56, 16}, {74, 16}}, color = {191, 0, 0}));
     annotation(
       Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
       Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}})));

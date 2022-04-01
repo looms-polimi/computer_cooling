@@ -19,10 +19,10 @@ model WaterBlock
     Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.Interfaces.pwh pwh_b annotation(
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a mHP[n,m] annotation(
-    Placement(visible = true, transformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.Interfaces.hpConnector hpConnector[m](each n=n) annotation(
-  Placement(visible = true, transformation(origin = {0, 50}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {0, 50}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
+  ThermalBlocks.Connectors.HeatPortMatrix mHP(rows=n, cols=m) annotation(
+    Placement(visible = true, transformation(origin = {-2, 86}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-1.11022e-16, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 equation
   for i in 1:m loop
     connect(pwh_a, tube_1D[i].pwh_a);
@@ -32,7 +32,7 @@ equation
   for i in 1:n loop
     for j in 1:m loop
       connect(hpConnector[j].vHP, tube_1D[j].hp);
-      connect(mHP[i, j], hpConnector[j].mHP[i]);
+      connect(mHP.port[i, j], hpConnector[j].mHP[i]);
     end for;
   end for;
   
