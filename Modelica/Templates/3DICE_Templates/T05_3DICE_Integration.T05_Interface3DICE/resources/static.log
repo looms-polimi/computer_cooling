@@ -3,39 +3,39 @@ clang -Os -fPIC -falign-functions -mfpmath=sse -fno-dollars-in-identifiers -Wno-
 clang -Os -fPIC -falign-functions -mfpmath=sse -fno-dollars-in-identifiers -Wno-parentheses-equality  -I'/usr/bin/../include/omc/c/fmi' -DOMC_FMI_RUNTIME=1 -DCMINPACK_NO_DLL=1  -c -o T05_3DICE_Integration_T05_Interface3DICE_06inz_part1.o T05_3DICE_Integration_T05_Interface3DICE_06inz_part1.c
 clang -Os -fPIC -falign-functions -mfpmath=sse -fno-dollars-in-identifiers -Wno-parentheses-equality  -I'/usr/bin/../include/omc/c/fmi' -DOMC_FMI_RUNTIME=1 -DCMINPACK_NO_DLL=1  -c -o T05_3DICE_Integration_T05_Interface3DICE.o T05_3DICE_Integration_T05_Interface3DICE.c
 clang -Os -fPIC -falign-functions -mfpmath=sse -fno-dollars-in-identifiers -Wno-parentheses-equality  -I'/usr/bin/../include/omc/c/fmi' -DOMC_FMI_RUNTIME=1 -DCMINPACK_NO_DLL=1  -c -o T05_3DICE_Integration_T05_Interface3DICE_functions.o T05_3DICE_Integration_T05_Interface3DICE_functions.c
-In file included from T05_3DICE_Integration_T05_Interface3DICE_06inz_part1.c:1:
-In file included from ./T05_3DICE_Integration_T05_Interface3DICE_model.h:5:
-In file included from ./openmodelica.h:71:
-In file included from ./gc/../openmodelica_types.hIn file included from T05_3DICE_Integration_T05_Interface3DICE_06inz_part0.c:1:
-In file included from :144./T05_3DICE_Integration_T05_Interface3DICE_model.h::
-5:
-./gc/omc_gc.h:In file included from ./openmodelica.h219::7128::
-In file included from  warning./gc/../openmodelica_types.h:: 144:
+In file included from T05_3DICE_Integration_T05_Interface3DICE_06inz_part0.c:1:
+In file included from ./T05_3DICE_Integration_T05_Interface3DICE_model.hIn file included from :5T05_3DICE_Integration_T05_Interface3DICE_06inz_part1.c::
+1:
+In file included from ./openmodelica.hIn file included from ./T05_3DICE_Integration_T05_Interface3DICE_model.h:71:5:
+In file included from :
+In file included from ./gc/../openmodelica_types.h:./openmodelica.h144:
+:71./gc/omc_gc.h::
+In file included from 219:28./gc/../openmodelica_types.h: :144warning: :
 expression result unused [-Wunused-value]
-./gc/omc_gc.h  GC_register_displacement(0);
-:219                           ^
-:28./gc/omc_gc.h:: 223:warning: 34:expression result unused [-Wunused-value]
- warning:   GC_register_displacement(0);
+./gc/omc_gc.h:  GC_register_displacement(0);
+219:                           ^
+28:./gc/omc_gc.h: 223:warning: 34expression result unused [-Wunused-value]
+:   GC_register_displacement(0);
+warning:                            ^
 expression result unused [-Wunused-value]
-                           ^
+./gc/omc_gc.h:223:  GC_set_force_unmap_on_gcollect(1);
+34:                                 ^
+ warning: expression result unused [-Wunused-value]
   GC_set_force_unmap_on_gcollect(1);
-./gc/omc_gc.h:                                 ^
-223:34: warning: expression result unused [-Wunused-value]
+                                 ^
+In file included from T05_3DICE_Integration_T05_Interface3DICE_functions.c:2:
+In file included from ./T05_3DICE_Integration_T05_Interface3DICE_functions.h:3:
+In file included from ./meta/meta_modelica.h:49:
+./gc/omc_gc.h:219:28: warning: expression result unused [-Wunused-value]
+  GC_register_displacement(0);
+                           ^
+./gc/omc_gc.h:223:34: warning: expression result unused [-Wunused-value]
   GC_set_force_unmap_on_gcollect(1);
                                  ^
 In file included from T05_3DICE_Integration_T05_Interface3DICE.c:7:
 In file included from ./T05_3DICE_Integration_T05_Interface3DICE_model.h:5:
 In file included from ./openmodelica.h:71:
 In file included from ./gc/../openmodelica_types.h:144:
-./gc/omc_gc.h:219:28: warning: expression result unused [-Wunused-value]
-  GC_register_displacement(0);
-                           ^
-In file included from T05_3DICE_Integration_T05_Interface3DICE_functions.c./gc/omc_gc.h::223:2:
-34:In file included from ./T05_3DICE_Integration_T05_Interface3DICE_functions.h warning:3: expression result unused [-Wunused-value]:
-In file included from 
-./meta/meta_modelica.h:  GC_set_force_unmap_on_gcollect(1);
-49:
-                                 ^
 ./gc/omc_gc.h:219:28: warning: expression result unused [-Wunused-value]
   GC_register_displacement(0);
                            ^
@@ -78,8 +78,6 @@ In file included from ./gc/../openmodelica_types.h:144:
                                  ^
 2 warnings generated.
 clang -Os -fPIC -falign-functions -mfpmath=sse -fno-dollars-in-identifiers -Wno-parentheses-equality  -I'/usr/bin/../include/omc/c/fmi' -DOMC_FMI_RUNTIME=1 -DCMINPACK_NO_DLL=1  -c -o T05_3DICE_Integration_T05_Interface3DICE_03lsy.o T05_3DICE_Integration_T05_Interface3DICE_03lsy.c
-2 warnings generated.
-clang -Os -fPIC -falign-functions -mfpmath=sse -fno-dollars-in-identifiers -Wno-parentheses-equality  -I'/usr/bin/../include/omc/c/fmi' -DOMC_FMI_RUNTIME=1 -DCMINPACK_NO_DLL=1  -c -o T05_3DICE_Integration_T05_Interface3DICE_04set.o T05_3DICE_Integration_T05_Interface3DICE_04set.c
 In file included from T05_3DICE_Integration_T05_Interface3DICE_03lsy.c:2:
 In file included from ./T05_3DICE_Integration_T05_Interface3DICE_model.h:5:
 In file included from ./openmodelica.h:71:
@@ -90,6 +88,8 @@ In file included from ./gc/../openmodelica_types.h:144:
 ./gc/omc_gc.h:223:34: warning: expression result unused [-Wunused-value]
   GC_set_force_unmap_on_gcollect(1);
                                  ^
+2 warnings generated.
+clang -Os -fPIC -falign-functions -mfpmath=sse -fno-dollars-in-identifiers -Wno-parentheses-equality  -I'/usr/bin/../include/omc/c/fmi' -DOMC_FMI_RUNTIME=1 -DCMINPACK_NO_DLL=1  -c -o T05_3DICE_Integration_T05_Interface3DICE_04set.o T05_3DICE_Integration_T05_Interface3DICE_04set.c
 In file included from T05_3DICE_Integration_T05_Interface3DICE_04set.c:2:
 In file included from ./T05_3DICE_Integration_T05_Interface3DICE_model.h:5:
 In file included from ./openmodelica.h:71:
@@ -210,6 +210,8 @@ In file included from ./gc/../openmodelica_types.h:144:
                                  ^
 2 warnings generated.
 clang -Os -fPIC -falign-functions -mfpmath=sse -fno-dollars-in-identifiers -Wno-parentheses-equality  -I'/usr/bin/../include/omc/c/fmi' -DOMC_FMI_RUNTIME=1 -DCMINPACK_NO_DLL=1  -c -o T05_3DICE_Integration_T05_Interface3DICE_14lnz.o T05_3DICE_Integration_T05_Interface3DICE_14lnz.c
+2 warnings generated.
+clang -Os -fPIC -falign-functions -mfpmath=sse -fno-dollars-in-identifiers -Wno-parentheses-equality  -I'/usr/bin/../include/omc/c/fmi' -DOMC_FMI_RUNTIME=1 -DCMINPACK_NO_DLL=1  -c -o T05_3DICE_Integration_T05_Interface3DICE_15syn.o T05_3DICE_Integration_T05_Interface3DICE_15syn.c
 In file included from T05_3DICE_Integration_T05_Interface3DICE_14lnz.c:2:
 In file included from ./T05_3DICE_Integration_T05_Interface3DICE_model.h:5:
 In file included from ./openmodelica.h:71:
@@ -220,8 +222,6 @@ In file included from ./gc/../openmodelica_types.h:144:
 ./gc/omc_gc.h:223:34: warning: expression result unused [-Wunused-value]
   GC_set_force_unmap_on_gcollect(1);
                                  ^
-2 warnings generated.
-clang -Os -fPIC -falign-functions -mfpmath=sse -fno-dollars-in-identifiers -Wno-parentheses-equality  -I'/usr/bin/../include/omc/c/fmi' -DOMC_FMI_RUNTIME=1 -DCMINPACK_NO_DLL=1  -c -o T05_3DICE_Integration_T05_Interface3DICE_15syn.o T05_3DICE_Integration_T05_Interface3DICE_15syn.c
 In file included from T05_3DICE_Integration_T05_Interface3DICE_15syn.c:2:
 In file included from ./T05_3DICE_Integration_T05_Interface3DICE_model.h:5:
 In file included from ./openmodelica.h:71:
@@ -234,6 +234,7 @@ In file included from ./gc/../openmodelica_types.h:144:
                                  ^
 2 warnings generated.
 clang -Os -fPIC -falign-functions -mfpmath=sse -fno-dollars-in-identifiers -Wno-parentheses-equality  -I'/usr/bin/../include/omc/c/fmi' -DOMC_FMI_RUNTIME=1 -DCMINPACK_NO_DLL=1  -c -o T05_3DICE_Integration_T05_Interface3DICE_16dae.o T05_3DICE_Integration_T05_Interface3DICE_16dae.c
+2 warnings generated.
 In file included from T05_3DICE_Integration_T05_Interface3DICE_16dae.c:2:
 In file included from ./T05_3DICE_Integration_T05_Interface3DICE_model.h:5:
 In file included from ./openmodelica.h:71:
@@ -244,19 +245,18 @@ In file included from ./gc/../openmodelica_types.h:144:
 ./gc/omc_gc.h:223:34: warning: expression result unused [-Wunused-value]
   GC_set_force_unmap_on_gcollect(1);
                                  ^
-2 warnings generated.
 clang -Os -fPIC -falign-functions -mfpmath=sse -fno-dollars-in-identifiers -Wno-parentheses-equality  -I'/usr/bin/../include/omc/c/fmi' -DOMC_FMI_RUNTIME=1 -DCMINPACK_NO_DLL=1  -c -o T05_3DICE_Integration_T05_Interface3DICE_17inl.o T05_3DICE_Integration_T05_Interface3DICE_17inl.c
 In file included from T05_3DICE_Integration_T05_Interface3DICE_17inl.c:2:
 In file included from ./T05_3DICE_Integration_T05_Interface3DICE_model.h:5:
 In file included from ./openmodelica.h:71:
-In file included from ./gc/../openmodelica_types.h:1442:
-./gc/omc_gc.h:219:28: warning warnings generated: expression result unused [-Wunused-value].
-
+In file included from ./gc/../openmodelica_types.h:144:
+./gc/omc_gc.h:219:28: warning: expression result unused [-Wunused-value]
   GC_register_displacement(0);
                            ^
 ./gc/omc_gc.h:223:34: warning: expression result unused [-Wunused-value]
   GC_set_force_unmap_on_gcollect(1);
                                  ^
+2 warnings generated.
 clang -Os -fPIC -falign-functions -mfpmath=sse -fno-dollars-in-identifiers -Wno-parentheses-equality  -I'/usr/bin/../include/omc/c/fmi' -DOMC_FMI_RUNTIME=1 -DCMINPACK_NO_DLL=1  -c -o T05_3DICE_Integration_T05_Interface3DICE_18spd.o T05_3DICE_Integration_T05_Interface3DICE_18spd.c
 In file included from T05_3DICE_Integration_T05_Interface3DICE_18spd.c:2:
 In file included from ./T05_3DICE_Integration_T05_Interface3DICE_model.h:5:
@@ -291,7 +291,6 @@ In file included from ./gc/../openmodelica_types.h:144:
 ./gc/omc_gc.h:223:34: warning: expression result unused [-Wunused-value]
   GC_set_force_unmap_on_gcollect(1);
                                  ^
-2 warnings generated.
 In file included from T05_3DICE_Integration_T05_Interface3DICE_FMU.c:55:
 ./fmi-export/fmu2_model_interface.c.inc:169:16: warning: passing 'char **' to parameter of type 'const char **' discards qualifiers in nested pointer types [-Wincompatible-pointer-types-discards-qualifiers]
   GC_vasprintf(&str, msg, args);
@@ -299,6 +298,7 @@ In file included from T05_3DICE_Integration_T05_Interface3DICE_FMU.c:55:
 ./gc/../meta/../util/modelica_string.h:71:31: note: passing argument to parameter 'strp' here
 int GC_vasprintf(const char **strp, const char *fmt, va_list ap);
                               ^
+2 warnings generated.
 2 warnings generated.
 3 warnings generated.
 2 warnings generated.

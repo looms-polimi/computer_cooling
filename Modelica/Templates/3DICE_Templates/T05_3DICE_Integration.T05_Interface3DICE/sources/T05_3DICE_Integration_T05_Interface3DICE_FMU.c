@@ -1,6 +1,6 @@
 // define class name and unique id
 #define MODEL_IDENTIFIER T05_3DICE_Integration_T05_Interface3DICE
-#define MODEL_GUID "{489f19ab-9d04-4388-a002-79b2cbaa103a}"
+#define MODEL_GUID "{0cf89c3f-1c69-4b6a-a886-e48a8e2a050b}"
 
 // include fmu header files, typedefs and macros
 #include <stdio.h>
@@ -4194,11 +4194,11 @@ void setDefaultStartValues(ModelInstance *comp) {
   comp->fmuData->modelData->realParameterData[29].attribute.start = 0;
   comp->fmuData->modelData->realParameterData[30].attribute.start = 0;
   comp->fmuData->modelData->realParameterData[31].attribute.start = 0;
-  comp->fmuData->modelData->realParameterData[32].attribute.start = 293.15;
+  comp->fmuData->modelData->realParameterData[32].attribute.start = 0;
   comp->fmuData->modelData->realParameterData[33].attribute.start = 0.1;
   comp->fmuData->modelData->realParameterData[34].attribute.start = 0.05;
   comp->fmuData->modelData->realParameterData[35].attribute.start = 10.0;
-  comp->fmuData->modelData->realParameterData[36].attribute.start = 293.15;
+  comp->fmuData->modelData->realParameterData[36].attribute.start = 0;
   comp->fmuData->modelData->realParameterData[37].attribute.start = 1.0;
   comp->fmuData->modelData->realParameterData[38].attribute.start = 100.0;
   comp->fmuData->modelData->realParameterData[39].attribute.start = 0.0;
@@ -4251,16 +4251,16 @@ void setDefaultStartValues(ModelInstance *comp) {
   comp->fmuData->modelData->realParameterData[86].attribute.start = 0.1;
   comp->fmuData->modelData->realParameterData[87].attribute.start = 0.1;
   comp->fmuData->modelData->realParameterData[88].attribute.start = 0.1;
-  comp->fmuData->modelData->realParameterData[89].attribute.start = 293.15;
-  comp->fmuData->modelData->realParameterData[90].attribute.start = 293.15;
-  comp->fmuData->modelData->realParameterData[91].attribute.start = 293.15;
-  comp->fmuData->modelData->realParameterData[92].attribute.start = 293.15;
-  comp->fmuData->modelData->realParameterData[93].attribute.start = 293.15;
-  comp->fmuData->modelData->realParameterData[94].attribute.start = 293.15;
-  comp->fmuData->modelData->realParameterData[95].attribute.start = 293.15;
-  comp->fmuData->modelData->realParameterData[96].attribute.start = 293.15;
-  comp->fmuData->modelData->realParameterData[97].attribute.start = 293.15;
-  comp->fmuData->modelData->realParameterData[98].attribute.start = 293.15;
+  comp->fmuData->modelData->realParameterData[89].attribute.start = 0;
+  comp->fmuData->modelData->realParameterData[90].attribute.start = 0;
+  comp->fmuData->modelData->realParameterData[91].attribute.start = 0;
+  comp->fmuData->modelData->realParameterData[92].attribute.start = 0;
+  comp->fmuData->modelData->realParameterData[93].attribute.start = 0;
+  comp->fmuData->modelData->realParameterData[94].attribute.start = 0;
+  comp->fmuData->modelData->realParameterData[95].attribute.start = 0;
+  comp->fmuData->modelData->realParameterData[96].attribute.start = 0;
+  comp->fmuData->modelData->realParameterData[97].attribute.start = 0;
+  comp->fmuData->modelData->realParameterData[98].attribute.start = 0;
   comp->fmuData->modelData->realParameterData[99].attribute.start = 1.0;
   comp->fmuData->modelData->realParameterData[100].attribute.start = 1.0;
   comp->fmuData->modelData->realParameterData[101].attribute.start = 1.0;

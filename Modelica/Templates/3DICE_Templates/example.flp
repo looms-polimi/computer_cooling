@@ -4,4 +4,4 @@
 HEATER:
 	position 0, 0 ;
 	dimension 10240, 10240 ;
-	power values 8,16,16,16,16,16;
+	power values 0,10,10,10;
