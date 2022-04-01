@@ -2,7 +2,7 @@ package T05_3DICE_Integration
   package Tests
     model ConstantPowerTest
       T05_Heatsink sink(initialTemperature = 20 + 273.15);
-      Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow heatSource(Q_flow = 10);
+      Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow heatSource(Q_flow = 20);
     protected
       Modelica.Thermal.HeatTransfer.Components.ThermalConductor bottomConductances[sink.bottomRows, sink.bottomCols](each G = sink.cellBottomConductance);
     equation
@@ -27,7 +27,7 @@ package T05_3DICE_Integration
     // primary heatsink
     // connector
     // External cooling environment
-    Modelica.Blocks.Sources.RealExpression temp(y = 273.15 + 30) annotation(
+    Modelica.Blocks.Sources.RealExpression temp(y = initialTemperature) annotation(
       Placement(visible = true, transformation(origin = {110, 60}, extent = {{30, -20}, {-30, 20}}, rotation = 0)));
     ComputerCooling.HeatSources.HeatSource_Temperature heatSource_cooling(n = 5) annotation(
       Placement(visible = true, transformation(origin = {40, 60}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
@@ -42,7 +42,7 @@ package T05_3DICE_Integration
       Placement(visible = true, transformation(origin = {-110, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     ComputerCooling.OnePhaseLiquidComponents.FlowControl.Pumps.CentrifugalPump pump(dp_nom = 399999.9999999999) annotation(
       Placement(visible = true, transformation(origin = {-60, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.WaterBlock waterBlock(L = 0.1, dp_nom = 100,m = baseCols, n = baseRows)  annotation(
+  ComputerCooling.OnePhaseLiquidComponents.Transfer.WaterBlock waterBlock(Dstream = 0.002,L = 0.03, TStart = initialTemperature, W = 3.14 * 0.003 / 2, dp_nom(displayUnit = "Pa") = 20000, dz = 0,m = baseCols, n = baseRows, t = 0.0005, w_nom = 0.01 / 60)  annotation(
       Placement(visible = true, transformation(origin = {20, -20}, extent = {{-20, -20}, {20, 20}}, rotation = 90)));
   protected
     parameter Modelica.SIunits.SpecificHeatCapacity cp = 384.6 "copper properties";

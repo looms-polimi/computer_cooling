@@ -6,8 +6,8 @@ model WaterBlock
   parameter Integer m = 5 "array length of the WaterBlock";
   parameter Length Dstream = 0.05 "stream diameter";
   parameter Length L = 10 "stream length";
-  parameter Length W = 1 "Layer width";
-  parameter Length t = 0.05 "Layer thickness";
+  parameter Length W = 1 "Wall width";
+  parameter Length t = 0.05 "Wall layer thickness";
   parameter Length dz = 0 "height difference (b-a)";
   parameter MassFlowRate w_nom = 0.1 "nominal mass flowrate";
   parameter PressureDifference dp_nom = 1000 "nominal pressure difference";
@@ -21,6 +21,9 @@ model WaterBlock
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.Interfaces.hpConnector hpConnector[m](each n=n) annotation(
     Placement(visible = true, transformation(origin = {0, 50}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
+  
+  //This class is defined in 3D-ICE modelica library
+  //https://github.com/esl-epfl/3d-ice/blob/master/heatsink_plugin/common/libraries/ThermalBlocks.mo
   ThermalBlocks.Connectors.HeatPortMatrix mHP(rows=n, cols=m) annotation(
     Placement(visible = true, transformation(origin = {-2, 86}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-1.11022e-16, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 equation

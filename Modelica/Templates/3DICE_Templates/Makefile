@@ -127,6 +127,7 @@ SRC = \
 ../computer_cooling/Modelica/ComputerCooling/OnePhaseLiquidComponents/Transfer/Ducts/Tube_2D.mo \
 ../computer_cooling/Modelica/ComputerCooling/OnePhaseLiquidComponents/Transfer/Junctions/JunctionT.mo \
 ../computer_cooling/Modelica/ComputerCooling/OnePhaseLiquidComponents/Transfer/Junctions/package.mo \
+../computer_cooling/Modelica/ComputerCooling/OnePhaseLiquidComponents/Transfer/WaterBlock.mo \
 ../computer_cooling/Modelica/ComputerCooling/OnePhaseLiquidComponents/Transfer/package.mo \
 ../computer_cooling/Modelica/ComputerCooling/package.mo \
 ../computer_cooling/Modelica/ComputerCooling/SolidMaterials/Aluminium.mo \

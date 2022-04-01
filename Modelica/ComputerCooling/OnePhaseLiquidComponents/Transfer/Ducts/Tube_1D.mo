@@ -16,8 +16,8 @@ model Tube_1D
 
   parameter Length             Dstream    = 0.05 "stream diameter";
   parameter Length             L          = 10 "stream length";
-  parameter Length             W          = 1 "Layer width";
-  parameter Length             t          = 0.05 "Layer thickness";
+  parameter Length             W          = 1 "Wall width";
+  parameter Length             t          = 0.05 "Wall layer thickness";
   parameter Length             dz         = 0 "height difference (b-a)";  
   parameter MassFlowRate       w_nom      = 0.1 "nominal mass flowrate";
   parameter PressureDifference dp_nom     = 1000 "nominal pressure difference";  
