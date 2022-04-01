@@ -42,7 +42,7 @@ package T05_3DICE_Integration
       Placement(visible = true, transformation(origin = {-110, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     ComputerCooling.OnePhaseLiquidComponents.FlowControl.Pumps.CentrifugalPump pump(dp_nom = 399999.9999999999) annotation(
       Placement(visible = true, transformation(origin = {-60, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.WaterBlock waterBlock(m = baseCols, n = baseRows)  annotation(
+  ComputerCooling.OnePhaseLiquidComponents.Transfer.WaterBlock waterBlock(L = 0.1, dp_nom = 100,m = baseCols, n = baseRows)  annotation(
       Placement(visible = true, transformation(origin = {20, -20}, extent = {{-20, -20}, {20, 20}}, rotation = 90)));
   protected
     parameter Modelica.SIunits.SpecificHeatCapacity cp = 384.6 "copper properties";
