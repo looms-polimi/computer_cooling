@@ -1,6 +1,6 @@
 within ComputerCooling.Sensors;
 
-model TemperatureSensor_liquid
+model PressureSensor_liquid
   extends BaseClasses.base_Sensor(redeclare replaceable model medium=Media.SubCooledWater_Incompressible constrainedby Media.BaseClasses.base_SubCooledWater);
 
   medium m;
@@ -8,8 +8,8 @@ model TemperatureSensor_liquid
   ComputerCooling.Interfaces.pwh pwh annotation(
     Placement(visible = true, transformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
-  parameter Boolean unitCelsius = false;
-
+  parameter Boolean unitBar = false;
+  
 equation
   m.p = pwh.p;
   m.h = inStream(pwh.h);
@@ -17,6 +17,6 @@ equation
   pwh.w = 0;
   pwh.h = -1; //meaningless as there is no flow -> no exchange
   
-  out = m.T - (if unitCelsius then 273.15 else 0);
+  out = m.p / 10^(if unitBar then 5 else 0);
 
-end TemperatureSensor_liquid;
+end PressureSensor_liquid;

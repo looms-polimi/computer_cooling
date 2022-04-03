@@ -1,7 +1,7 @@
 within ComputerCooling.Utilities;
 
 model Recorder
-  parameter Real Ts = 0.5 "sampling time";
+  parameter Real Ts = 0.01 "sampling time";
   parameter String csvName = "data.csv" "cav file name";
   parameter Integer Ndata = 5 "number of columns excluding time (1st)";
   parameter Boolean addHeader = false "add header to csv";

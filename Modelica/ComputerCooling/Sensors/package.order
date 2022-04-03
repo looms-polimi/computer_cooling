@@ -1,3 +1,8 @@
 BaseClasses
 TemperatureSensor_liquid
 TemperatureSensor_moistAir
+PressureSensor_liquid
+PressureSensor_moistAir
+FlowRateSensor_liquid
+FlowRateSensor_moistAir
+HumiditySensor_moistAir
