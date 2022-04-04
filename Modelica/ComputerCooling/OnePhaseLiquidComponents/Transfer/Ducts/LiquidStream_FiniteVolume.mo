@@ -10,7 +10,7 @@ model LiquidStream_FiniteVolume
     Placement(visible = true, transformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, 120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
   parameter Length             Dstream    = 0.005 "stream diameter";
-  parameter Length             L          = 10 "stream length";
+  parameter Length             L          = 1 "stream length";
   parameter Length             dz         = 0 "height difference (b-a)";  
   parameter MassFlowRate       w_nom      = 0.1 "nominal mass flowrate";
   parameter PressureDifference dp_nom     = 1000 "nominal pressure difference";  
@@ -26,7 +26,7 @@ model LiquidStream_FiniteVolume
   /* heat transfer coefficient model (one per lump) */
   replaceable model HTCoefficient = HeatTransfer.HeatTransferModels.DittusBoelter
               constrainedby HeatTransfer.BaseClasses.base_HeatTransfer_pwh;
-  HTCoefficient HT[n] (redeclare model medium = medium,
+  HTCoefficient HT[n] (redeclare replaceable model medium = medium,
                        each D = Dstream,
                        each fluidHeats = fluidHeats);
                        

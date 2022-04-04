@@ -11,7 +11,6 @@ model HeatSource_Temperature
 
   parameter Temperature TStart = 273.15 + 20;
   Temperature T[n](each start = TStart);
-  parameter HeatCapacity C = 502;
   parameter ThermalConductance G = 160;
   
 //initial equation
@@ -24,7 +23,7 @@ equation
 
   for i in 1:n loop
     T[i] = T_input;
-    C/n * der(T[i]) = G/n * (hp.T[i] - T[i]) - hp.Q_flow[i];
+    0 = G/n * (hp.T[i] - T[i]) - hp.Q_flow[i];
   end for;
 
 annotation(

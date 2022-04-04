@@ -2,7 +2,9 @@ within ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions;
 
 model BoundaryFixed_wT
   extends Icons.BoundaryConditionsIcon;
-  extends BaseClasses.OnePort_pwh;
+  extends BaseClasses.OnePort_pwh(redeclare replaceable model medium = medium);
+   
+  replaceable model medium = Media.SubCooledWater_Incompressible;
   
   parameter MassFlowRate w = 0.1;
   parameter Temperature T = 293.15;

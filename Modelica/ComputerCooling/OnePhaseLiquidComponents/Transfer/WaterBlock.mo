@@ -1,19 +1,27 @@
 within ComputerCooling.OnePhaseLiquidComponents.Transfer;
 
 model WaterBlock
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D tube_1D[m](each Dstream = Dstream, each L = L, each W = W, each t = t, each dz = dz, each w_nom = w_nom, each dp_nom = dp_nom, each TStart = TStart, each n = n, each fluidHeats = fluidHeats) annotation(
+  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D tube_1D[m](each Dstream = Dstream, each L = L, each W = W, each t = t, each dz = dz, each w_nom = w_nom, each dp_nom = dp_nom, each TStart = TStart, each n = n, each fluidHeats = fluidHeats, 
+  redeclare each replaceable record materialRecord = materialRecord,
+  redeclare each replaceable model medium = medium) annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+
   parameter Integer m = 5 "array length of the WaterBlock";
-  parameter Length Dstream = 0.05 "stream diameter";
-  parameter Length L = 10 "stream length";
+  parameter Length Dstream = 0.005 "stream diameter";
+  parameter Length L = 1 "stream length";
   parameter Length W = 1 "Wall width";
-  parameter Length t = 0.05 "Wall layer thickness";
+  parameter Length t = 0.001 "Wall layer thickness";
   parameter Length dz = 0 "height difference (b-a)";
   parameter MassFlowRate w_nom = 0.1 "nominal mass flowrate";
   parameter PressureDifference dp_nom = 1000 "nominal pressure difference";
   parameter Temperature TStart = 273.15 + 20 "initial temperature";
   parameter Integer n = 3 "number of volume lumps (lump 1 is on side a)";
   parameter Boolean fluidHeats = false "stream (nominally) heats the outside";
+  
+  replaceable record materialRecord = SolidMaterials.Copper 
+    constrainedby SolidMaterials.BaseClasses.Base_solid_constant_props;
+  replaceable model medium = Media.SubCooledWater_Incompressible;
+    
   //
   ComputerCooling.Interfaces.pwh pwh_a annotation(
     Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));

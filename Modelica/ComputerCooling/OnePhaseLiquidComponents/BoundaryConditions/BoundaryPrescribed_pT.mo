@@ -2,7 +2,9 @@ within ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions;
 
 model BoundaryPrescribed_pT
   extends Icons.BoundaryConditionsIcon;
-  extends BaseClasses.OnePort_pwh;
+  extends BaseClasses.OnePort_pwh(redeclare replaceable model medium = medium);
+   
+  replaceable model medium = Media.SubCooledWater_Incompressible;
   
   Modelica.Blocks.Interfaces.RealInput p annotation(
     Placement(visible = true, transformation(origin = {-64, 38}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, 40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));

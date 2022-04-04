@@ -2,7 +2,9 @@ within ComputerCooling.MoistAirComponents.BoundaryConditions;
 
 model BoundaryFixed_pTphi
 
-  extends BaseClasses.OnePort_pwhx;
+  extends BaseClasses.OnePort_pwhx(redeclare replaceable model medium = medium);
+   
+  replaceable model medium = Media.MoistAir;
   
   parameter Pressure p = 101325 "Prescribed pressure";
   parameter Temperature T = 273.15 + 20 "Prescribed temperature";

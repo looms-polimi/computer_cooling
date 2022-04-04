@@ -2,7 +2,9 @@ within ComputerCooling.MoistAirComponents.BoundaryConditions;
 
 model BoundaryPrescribed_wTphi
 
-  extends BaseClasses.OnePort_pwhx;
+  extends BaseClasses.OnePort_pwhx(redeclare replaceable model medium = medium);
+   
+  replaceable model medium = Media.MoistAir;
 
   Modelica.Blocks.Interfaces.RealInput w annotation(
     Placement(visible = true, transformation(origin = {-120, 60}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-118, 40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));

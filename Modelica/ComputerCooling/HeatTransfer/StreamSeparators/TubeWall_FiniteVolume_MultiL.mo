@@ -10,9 +10,9 @@ model TubeWall_FiniteVolume_MultiL
               constrainedby SolidMaterials.BaseClasses.Base_solid_constant_props;
   materialRecord material;
 
-  parameter Length L = 1 "Layer length";
-  parameter Length W = 1 "Layer width";
-  parameter Length t = 0.05 "Layer thickness";
+  parameter Length L = 1 "Wall length";
+  parameter Length W = 1 "Wall width";
+  parameter Length t = 0.001 "Wall thickness";
   parameter Integer n = 3 "Number of lumps";  // 1 leftmost <---> n rightmost
   parameter Integer l = 5 "Number of layers"; // 1 innermost <---> l outermost
   
