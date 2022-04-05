@@ -10,20 +10,12 @@ model HeatSource_Temperature
   parameter Integer n = 3 "Number of volume lumps (1 on a side)";
 
   parameter Temperature TStart = 273.15 + 20;
-  Temperature T[n](each start = TStart);
   parameter ThermalConductance G = 160;
-  
-//initial equation
-  
-//  for i in 1:n loop
-//    T[i] = TStart; 
-//  end for;
   
 equation
 
   for i in 1:n loop
-    T[i] = T_input;
-    0 = G/n * (hp.T[i] - T[i]) - hp.Q_flow[i];
+    0 = G/n * (hp.T[i] - T_input) - hp.Q_flow[i];
   end for;
 
 annotation(
