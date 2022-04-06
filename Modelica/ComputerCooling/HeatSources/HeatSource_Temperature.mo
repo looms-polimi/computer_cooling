@@ -8,23 +8,12 @@ model HeatSource_Temperature
     Placement(visible = true, transformation(origin = {120, 1.42109e-14}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
   parameter Integer n = 3 "Number of volume lumps (1 on a side)";
-
-  parameter Temperature TStart = 273.15 + 20;
-  Temperature T[n](each start = TStart);
-  parameter HeatCapacity C = 502;
   parameter ThermalConductance G = 160;
-  
-//initial equation
-  
-//  for i in 1:n loop
-//    T[i] = TStart; 
-//  end for;
   
 equation
 
   for i in 1:n loop
-    T[i] = T_input;
-    C/n * der(T[i]) = G/n * (hp.T[i] - T[i]) - hp.Q_flow[i];
+    0 = G/n * (hp.T[i] - T_input) - hp.Q_flow[i];
   end for;
 
 annotation(

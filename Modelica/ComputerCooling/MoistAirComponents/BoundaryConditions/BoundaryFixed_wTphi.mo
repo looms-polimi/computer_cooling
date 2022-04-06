@@ -2,7 +2,9 @@ within ComputerCooling.MoistAirComponents.BoundaryConditions;
 
 model BoundaryFixed_wTphi
 
-  extends BaseClasses.OnePort_pwhx;
+  extends BaseClasses.OnePort_pwhx(redeclare replaceable model medium = medium);
+   
+  replaceable model medium = Media.MoistAir;
   
   parameter VolumeFlowRate w = 0.1 "Prescribed volume flowrate";
   parameter Temperature T = 273.15 + 20 "Prescribed temperature";

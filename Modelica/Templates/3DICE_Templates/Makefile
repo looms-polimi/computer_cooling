@@ -6,15 +6,18 @@ SRC = \
 ../computer_cooling/Modelica/ComputerCooling/DevelTest/package.mo \
 ../computer_cooling/Modelica/ComputerCooling/DevelTest/test_airCircuit_01.mo \
 ../computer_cooling/Modelica/ComputerCooling/DevelTest/test_CentrifugalPump.mo \
+../computer_cooling/Modelica/ComputerCooling/DevelTest/test_coolingCircuit_powerInput.mo \
 ../computer_cooling/Modelica/ComputerCooling/DevelTest/test_dp_header_liq.mo \
 ../computer_cooling/Modelica/ComputerCooling/DevelTest/test_dp_liq.mo \
 ../computer_cooling/Modelica/ComputerCooling/DevelTest/test_dp_moistAir.mo \
 ../computer_cooling/Modelica/ComputerCooling/DevelTest/test_ExpansionVessel.mo \
 ../computer_cooling/Modelica/ComputerCooling/DevelTest/test_fan_Axial.mo \
+../computer_cooling/Modelica/ComputerCooling/DevelTest/test_liquidLoop.mo \
 ../computer_cooling/Modelica/ComputerCooling/DevelTest/test_pressuriser.mo \
 ../computer_cooling/Modelica/ComputerCooling/DevelTest/test_streamLiquid.mo \
 ../computer_cooling/Modelica/ComputerCooling/DevelTest/test_TJunction.mo \
 ../computer_cooling/Modelica/ComputerCooling/DevelTest/test_tube1D.mo \
+../computer_cooling/Modelica/ComputerCooling/DevelTest/test_tube1D_array.mo \
 ../computer_cooling/Modelica/ComputerCooling/DevelTest/test_tube2D.mo \
 ../computer_cooling/Modelica/ComputerCooling/DevelTest/test_ValveModulating_TwoPort.mo \
 ../computer_cooling/Modelica/ComputerCooling/DevelTest/test_VentedTank.mo \
@@ -37,6 +40,7 @@ SRC = \
 ../computer_cooling/Modelica/ComputerCooling/HeatTransfer/StreamSeparators/TubeWall_FiniteVolume_MultiL.mo \
 ../computer_cooling/Modelica/ComputerCooling/Icons/BaseClassesIcons.mo \
 ../computer_cooling/Modelica/ComputerCooling/Icons/BoundaryConditionsIcon.mo \
+../computer_cooling/Modelica/ComputerCooling/Icons/DuctIcon.mo \
 ../computer_cooling/Modelica/ComputerCooling/Icons/FansIcon.mo \
 ../computer_cooling/Modelica/ComputerCooling/Icons/HeatSourceIcon.mo \
 ../computer_cooling/Modelica/ComputerCooling/Icons/HeatTransferModelIcon.mo \
@@ -48,6 +52,7 @@ SRC = \
 ../computer_cooling/Modelica/ComputerCooling/Icons/OnePhaseLiquidComponentsIcon.mo \
 ../computer_cooling/Modelica/ComputerCooling/Icons/package.mo \
 ../computer_cooling/Modelica/ComputerCooling/Icons/PressureDropsIcon.mo \
+../computer_cooling/Modelica/ComputerCooling/Icons/PressuriserIcon.mo \
 ../computer_cooling/Modelica/ComputerCooling/Icons/PumpsIcon.mo \
 ../computer_cooling/Modelica/ComputerCooling/Icons/SolidIcon.mo \
 ../computer_cooling/Modelica/ComputerCooling/Icons/StorageIcon.mo \
@@ -55,6 +60,7 @@ SRC = \
 ../computer_cooling/Modelica/ComputerCooling/Icons/TutorialFunction.mo \
 ../computer_cooling/Modelica/ComputerCooling/Icons/TutorialModel.mo \
 ../computer_cooling/Modelica/ComputerCooling/Icons/TutorialModelComponent.mo \
+../computer_cooling/Modelica/ComputerCooling/Icons/ValveIcon.mo \
 ../computer_cooling/Modelica/ComputerCooling/IdealGasComponents/IdealgasNode_pT.mo \
 ../computer_cooling/Modelica/ComputerCooling/IdealGasComponents/IdealgasNode_wT.mo \
 ../computer_cooling/Modelica/ComputerCooling/IdealGasComponents/IdealGasPdropQ.mo \
@@ -128,7 +134,18 @@ SRC = \
 ../computer_cooling/Modelica/ComputerCooling/OnePhaseLiquidComponents/Transfer/Junctions/JunctionT.mo \
 ../computer_cooling/Modelica/ComputerCooling/OnePhaseLiquidComponents/Transfer/Junctions/package.mo \
 ../computer_cooling/Modelica/ComputerCooling/OnePhaseLiquidComponents/Transfer/package.mo \
+../computer_cooling/Modelica/ComputerCooling/OnePhaseLiquidComponents/Transfer/WaterBlock.mo \
 ../computer_cooling/Modelica/ComputerCooling/package.mo \
+../computer_cooling/Modelica/ComputerCooling/Sensors/BaseClasses/base_Sensor.mo \
+../computer_cooling/Modelica/ComputerCooling/Sensors/BaseClasses/package.mo \
+../computer_cooling/Modelica/ComputerCooling/Sensors/FlowRateSensor_liquid.mo \
+../computer_cooling/Modelica/ComputerCooling/Sensors/FlowRateSensor_moistAir.mo \
+../computer_cooling/Modelica/ComputerCooling/Sensors/HumiditySensor_moistAir.mo \
+../computer_cooling/Modelica/ComputerCooling/Sensors/package.mo \
+../computer_cooling/Modelica/ComputerCooling/Sensors/PressureSensor_liquid.mo \
+../computer_cooling/Modelica/ComputerCooling/Sensors/PressureSensor_moistAir.mo \
+../computer_cooling/Modelica/ComputerCooling/Sensors/TemperatureSensor_liquid.mo \
+../computer_cooling/Modelica/ComputerCooling/Sensors/TemperatureSensor_moistAir.mo \
 ../computer_cooling/Modelica/ComputerCooling/SolidMaterials/Aluminium.mo \
 ../computer_cooling/Modelica/ComputerCooling/SolidMaterials/BaseClasses/Base_solid_constant_props.mo \
 ../computer_cooling/Modelica/ComputerCooling/SolidMaterials/BaseClasses/package.mo \
@@ -177,6 +194,7 @@ SRC = \
 ../computer_cooling/Modelica/ComputerCooling/Tutorial/T04_Application_examples/package.mo \
 ../computer_cooling/Modelica/ComputerCooling/Tutorial/T05_3DICE_Integration/package.mo \
 ../computer_cooling/Modelica/ComputerCooling/Utilities/package.mo \
+../computer_cooling/Modelica/ComputerCooling/Utilities/Recorder.mo \
 ../computer_cooling/Modelica/Templates/3DICE_Templates/T05_3DICE_Integration.mo \
 T05_3DICE_Integration.mo
 

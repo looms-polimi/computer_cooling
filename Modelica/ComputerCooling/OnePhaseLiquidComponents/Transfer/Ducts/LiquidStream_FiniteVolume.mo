@@ -9,8 +9,8 @@ model LiquidStream_FiniteVolume
   ComputerCooling.Interfaces.vHP surf(n=n) annotation(
     Placement(visible = true, transformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, 120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
-  parameter Length             Dstream    = 0.05 "stream diameter";
-  parameter Length             L          = 10 "stream length";
+  parameter Length             Dstream    = 0.005 "stream diameter";
+  parameter Length             L          = 1 "stream length";
   parameter Length             dz         = 0 "height difference (b-a)";  
   parameter MassFlowRate       w_nom      = 0.1 "nominal mass flowrate";
   parameter PressureDifference dp_nom     = 1000 "nominal pressure difference";  
@@ -26,7 +26,7 @@ model LiquidStream_FiniteVolume
   /* heat transfer coefficient model (one per lump) */
   replaceable model HTCoefficient = HeatTransfer.HeatTransferModels.DittusBoelter
               constrainedby HeatTransfer.BaseClasses.base_HeatTransfer_pwh;
-  HTCoefficient HT[n] (redeclare model medium = medium,
+  HTCoefficient HT[n] (redeclare replaceable model medium = medium,
                        each D = Dstream,
                        each fluidHeats = fluidHeats);
                        
@@ -34,10 +34,12 @@ model LiquidStream_FiniteVolume
   Mass M[n];
   Energy E[n];
   MassFlowRate wl_a[n],wl_b[n] "loop flowrates on a and b facing side (+ entering)";
+  
+  Velocity v "Velocity of fluid in the stream";
 
 protected
 //  final parameter Real kf(fixed=false) annotation(Evaluate = true);
-  final parameter Real kf = w_nom^2/dp_nom * n;
+  final parameter Real kf = w_nom/ComputerCooling.Functions.sqrtReg(dp_nom / n);
   final parameter Area Ac = Modelica.Constants.pi * (Dstream/2)^2 "cross area";
   final parameter Area All = Modelica.Constants.pi * Dstream * L/n "lump lateral area";
   final parameter Volume Vl = Ac * L/n "lump volume";
@@ -53,6 +55,8 @@ equation
     surf.Q_flow[i] = HT[i].gamma*All*(surf.T[i]-T[i]);
   end for; 
   
+  v = pwh_a.w / m[1].d / Ac;
+  
   pwh_a.w   =  wl_a[1];
   pwh_a.h   =  m[1].h;
   
@@ -66,7 +70,8 @@ equation
                 
   for i in 2:n-1 loop
     wl_a[i]   =  kf*ComputerCooling.Functions.sqrtReg(m[i-1].p-m[i].p);
-    wl_b[i]   = -wl_a[i+1];//kf*ComputerCooling.Functions.sqrtReg(m[i+1].p-m[i].p);
+    wl_b[i]   =  kf*ComputerCooling.Functions.sqrtReg(m[i+1].p-m[i].p);
+    //-wl_a[i+1];//
     der(M[i]) =  wl_a[i]+wl_b[i];
     der(E[i]) =  wl_a[i]*(if wl_a[i]>0 then m[i-1].h else m[i].h)
                 +wl_b[i]*(if wl_b[i]>0 then m[i+1].h else m[i].h)

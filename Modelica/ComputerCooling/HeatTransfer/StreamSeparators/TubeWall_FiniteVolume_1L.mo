@@ -12,13 +12,13 @@ model TubeWall_FiniteVolume_1L
 
   parameter Length L = 1 "Layer length";
   parameter Length W = 1 "Layer width";
-  parameter Length t = 0.05 "Layer thickness";
+  parameter Length t = 0.001 "Layer thickness";
   parameter Integer n = 3 "Number of lumps";
   // 1 leftmost <---> n rightmost
   parameter Temperature TStart = 273.15 + 20 "Layer starting temperature";
   Temperature T[n] (each start = TStart);
   
-protected
+//protected
   final parameter Area A = W * (L / n);
   final parameter ThermalConductance G = material.lambda * A / t;
   final parameter HeatCapacity C = material.c * material.d * A * t;

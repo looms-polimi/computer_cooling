@@ -2,7 +2,9 @@ within ComputerCooling.MoistAirComponents.Volumes;
 
 model Tank
   extends ComputerCooling.MoistAirComponents.BaseClasses.TwoPort_pwhx_OnePort_HP(T(each start=TStart), n = 1);
-  ComputerCooling.Media.MoistAir air;
+
+  replaceable model medium = Media.MoistAir;
+  medium air;
   
   parameter Volume V = 10;
   parameter Pressure pStart = 101325;

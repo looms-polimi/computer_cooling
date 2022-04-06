@@ -11,7 +11,7 @@ sudo apt install pkg-config
 ## Download 3D-ICE
 git clone https://github.com/esl-epfl/3d-ice.git
 cd 3d-ice
-./insall-superlu.sh
+./install-superlu.sh
 cd -
 
 ## Download this library (Computer Cooling)
