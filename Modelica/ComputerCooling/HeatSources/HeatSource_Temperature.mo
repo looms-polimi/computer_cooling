@@ -8,8 +8,6 @@ model HeatSource_Temperature
     Placement(visible = true, transformation(origin = {120, 1.42109e-14}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
   parameter Integer n = 3 "Number of volume lumps (1 on a side)";
-
-  parameter Temperature TStart = 273.15 + 20;
   parameter ThermalConductance G = 160;
   
 equation
