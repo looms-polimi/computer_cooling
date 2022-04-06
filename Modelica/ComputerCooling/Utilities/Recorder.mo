@@ -11,6 +11,7 @@ model Recorder
 protected
   String csvLine;
 algorithm
+
   when initial() then
     Modelica.Utilities.Files.remove(csvName);
     if addHeader then

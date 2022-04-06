@@ -35,11 +35,11 @@ package T05_3DICE_Integration
     // External cooling environment
     Modelica.Blocks.Sources.RealExpression temp(y = initialTemperature) annotation(
       Placement(visible = true, transformation(origin = {70, 100}, extent = {{30, -20}, {-30, 20}}, rotation = 0)));
-    ComputerCooling.HeatSources.HeatSource_Temperature heatSource_cooling(G = 71.12, n = 5) annotation(
+    ComputerCooling.HeatSources.HeatSource_Temperature heatSource_cooling(G = 2.36, n = 5) annotation(
       Placement(visible = true, transformation(origin = {0, 100}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   
     // external heatsink
-    ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D tube_cold(L = 1, TStart = initialTemperature, W = 3.14 * 0.006 / 2, dp_nom(displayUnit = "Pa") = 25000, fluidHeats = true, n = 5, t = 0.0005, w_nom = 0.002, redeclare model medium=medium) annotation(
+    ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D tube_cold( redeclare model medium=medium,L = 1, TStart = initialTemperature, W = 3.14 * 0.006 / 2, dp_nom(displayUnit = "Pa") = 25000, fluidHeats = true, n = 5, t = 0.0005, w_nom = 0.002) annotation(
       Placement(visible = true, transformation(origin = {-60, 60}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   
     // pump
@@ -53,15 +53,16 @@ package T05_3DICE_Integration
       Placement(visible = true, transformation(origin = {-122, 60}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   
     //sensors
-    ComputerCooling.Utilities.Recorder recorder(Ndata = 2, Ts = 0.01) annotation(
-      Placement(visible = true, transformation(origin = {90, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.Sensors.TemperatureSensor_liquid coolantOutletTemp annotation(
+    ComputerCooling.Sensors.TemperatureSensor_liquid coolantOutletTemp(
+      redeclare model medium = medium) annotation(
       Placement(visible = true, transformation(origin = {30, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.Sensors.TemperatureSensor_liquid coolantInletTemp annotation(
+    ComputerCooling.Sensors.TemperatureSensor_liquid coolantInletTemp(
+      redeclare model medium=medium) annotation(
       Placement(visible = true, transformation(origin = {30, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   
     replaceable model medium=ComputerCooling.Media.SubCooledWater_Incompressible;
-  
+  ComputerCooling.Utilities.Recorder recorder(Ndata = 2)  annotation(
+      Placement(visible = true, transformation(origin = {70, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   protected
     parameter Modelica.SIunits.SpecificHeatCapacity cp = 384.6 "copper properties";
     parameter Modelica.SIunits.Density rho = 8960 "copper properties";
@@ -72,32 +73,32 @@ package T05_3DICE_Integration
     parameter Integer baseRows = 10 "discretization of sink base in the y direction";
     parameter Integer baseCols = 10 "discretization of sink base in the x direction";
   equation
-  connect(cmd.y, pump.cmd) annotation(
+    connect(cmd.y, pump.cmd) annotation(
       Line(points = {{-135, -44}, {-124, -44}}, color = {0, 0, 127}));
-  connect(temp.y, heatSource_cooling.T_input) annotation(
+    connect(temp.y, heatSource_cooling.T_input) annotation(
       Line(points = {{37, 100}, {24, 100}}, color = {0, 0, 127}));
-  connect(tube_cold.pwh_b, pressuriserIdeal.pwh_a) annotation(
+    connect(tube_cold.pwh_b, pressuriserIdeal.pwh_a) annotation(
       Line(points = {{-84, 60}, {-98, 60}}));
-  connect(pressuriserIdeal.pwh_b, pump.pwh_a) annotation(
+    connect(pressuriserIdeal.pwh_b, pump.pwh_a) annotation(
       Line(points = {{-146, 60}, {-160, 60}, {-160, -60}, {-124, -60}}));
-  connect(waterBlock.mHP, base.top) annotation(
+    connect(waterBlock.mHP, base.top) annotation(
       Line(points = {{-4, -20}, {64, -20}}, color = {191, 0, 0}));
-  connect(pump.pwh_b, waterBlock.pwh_a) annotation(
+    connect(pump.pwh_b, waterBlock.pwh_a) annotation(
       Line(points = {{-76, -60}, {-20, -60}, {-20, -44}}));
-  connect(waterBlock.pwh_b, tube_cold.pwh_a) annotation(
+    connect(waterBlock.pwh_b, tube_cold.pwh_a) annotation(
       Line(points = {{-20, 4}, {-20, 60}, {-36, 60}}));
-  connect(heatSource_cooling.hp, tube_cold.hp) annotation(
+    connect(heatSource_cooling.hp, tube_cold.hp) annotation(
       Line(points = {{-24, 100}, {-60, 100}, {-60, 84}}));
-  connect(bottom, base.pGen.port) annotation(
+    connect(bottom, base.pGen.port) annotation(
       Line(points = {{2, -90}, {0, -90}, {0, -120}, {136, -120}, {136, -92}}, color = {191, 0, 0}));
-  connect(waterBlock.pwh_a, coolantInletTemp.pwh) annotation(
+    connect(waterBlock.pwh_a, coolantInletTemp.pwh) annotation(
       Line(points = {{-20, -44}, {8, -44}, {8, 10}, {18, 10}}));
-  connect(waterBlock.pwh_b, coolantOutletTemp.pwh) annotation(
+    connect(waterBlock.pwh_b, coolantOutletTemp.pwh) annotation(
       Line(points = {{-20, 4}, {-20, 50}, {18, 50}}));
   connect(coolantInletTemp.out, recorder.data[1]) annotation(
-      Line(points = {{30, 22}, {60, 22}, {60, 50}, {78, 50}}, color = {0, 0, 127}));
+      Line(points = {{30, 22}, {48, 22}, {48, 50}, {58, 50}}, color = {0, 0, 127}));
   connect(coolantOutletTemp.out, recorder.data[2]) annotation(
-      Line(points = {{30, 62}, {30, 68}, {60, 68}, {60, 50}, {78, 50}}, color = {0, 0, 127}));
+      Line(points = {{30, 62}, {48, 62}, {48, 50}, {58, 50}}, color = {0, 0, 127}));
     annotation(
       Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
       Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}})));
