@@ -13,7 +13,8 @@ model Tube_2D
   redeclare replaceable record materialRecord = materialRecord) annotation(
     Placement(visible = true, transformation(origin = {0, 20}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume liquidStream(Dstream = Dstream, L = L, dz = dz, w_nom = w_nom, dp_nom = dp_nom, TStart = TStart, n = n, fluidHeats = fluidHeats,
-  redeclare replaceable model medium = medium) annotation(
+  redeclare replaceable model medium = medium,
+  redeclare replaceable model HTCoefficient = HTCoefficient) annotation(
     Placement(visible = true, transformation(origin = {0, -40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
 //
@@ -32,6 +33,7 @@ model Tube_2D
   replaceable record materialRecord = SolidMaterials.Copper 
     constrainedby SolidMaterials.BaseClasses.Base_solid_constant_props;
   replaceable model medium = Media.SubCooledWater_Incompressible;
+  replaceable model HTCoefficient = HeatTransfer.HeatTransferModels.DittusBoelter;
 
 equation
   connect(pwh_a, liquidStream.pwh_a) annotation(

@@ -7,7 +7,6 @@ model Tank
   medium air;
   
   parameter Volume V = 10;
-  parameter Pressure pStart = 101325;
   parameter Temperature TStart = 273.15 + 20;
   parameter Real phiStart = 0.5;
   
@@ -17,7 +16,6 @@ model Tank
   Pressure p "Pressure";
 
 initial equation
-  air.p = pStart;
   air.T = TStart;
   air.phi = phiStart;
   

@@ -10,11 +10,17 @@ model test_streamLiquid
     Placement(visible = true, transformation(origin = {80, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_pT boundaryFixed_pT(p(displayUnit = "bar") = 110000) annotation(
     Placement(visible = true, transformation(origin = {-80, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  ComputerCooling.HeatSources.HeatSource_Power heatSource_Power annotation(
+    Placement(visible = true, transformation(origin = {-30, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(liqStream.pwh_b, snk.pwh_a) annotation(
     Line(points = {{24, 0}, {56, 0}}));
   connect(boundaryFixed_pT.pwh_a, liqStream.pwh_a) annotation(
     Line(points = {{-56, 0}, {-24, 0}}));
+  connect(heatSource_Power.hp, liqStream.surf) annotation(
+    Line(points = {{-18, 70}, {0, 70}, {0, 24}}));
+  connect(iPcpu.y, heatSource_Power.P) annotation(
+    Line(points = {{-58, 70}, {-42, 70}}, color = {0, 0, 127}));
   annotation(
     experiment(StartTime = 0, StopTime = 100000, Tolerance = 1e-6, Interval = 200),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian",

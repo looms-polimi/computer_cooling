@@ -3,7 +3,8 @@ within ComputerCooling.OnePhaseLiquidComponents.Transfer;
 model WaterBlock
   ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D tube_1D[m](each Dstream = Dstream, each L = L, each W = W, each t = t, each dz = dz, each w_nom = w_nom, each dp_nom = dp_nom, each TStart = TStart, each n = n, each fluidHeats = fluidHeats, 
   redeclare each replaceable record materialRecord = materialRecord,
-  redeclare each replaceable model medium = medium) annotation(
+  redeclare each replaceable model medium = medium,
+  redeclare each replaceable model HTCoefficient = HTCoefficient) annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
   parameter Integer m = 5 "array length of the WaterBlock";
@@ -21,6 +22,7 @@ model WaterBlock
   replaceable record materialRecord = SolidMaterials.Copper 
     constrainedby SolidMaterials.BaseClasses.Base_solid_constant_props;
   replaceable model medium = Media.SubCooledWater_Incompressible;
+  replaceable model HTCoefficient = HeatTransfer.HeatTransferModels.DittusBoelter;
     
   //
   ComputerCooling.Interfaces.pwh pwh_a annotation(
