@@ -1,14 +1,13 @@
 within ComputerCooling.OnePhaseLiquidComponents.Transfer;
 
 model WaterBlock
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D tube_1D[m](each Dstream = Dstream, each L = L, each W = W, each t = t, each dz = dz, each w_nom = w_nom, each dp_nom = dp_nom, each TStart = TStart, each n = n, each fluidHeats = fluidHeats, redeclare each replaceable record materialRecord = materialRecord, redeclare each replaceable model medium = medium, redeclare each replaceable model HTCoefficient = HTCoefficient) annotation(
+  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D tube_1D[m]( redeclare each replaceable record materialRecord = materialRecord, redeclare each replaceable model medium = medium, redeclare each replaceable model HTCoefficient = HTCoefficient, each Dstream = D,each  L = L, each TStart = TStart,each  W = 3.14 * D,each  dp_nom = dp_nom,each  dz = 0, each fluidHeats = false, each n = n,each  t = t,each  w_nom = w_nom / m) annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  parameter Integer m = 5 "array length of the WaterBlock";
-  parameter Length Dstream = 0.005 "stream diameter";
-  parameter Length L = 1 "stream length";
-  parameter Length W = 1 "Wall width";
+  parameter Integer m = 5 "number of liquid channels";
+  parameter Length D = 0.005 "one channel diameter";
+  parameter Length L = 1 "WB length (direction of channels)";
+  parameter Length W = 1 "WB width (ortho to channels)";
   parameter Length t = 0.001 "Wall layer thickness";
-  parameter Length dz = 0 "height difference (b-a)";
   parameter MassFlowRate w_nom = 0.1 "nominal mass flowrate";
   parameter PressureDifference dp_nom = 1000 "nominal pressure difference";
   parameter Temperature TStart = 273.15 + 20 "initial temperature";
