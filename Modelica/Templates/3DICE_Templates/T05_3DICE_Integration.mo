@@ -28,14 +28,14 @@ package T05_3DICE_Integration
       Placement(visible = true, transformation(origin = {100, -56}, extent = {{-40, -40}, {40, 40}}, rotation = 0)));
   
     //primary heatsink
-    ComputerCooling.OnePhaseLiquidComponents.Transfer.WaterBlock waterBlock(Dstream = 0.002, L = 0.03, TStart = initialTemperature, W = 3.14 * 0.003 / 2, dp_nom(displayUnit = "Pa") = 25000, m = baseCols, n = baseRows, t = 0.0005, w_nom = 0.0002, redeclare model medium=medium) annotation(
+    ComputerCooling.OnePhaseLiquidComponents.Transfer.WaterBlock waterBlock(D = 0.002, L = 0.03, TStart = initialTemperature, W = 3.14 * 0.003 / 2, dp_nom(displayUnit = "Pa") = 25000, m = baseCols, n = baseRows, t = 0.0005, w_nom = 0.0002, redeclare model medium=medium) annotation(
       Placement(visible = true, transformation(origin = {-20, -20}, extent = {{-20, -20}, {20, 20}}, rotation = 90)));
   
   
     // External cooling environment
     Modelica.Blocks.Sources.RealExpression temp(y = initialTemperature) annotation(
       Placement(visible = true, transformation(origin = {70, 100}, extent = {{30, -20}, {-30, 20}}, rotation = 0)));
-    ComputerCooling.HeatSources.HeatSource_Temperature heatSource_cooling(G = 2.36, n = 5) annotation(
+    ComputerCooling.HeatSources.HeatSource_Temperature_1D heatSource_cooling(R = 1/2.36, n = 5) annotation(
       Placement(visible = true, transformation(origin = {0, 100}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   
     // external heatsink
