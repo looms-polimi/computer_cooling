@@ -40,6 +40,7 @@ model LiquidStream_FiniteVolume
 protected
 //  final parameter Real kf(fixed=false) annotation(Evaluate = true);
   final parameter Real kf = w_nom/ComputerCooling.Functions.sqrtReg(dp_nom / n);
+  final parameter Real kfext = w_nom/ComputerCooling.Functions.sqrtReg(0.5*dp_nom / n);
   final parameter Area Ac = Modelica.Constants.pi * (Dstream/2)^2 "cross area";
   final parameter Area All = Modelica.Constants.pi * Dstream * L/n "lump lateral area";
   final parameter Volume Vl = Ac * L/n "lump volume";
@@ -60,7 +61,7 @@ equation
   pwh_a.w   =  wl_a[1];
   pwh_a.h   =  m[1].h;
   
-  wl_a[1]   =  kf*ComputerCooling.Functions.sqrtReg(pwh_a.p-m[1].p);
+  wl_a[1]   =  kfext*ComputerCooling.Functions.sqrtReg(pwh_a.p-m[1].p);
   wl_b[1]   =  kf*ComputerCooling.Functions.sqrtReg(m[2].p-m[1].p);
   
   der(M[1]) =  wl_a[1]+wl_b[1];
@@ -82,7 +83,7 @@ equation
   pwh_b.h   =  m[n].h;
   
   wl_a[n]   =  kf*ComputerCooling.Functions.sqrtReg(m[n-1].p-m[n].p);
-  wl_b[n]   =  kf*ComputerCooling.Functions.sqrtReg(pwh_b.p-m[n].p);
+  wl_b[n]   =  kfext*ComputerCooling.Functions.sqrtReg(pwh_b.p-m[n].p);
   
   der(M[n]) =  wl_a[n]+wl_b[n];
   der(E[n]) =  wl_a[n]*(if wl_a[n]>0 then m[n-1].h else m[n].h)
