@@ -5,7 +5,7 @@ partial model TwoPorts_pwh_OnePort_HP
     Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, -2.66454e-15}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.Interfaces.pwh pwh_b annotation(
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.Interfaces.vHP hp(n = n) annotation(
+  ComputerCooling.Interfaces.HeatPortVector hp(n = n) annotation(
     Placement(visible = true, transformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
   parameter Integer n = 3 "number of volume lumps (1 on a side)";
@@ -39,8 +39,8 @@ equation
   hob   = pwh_b.h;
   
   for i in 1:hp.n loop
-    T[i]     = hp.T[i];
-    Qport[i] = hp.Q_flow[i];
+    T[i]     = hp.port[i].T;
+    Qport[i] = hp.port[i].Q_flow;
   end for;
   
 end TwoPorts_pwh_OnePort_HP;

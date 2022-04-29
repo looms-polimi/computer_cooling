@@ -6,7 +6,7 @@ model LiquidStream_FiniteVolume
     Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, -2.66454e-15}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.Interfaces.pwh pwh_b annotation(
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.Interfaces.vHP surf(n=n) annotation(
+  ComputerCooling.Interfaces.HeatPortVector surf(n=n) annotation(
     Placement(visible = true, transformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, 120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
   parameter Length             Dstream    = 0.005 "stream diameter";
@@ -52,7 +52,7 @@ equation
     HT[i].p        = m[i].p;
     HT[i].h        = m[i].h;
     HT[i].w        = 0.5*abs(wl_a[i]-wl_b[i]);
-    surf.Q_flow[i] = HT[i].gamma*All*(surf.T[i]-T[i]);
+    surf.port[i].Q_flow = HT[i].gamma*All*(surf.port[i].T-T[i]);
   end for; 
   
   v = pwh_a.w / m[1].d / Ac;
@@ -66,7 +66,7 @@ equation
   der(M[1]) =  wl_a[1]+wl_b[1];
   der(E[1]) =  wl_a[1]*actualStream(pwh_a.h)
               +wl_b[1]*(if wl_b[1]>0 then m[2].h else m[1].h)
-              +surf.Q_flow[1];
+              +surf.port[1].Q_flow;
                 
   for i in 2:n-1 loop
     wl_a[i]   =  kf*ComputerCooling.Functions.sqrtReg(m[i-1].p-m[i].p);
@@ -75,7 +75,7 @@ equation
     der(M[i]) =  wl_a[i]+wl_b[i];
     der(E[i]) =  wl_a[i]*(if wl_a[i]>0 then m[i-1].h else m[i].h)
                 +wl_b[i]*(if wl_b[i]>0 then m[i+1].h else m[i].h)
-                +surf.Q_flow[i];
+                +surf.port[i].Q_flow;
   end for;
   
   pwh_b.w   =  wl_b[n];
@@ -87,14 +87,14 @@ equation
   der(M[n]) =  wl_a[n]+wl_b[n];
   der(E[n]) =  wl_a[n]*(if wl_a[n]>0 then m[n-1].h else m[n].h)
               +wl_b[n]*actualStream(pwh_b.h)
-              +surf.Q_flow[n];
+              +surf.port[n].Q_flow;
                 
 
 initial equation
 //  w_nom = kf*ComputerCooling.Functions.sqrtReg(dp_nom/n);
   
   for i in 1:n loop
-    surf.T[i] = TStart;
+    surf.port[i].T = TStart;
   end for;
 
   

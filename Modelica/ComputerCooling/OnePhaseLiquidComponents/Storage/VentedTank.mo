@@ -5,7 +5,7 @@ model VentedTank
     Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, -50}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.Interfaces.pwh pwh_b annotation(
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, -52}, extent = {{-20, -20}, {20, 20}}, rotation = 0))); 
-  ComputerCooling.Interfaces.vHP hp(n = 1) annotation(
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp annotation(
     Placement(visible = true, transformation(origin = {0, -100}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, -100}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
  
   replaceable model medium = Media.SubCooledWater_Incompressible;
@@ -30,14 +30,14 @@ equation
 //liquid coordinates
   m.p = pwh_a.p;
   m.p = pwh_b.p;
-  m.T = hp.T[1];
+  m.T = hp.T;
   m.p = m.d * Modelica.Constants.g_n * l;
   w_spill = if l <= H then 0 else k_spill * (l - H);
   
 //energy equations (heatflow)
   der(A * l * m.d * m.e) = pwh_a.w * actualStream(pwh_a.h) 
                          + pwh_b.w * actualStream(pwh_b.h) 
-                         + hp.Q_flow[1] 
+                         + hp.Q_flow 
                          - w_spill * m.h;
                          
   der(A * l * m.d) = pwh_a.w + pwh_b.w - w_spill;
@@ -45,7 +45,7 @@ equation
 //enthalpy
   pwh_a.h = m.h;
   pwh_b.h = m.h;
-  T = hp.T[1];
+  T = hp.T;
   
   assert(l > 0, "Liquid level <= 0 not allowed in VentedTank");  //still gives problems
   annotation(
