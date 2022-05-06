@@ -14,13 +14,14 @@ model DittusBoelter
   Boolean fluidHeats = false;
   
 protected
+  constant MassFlowRate w_epsilon=1e-9;
   parameter Area AreaCross = Modelica.Constants.pi * (D/2)^2;
 equation
 
   m.p = p;
   m.h = h;
 
-  Re  = abs(w) / AreaCross * D / m.mu;
+  Re  = max(abs(w),w_epsilon) / AreaCross * D / m.mu;
   Nu = gamma * D / m.lambda;
   Pr = m.mu * m.c / m.lambda;
   

@@ -6,3 +6,4 @@ PressureSensor_moistAir
 FlowRateSensor_liquid
 FlowRateSensor_moistAir
 HumiditySensor_moistAir
+TemperatureDifferenceSensor_liquid

@@ -21,3 +21,11 @@ ValveIcon
 PressuriserIcon
 DuctIcon
 SensorIcon
+ControlBlock
+AnalogueController200x400
+DigitalController200x200
+DigitalController200x400
+BlocksPackage
+AnalogueController200x200
+AnaloguePackage
+DigitalPackage

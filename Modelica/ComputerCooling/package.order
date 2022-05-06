@@ -11,5 +11,6 @@ HeatTransfer
 ThermalMachines
 HeatSources
 Sensors
+ControlBlocks
 DevelTest
 Tutorial
