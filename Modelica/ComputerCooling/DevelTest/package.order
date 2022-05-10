@@ -16,3 +16,4 @@ test_tube2D
 test_tube1D_array
 test_coolingCircuit_powerInput
 test_liquidLoop
+test_CentrifugalPump_2

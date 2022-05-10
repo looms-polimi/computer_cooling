@@ -6,8 +6,9 @@ model CentrifugalPump
   replaceable model medium = Media.SubCooledWater_Incompressible;
   medium m;
   
-  parameter PressureDifference dp_nom = 1e5 "pressure difference at cmd = 1 && zero flow";
-  parameter MassFlowRate w_nom = 1 "mass flowrate at cmd = 1 && zero pressure difference";
+  parameter PressureDifference dp_zf = 1.5e5 "pressure difference at cmd = 1 & zero flow";
+  parameter PressureDifference dp_nom = 1e5 "pressure difference at cmd = 1 & nominal flow";
+  parameter MassFlowRate w_nom = 1 "nominal flow at cmd = 1";
   parameter Time T=0.2 "actuator time constant";
   
   Modelica.Blocks.Interfaces.RealInput cmd annotation(
@@ -15,7 +16,7 @@ model CentrifugalPump
   Power P;
   
 protected
-  final parameter Real kp = dp_nom / (w_nom^2) annotation(Evaluate = true);
+  final parameter Real kp = (dp_zf-dp_nom)/w_nom^2 annotation(Evaluate = true);
   Real c;
   
 equation
@@ -24,7 +25,7 @@ equation
   m.h = pwh_a.h;
 //pump equations
   c + T*der(c) = cmd;
-  dp = dp_nom * ComputerCooling.Functions.Clamp(c,1e-6,1) - kp * w ^ 2;
+  dp = dp_zf * ComputerCooling.Functions.Clamp(c,1e-6,1) - kp * w ^ 2;
   
   hoa = hib - dp/m.d;
   hob = hia + dp/m.d;
