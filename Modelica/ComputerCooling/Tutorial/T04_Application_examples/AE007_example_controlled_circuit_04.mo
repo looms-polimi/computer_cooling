@@ -5,9 +5,9 @@ model AE007_example_controlled_circuit_04
     Placement(visible = true, transformation(origin = {-32, 30}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   ComputerCooling.HeatSources.HeatSource_Power_2D_uniform cpu1(cols = 4, rows = 5)  annotation(
     Placement(visible = true, transformation(origin = {30, 110}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression P1(y = 80)  annotation(
+  Modelica.Blocks.Sources.RealExpression P1(y = 100)  annotation(
     Placement(visible = true, transformation(origin = {-22, 110}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.HeatSources.HeatSource_Temperature_1D amb(R = 0.1)  annotation(
+  ComputerCooling.HeatSources.HeatSource_Temperature_1D amb(R = 0.03)  annotation(
     Placement(visible = true, transformation(origin = {-190, 148}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression Tamb(y = 293.15)  annotation(
     Placement(visible = true, transformation(origin = {-232, 148}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -31,7 +31,7 @@ model AE007_example_controlled_circuit_04
     Placement(visible = true, transformation(origin = {-92, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.HeatSources.HeatSource_Power_2D_uniform cpu2(cols = 4, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {70, 130}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression P2(y = 80) annotation(
+  Modelica.Blocks.Sources.RealExpression P2(y = 100) annotation(
     Placement(visible = true, transformation(origin = {-22, 130}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   ComputerCooling.HeatSources.HeatSource_Power_2D_uniform cpu3(cols = 4, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {110, 150}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -49,7 +49,7 @@ model AE007_example_controlled_circuit_04
     Placement(visible = true, transformation(origin = {-180, 66}, extent = {{-10, 10}, {10, -10}}, rotation = -90)));
   Modelica.Blocks.Sources.RealExpression spTwbo(y = 40) annotation(
     Placement(visible = true, transformation(origin = {-224, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_DTwb3(CSmin = 0.05, CSstart = 0.5, K = -2, Ti = 1)  annotation(
+  ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_DTwb3(CSmin = 0.05, CSstart = 0.5, K = -0.2, Ti = 5)  annotation(
     Placement(visible = true, transformation(origin = {-90, -140}, extent = {{-10, -20}, {10, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression cmd(y = min(1, if time < 30 then 0.25 else 0.25 + 0.75 * (time - 30)))  annotation(
     Placement(visible = true, transformation(origin = {-170, 2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -59,9 +59,9 @@ model AE007_example_controlled_circuit_04
     Placement(visible = true, transformation(origin = {170, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w wb2t(Ac = 0.003 ^ 2, L = 0.4, dp_nom = 25000, per = 4 * 0.003, w_nom = 0.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {170, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_DTwb2(CSmin = 0.05, CSstart = 0.5, K = -2, Ti = 1) annotation(
+  ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_DTwb2(CSmin = 0.05, CSstart = 0.5, K = -0.2, Ti = 5) annotation(
     Placement(visible = true, transformation(origin = {-120, -100}, extent = {{-10, -20}, {10, 20}}, rotation = 0)));
-  ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_DTwb1(CSmin = 0.05, CSstart = 0.5, K = -2, Ti = 1) annotation(
+  ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_DTwb1(CSmin = 0.05, CSstart = 0.5, K = -0.2, Ti = 5) annotation(
     Placement(visible = true, transformation(origin = {-148, -62}, extent = {{-10, -20}, {10, 20}}, rotation = 0)));
   ComputerCooling.SolidComponents.Metal_layer_uniform_grid ml1(rows = 5)  annotation(
     Placement(visible = true, transformation(origin = {50, 70}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
@@ -80,9 +80,9 @@ model AE007_example_controlled_circuit_04
   ComputerCooling.Sensors.TemperatureSensor_liquid sTwbo1(unitCelsius = true)  annotation(
     Placement(visible = true, transformation(origin = {80, -50}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   ComputerCooling.Sensors.TemperatureSensor_liquid sTwbo2(unitCelsius = true)  annotation(
-    Placement(visible = true, transformation(origin = {122, -50}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {120, -50}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   ComputerCooling.Sensors.TemperatureSensor_liquid sTwbo3(unitCelsius = true)  annotation(
-    Placement(visible = true, transformation(origin = {162, -50}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {160, -50}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
 equation
   connect(P1.y, cpu1.P_input) annotation(
     Line(points = {{-11, 110}, {18, 110}}, color = {0, 0, 127}));
@@ -91,7 +91,7 @@ equation
   connect(duct123.pwh_b, pump1.pwh_a) annotation(
     Line(points = {{-80, 30}, {-44, 30}}));
   connect(duct123.pwh_b, pump2.pwh_a) annotation(
-    Line(points = {{-80, 30}, {-62, 30}, {-62, 10}, {-44, 10}}));
+    Line(points = {{-80, 30}, {-60, 30}, {-60, 10}, {-44, 10}}));
   connect(pump1.pwh_b, p1wb1.pwh_a) annotation(
     Line(points = {{-20, 30}, {-2, 30}}));
   connect(pump2.pwh_b, p2wb2.pwh_a) annotation(
@@ -103,7 +103,7 @@ equation
   connect(P3.y, cpu3.P_input) annotation(
     Line(points = {{-11, 150}, {98, 150}}, color = {0, 0, 127}));
   connect(duct123.pwh_b, pump3.pwh_a) annotation(
-    Line(points = {{-80, 30}, {-62, 30}, {-62, -10}, {-44, -10}}));
+    Line(points = {{-80, 30}, {-60, 30}, {-60, -10}, {-44, -10}}));
   connect(amb.hp, radiator1.hp) annotation(
     Line(points = {{-178, 148}, {-150, 148}, {-150, 142}}, color = {191, 0, 0}));
   connect(amb.hp, radiator2.hp) annotation(
@@ -177,19 +177,19 @@ equation
   connect(wb1.pwh_b, sTwbo1.pwh) annotation(
     Line(points = {{62, 30}, {68, 30}, {68, -50}}));
   connect(wb2.pwh_b, sTwbo2.pwh) annotation(
-    Line(points = {{102, 10}, {110, 10}, {110, -50}}));
+    Line(points = {{102, 10}, {108, 10}, {108, -50}}));
   connect(wb3.pwh_b, sTwbo3.pwh) annotation(
-    Line(points = {{142, -10}, {150, -10}, {150, -50}}));
+    Line(points = {{142, -10}, {148, -10}, {148, -50}}));
   connect(PI_DTwb1.PV, sTwbo1.out) annotation(
     Line(points = {{-158, -52}, {-176, -52}, {-176, -174}, {80, -174}, {80, -62}}, color = {0, 0, 127}));
   connect(PI_DTwb2.PV, sTwbo2.out) annotation(
-    Line(points = {{-130, -90}, {-172, -90}, {-172, -170}, {122, -170}, {122, -62}}, color = {0, 0, 127}));
+    Line(points = {{-130, -90}, {-172, -90}, {-172, -170}, {120, -170}, {120, -62}}, color = {0, 0, 127}));
   connect(PI_DTwb3.PV, sTwbo3.out) annotation(
-    Line(points = {{-100, -130}, {-168, -130}, {-168, -166}, {162, -166}, {162, -62}}, color = {0, 0, 127}));
+    Line(points = {{-100, -130}, {-168, -130}, {-168, -166}, {160, -166}, {160, -62}}, color = {0, 0, 127}));
 protected
   annotation(
     Diagram(coordinateSystem(extent = {{-300, -200}, {300, 200}})),
-    experiment(StartTime = 0, StopTime = 500, Tolerance = 1e-6, Interval = 1),
+    experiment(StartTime = 0, StopTime = 1000, Tolerance = 1e-6, Interval = 2),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian -d=stateselection,bltdump",
     __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"));
 end AE007_example_controlled_circuit_04;

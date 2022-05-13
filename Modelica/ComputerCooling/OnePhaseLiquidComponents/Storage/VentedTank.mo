@@ -18,7 +18,7 @@ model VentedTank
   parameter Length lstart = 0.15 "Starting level of liquid inside the tank";
   parameter Boolean p_is_absolute=true;
   
-  Length l(start = lstart, fixed = true);
+  Length l(start = lstart, fixed = true,stateSelect=StateSelect.always);
   
   Temperature T(start = Tstart, fixed = true);
   
