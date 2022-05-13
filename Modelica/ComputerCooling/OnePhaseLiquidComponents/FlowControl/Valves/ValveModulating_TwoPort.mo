@@ -12,7 +12,7 @@ protected
   
 equation
 //modulated flow
-  w = if cmd <= 0 then 1e-6 else ComputerCooling.Functions.Clamp(cmd) * kv * ComputerCooling.Functions.sqrtReg(dp);
+  w = ComputerCooling.Functions.Clamp(cmd) * kv * ComputerCooling.Functions.sqrtReg(dp);
   
   hoa = hib;
 //no change in enthalpy

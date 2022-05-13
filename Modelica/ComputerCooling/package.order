@@ -4,6 +4,7 @@ Functions
 Interfaces
 SolidMaterials
 Media
+SolidComponents
 OnePhaseLiquidComponents
 IdealGasComponents
 MoistAirComponents

@@ -32,7 +32,7 @@ model TubeWall_FiniteVolume_cylindrical_MultiL
 equation
 
   for i in 1:n loop
-    hp_in.port[i].Q_flow = G/2 * (hp_in.port[i].T - T[i,1]);
+    hp_in.port[i].Q_flow = 2*G * (hp_in.port[i].T - T[i,1]);
     C_layer * der(T[i,1]) = hp_in.port[i].Q_flow - G * (T[i,1]-T[i,2]);
     
     for j in 2:l-1 loop
@@ -40,7 +40,7 @@ equation
     end for;
     
     C_layer * der(T[i,l]) = G * (T[i,l-1]-T[i,l]) + hp_ext.port[i].Q_flow;
-    hp_ext.port[i].Q_flow = G/2 * (hp_ext.port[i].T - T[i,l]);
+    hp_ext.port[i].Q_flow = 2*G * (hp_ext.port[i].T - T[i,l]);
   end for;
 
 annotation(

@@ -12,21 +12,22 @@ model Tube_1D_cylindrical_uniform_w
   ComputerCooling.HeatTransfer.StreamSeparators.TubeWall_FiniteVolume_cylindrical_MultiL wall( 
   redeclare replaceable record materialRecord = materialRecord,L = L, TStart = TStart, di = Dstream, l = l, n = n, t = t) annotation(
     Placement(visible = true, transformation(origin = {0, 20}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w liquidStream(L = L, Ac=Modelica.Constants.pi*Dstream^2/4,per=Modelica.Constants.pi*Dstream, w_nom = w_nom, dp_nom = dp_nom, TStart = TStart, n = n, fluidHeats = fluidHeats,
+  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w liquidStream(L = L, Ac=Modelica.Constants.pi*Dstream^2/4,per=Modelica.Constants.pi*Dstream, w_nom = w_nom, dp_nom = dp_nom, TStart = TStart, n = n, fluidHeats = fluidHeats, gamma_corr=gammai_corr,
   redeclare replaceable model medium = medium,
   redeclare replaceable model HTCoefficient = HTCoefficient) annotation(
     Placement(visible = true, transformation(origin = {0, -40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
   parameter Length             Dstream    = 0.005 "stream diameter";
-  parameter Length             L          = 1 "stream length";
-  parameter Length             t          = 0.001 "Wall layer thickness";
-  parameter Integer            l          = 3 "wall layers (1 inner, l outer";
-  parameter Length             dz         = 0 "height difference (b-a)";  
-  parameter MassFlowRate       w_nom      = 0.1 "nominal mass flowrate";
-  parameter PressureDifference dp_nom     = 1000 "nominal pressure difference";  
-  parameter Temperature        TStart     = 273.15 + 20 "initial temperature";
-  parameter Integer            n          = 3 "number of volume lumps (lump 1 is on side a)";
-  parameter Boolean            fluidHeats = false "stream (nominally) heats the outside";
+  parameter Length             L            = 1 "stream length";
+  parameter Length             t           = 0.001 "Wall layer thickness";
+  parameter Integer            l           = 3 "wall layers (1 inner, l outer";
+  parameter Length             dz          = 0 "height difference (b-a)";  
+  parameter MassFlowRate       w_nom       = 0.1 "nominal mass flowrate";
+  parameter PressureDifference dp_nom      = 1000 "nominal pressure difference";  
+  parameter Temperature        TStart      = 273.15 + 20 "initial temperature";
+  parameter Integer            n           = 3 "number of volume lumps (lump 1 is on side a)";
+  parameter Boolean            fluidHeats  = false "stream (nominally) heats the outside";
+  parameter Real               gammai_corr = 1 "multiplicative correction on internal ccht";
   
   replaceable record materialRecord = SolidMaterials.Copper 
     constrainedby SolidMaterials.BaseClasses.Base_solid_constant_props;

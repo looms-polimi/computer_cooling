@@ -17,7 +17,7 @@ model CentrifugalPump
   
 protected
   final parameter Real kp = (dp_zf-dp_nom)/w_nom^2 annotation(Evaluate = true);
-  Real c;
+  Real c(stateSelect=StateSelect.always);
   
 equation
 //liquid coordinates
