@@ -18,3 +18,4 @@ test_coolingCircuit_powerInput
 test_liquidLoop
 test_CentrifugalPump_2
 test_CentrifugalPump_3
+test_CentrifugalPump_4

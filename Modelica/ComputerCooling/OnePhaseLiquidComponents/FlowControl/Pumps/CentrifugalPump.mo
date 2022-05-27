@@ -25,14 +25,16 @@ equation
   m.h = pwh_a.h;
 //pump equations
   c + T*der(c) = cmd;
-  dp = dp_zf * ComputerCooling.Functions.Clamp(c,1e-6,1) - kp * w ^ 2;
+  c*dp_zf-kp*w*abs(w) = dp;
+
+  //dp = dp_zf * ComputerCooling.Functions.Clamp(c,1e-6,1) - kp * w ^ 2;
   
   hoa = hib - dp/m.d;
   hob = hia + dp/m.d;
   
   P = w * dp/m.d;
   
-  assert(w >= 0, "flow reversal not allowed in CentrifugalPump");
+  //assert(w >= 0, "flow reversal not allowed in CentrifugalPump");
 initial equation
   c = cmd;
 

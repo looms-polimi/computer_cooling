@@ -31,11 +31,11 @@ model AE006_example_controlled_circuit_03
     Placement(visible = true, transformation(origin = {-92, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.HeatSources.HeatSource_Power_2D_uniform cpu2(cols = 4, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {70, 130}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression P2(y = 70 + 30 * sin(time / 30)) annotation(
+  Modelica.Blocks.Sources.RealExpression P2(y = 50 + 40 * sin(time / 40)) annotation(
     Placement(visible = true, transformation(origin = {-22, 130}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   ComputerCooling.HeatSources.HeatSource_Power_2D_uniform cpu3(cols = 4, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {110, 150}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression P3(y = 60 + 50 * sin(time / 5)) annotation(
+  Modelica.Blocks.Sources.RealExpression P3(y = 80 + 40 * sin(time / 15)) annotation(
     Placement(visible = true, transformation(origin = {-22, 150}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D_cylindrical_uniform_w radiator1(Dstream = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60)  annotation(
     Placement(visible = true, transformation(origin = {-150, 130}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
@@ -83,9 +83,9 @@ model AE006_example_controlled_circuit_03
     Placement(visible = true, transformation(origin = {90, 50}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   ComputerCooling.SolidComponents.G_layer_uniform_grid im3(rows = 5)  annotation(
     Placement(visible = true, transformation(origin = {130, 50}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
+  Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(extrapolation = Modelica.Blocks.Types.Extrapolation.HoldLastPoint, fileName = Modelica.Utilities.Files.loadResource("modelica://ComputerCooling/Resources/Data/clover-parallel-powertrace.txt"), smoothness = Modelica.Blocks.Types.Smoothness.ContinuousDerivative, tableName = "data", tableOnFile = true, timeEvents = Modelica.Blocks.Types.TimeEvents.NoTimeEvents, verboseRead = true) annotation(
+    Placement(visible = true, transformation(origin = {-70, 170}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(P1.y, cpu1.P_input) annotation(
-    Line(points = {{-11, 110}, {18, 110}}, color = {0, 0, 127}));
   connect(Tamb.y, amb.T_input) annotation(
     Line(points = {{-221, 148}, {-202, 148}}, color = {0, 0, 127}));
   connect(duct123.pwh_b, pump1.pwh_a) annotation(
@@ -192,6 +192,8 @@ equation
     Line(points = {{130, 66}, {130, 54}}, color = {191, 0, 0}));
   connect(im3.sink_side, wb3.mHP) annotation(
     Line(points = {{130, 48}, {130, -2}}, color = {191, 0, 0}));
+  connect(combiTimeTable.y[1], cpu1.P_input) annotation(
+    Line(points = {{-58, 170}, {4, 170}, {4, 110}, {18, 110}}, color = {0, 0, 127}));
 protected
   annotation(
     Diagram(coordinateSystem(extent = {{-300, -200}, {300, 200}})),
