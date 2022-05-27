@@ -17,7 +17,7 @@ model Test_waterblock_uniform_w
     Placement(visible = true, transformation(origin = {0, -10}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   HeatSources.HeatSource_Power_2D_uniform pwr(cols = 4, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {-34, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression P(y = 80) annotation(
+  Modelica.Blocks.Sources.RealExpression P(y = 80 + 20 * sin(time)) annotation(
     Placement(visible = true, transformation(origin = {-130, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.Sensors.TemperatureDifferenceSensor_liquid DTwb annotation(
     Placement(visible = true, transformation(origin = {0, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));

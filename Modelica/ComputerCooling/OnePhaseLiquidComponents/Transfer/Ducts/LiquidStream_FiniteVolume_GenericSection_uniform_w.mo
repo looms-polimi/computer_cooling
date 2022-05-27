@@ -17,6 +17,7 @@ model LiquidStream_FiniteVolume_GenericSection_uniform_w
   parameter Temperature        TStart     = 273.15 + 20 "initial temperature";
   parameter Integer            n          = 5 "number of volume lumps (1 on side a)";
   parameter Boolean            fluidHeats = false "stream (nominally) heats the outside";
+  parameter Real               gamma_corr = 1 "multiplicative correction on ccht";
   
   /* liquid model (one per lump) */
   replaceable model medium = Media.SubCooledWater_Incompressible
@@ -31,7 +32,7 @@ model LiquidStream_FiniteVolume_GenericSection_uniform_w
                        each fluidHeats = fluidHeats);
                        
   Temperature T[n](each start = TStart,each fixed=true);
-  Mass M;
+  Mass M(stateSelect=StateSelect.avoid);
   Energy E[n];
   PressureDifference dp;
   MassFlowRate w;
@@ -67,7 +68,7 @@ equation
     HT[i].p             = m[i].p;
     HT[i].h             = m[i].h;
     HT[i].w             = abs(w);
-    surf.port[i].Q_flow = HT[i].gamma*All*(surf.port[i].T-T[i]);
+    surf.port[i].Q_flow = HT[i].gamma*gamma_corr*All*(surf.port[i].T-T[i]);
   end for; 
   
   der(E[1]) =  pwh_a.w*actualStream(pwh_a.h)

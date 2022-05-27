@@ -11,12 +11,14 @@ model VentedTank
   replaceable model medium = Media.SubCooledWater_Incompressible;
   medium m;
   
-  parameter Volume V = 1 "Tank volume";
-  parameter Length H = 0.1 "Tank height";
+  parameter Volume V = 0.01 "Tank volume";
+  parameter Length H = 0.3 "Tank height";
   parameter Temperature Tstart=273.15+20 "Liquid starting temperature";
   
-  parameter Length lstart = 0.05 "Starting level of liquid inside the tank";
-  Length l(start = lstart, fixed = true);
+  parameter Length lstart = 0.15 "Starting level of liquid inside the tank";
+  parameter Boolean p_is_absolute=true;
+  
+  Length l(start = lstart, fixed = true,stateSelect=StateSelect.always);
   
   Temperature T(start = Tstart, fixed = true);
   
@@ -31,7 +33,8 @@ equation
   m.p = pwh_a.p;
   m.p = pwh_b.p;
   m.T = hp.T;
-  m.p = m.d * Modelica.Constants.g_n * l;
+  m.p = m.d * Modelica.Constants.g_n * l
+        +(if p_is_absolute then 101325 else 0);
   w_spill = if l <= H then 0 else k_spill * (l - H);
   
 //energy equations (heatflow)
