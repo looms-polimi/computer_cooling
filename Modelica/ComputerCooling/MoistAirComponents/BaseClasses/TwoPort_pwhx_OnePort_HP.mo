@@ -5,7 +5,7 @@ partial model TwoPort_pwhx_OnePort_HP
     Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.Interfaces.pwhx pwhx_b annotation(
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.Interfaces.HeatPortVector hp(n = n) annotation(
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp(n = n) annotation(
     Placement(visible = true, transformation(origin = {-1.9984e-15, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
   parameter Integer n = 3 "number of volume lumps (1 on a side)";

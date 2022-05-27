@@ -19,8 +19,8 @@ model test_dp_header_liq
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression iPh(y = 2500 + 500 * sin(time)) annotation(
     Placement(visible = true, transformation(origin = {-70, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.HeatSources.HeatSource_Power_1D heatSource_Power_1D(n = 1)  annotation(
-    Placement(visible = true, transformation(origin = {-28, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  ComputerCooling.HeatSources.HeatSource_Power_0D heatSource_Power_0D annotation(
+    Placement(visible = true, transformation(origin = {-30, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(src.pwh_a, dp1.pwh_a) annotation(
     Line(points = {{-98, -5.32908e-16}, {-84, -5.32908e-16}}));
@@ -34,10 +34,10 @@ equation
     Line(points = {{24, 0}, {36, 0}}));
   connect(dp2.pwh_b, snk.pwh_a) annotation(
     Line(points = {{84, 0}, {96, 0}}));
-  connect(iPh.y, heatSource_Power_1D.P_input) annotation(
-    Line(points = {{-58, -30}, {-40, -30}}, color = {0, 0, 127}));
-  connect(heatSource_Power_1D.hp, h.hp) annotation(
-    Line(points = {{-16, -30}, {0, -30}, {0, -12}}, color = {191, 0, 0}));
+  connect(iPh.y, heatSource_Power_0D.P_input) annotation(
+    Line(points = {{-58, -30}, {-42, -30}}, color = {0, 0, 127}));
+  connect(heatSource_Power_0D.hp, h.hp) annotation(
+    Line(points = {{-18, -30}, {0, -30}, {0, -12}}, color = {191, 0, 0}));
   annotation(
     experiment(StartTime = 0, StopTime = 10000, Tolerance = 1e-6, Interval = 20),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian",

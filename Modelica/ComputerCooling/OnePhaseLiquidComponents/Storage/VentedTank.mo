@@ -1,13 +1,8 @@
 within ComputerCooling.OnePhaseLiquidComponents.Storage;
 
 model VentedTank
-  ComputerCooling.Interfaces.pwh pwh_a annotation(
-    Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, -50}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.Interfaces.pwh pwh_b annotation(
-    Placement(visible = true, transformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, -52}, extent = {{-20, -20}, {20, 20}}, rotation = 0))); 
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp annotation(
-    Placement(visible = true, transformation(origin = {0, -100}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, -100}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
- 
+  extends OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_HP(massStorage=true);
+
   replaceable model medium = Media.SubCooledWater_Incompressible;
   medium m;
   
@@ -19,8 +14,9 @@ model VentedTank
   parameter Boolean p_is_absolute=true;
   
   Length l(start = lstart, fixed = true,stateSelect=StateSelect.always);
-  
-  Temperature T(start = Tstart, fixed = true);
+  Temperature T(start = Tstart, fixed = true,stateSelect=StateSelect.always);
+  Mass M(stateSelect=StateSelect.never);
+  Energy E(stateSelect=StateSelect.never);
   
   parameter Real k_spill = 1000;
   MassFlowRate w_spill "Mass flow rate wasted in spill event";
@@ -29,26 +25,45 @@ model VentedTank
     final parameter Area A = V/H;
     
 equation
-//liquid coordinates
-  m.p = pwh_a.p;
-  m.p = pwh_b.p;
-  m.T = hp.T;
-  m.p = m.d * Modelica.Constants.g_n * l
-        +(if p_is_absolute then 101325 else 0);
-  w_spill = if l <= H then 0 else k_spill * (l - H);
+  m.p     =  pwh_a.p;
+  m.T     =  T;
+  dp      =  0;
+
+  m.p     =  m.d * Modelica.Constants.g_n * l
+            +(if p_is_absolute then 101325 else 0);
+  w_spill =  if l <= H then 0 else k_spill * (l - H);
   
-//energy equations (heatflow)
-  der(A * l * m.d * m.e) = pwh_a.w * actualStream(pwh_a.h) 
-                         + pwh_b.w * actualStream(pwh_b.h) 
-                         + hp.Q_flow 
-                         - w_spill * m.h;
-                         
-  der(A * l * m.d) = pwh_a.w + pwh_b.w - w_spill;
+  M       =  A * l * m.d;
+  E       =  M * m.e;
+  
+  // mass equation                 
+  der(M)     = pwh_a.w + pwh_b.w - w_spill;
+  
+  // net energy equation neglecting the p/d term in enthslèy (i.e., e=h=c*T)
+  // RATIONALE
+  // OSS         : der(M*e)            = der(M)*e+M*der(e)
+  // eq_E        : der(M*e)            = sum(wi*hi)+sum(Qi)
+  // eq_M        : der(M)              = sum(wi)
+  // eq_E-h*eq_M : der(M*e) - h*der(M) = sum(wi*hi)+sum(Qi)-h*sum(wi)
+  // hence
+  //               der(M*e) - (e+p/d)*der(M) = sum(wi*(hi-h))+sum(Qi)
+  //               der(M*e) - e*der(M)-p/d*der(M) = sum(wi*(hi-h))+sum(Qi)
+  //
+  //               M*der(e)  = p/d*sum(wi)+sum(wi*(hi-h))+sum(Qi)
+  // 
+  //               M*der(e)  = sum(wi*(hi-h+p/d))+sum(Qi)
+  // 
+  // der(M*e)-e*der(M) = sum(wi*(hi-h))+sum(Qi) = M*der(e)
+  
+  M*der(m.e) =   pwh_a.w * (actualStream(pwh_a.h)-m.h+m.p/m.d) 
+               + pwh_b.w * (actualStream(pwh_b.h)-m.h+m.p/m.d) 
+               + hp.Q_flow;
+
   
 //enthalpy
-  pwh_a.h = m.h;
-  pwh_b.h = m.h;
-  T = hp.T;
+  hoa = m.h;
+  hob = m.h;
+
   
   assert(l > 0, "Liquid level <= 0 not allowed in VentedTank");  //still gives problems
   annotation(

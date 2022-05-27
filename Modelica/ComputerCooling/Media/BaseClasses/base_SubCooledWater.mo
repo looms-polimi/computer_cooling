@@ -7,9 +7,9 @@ partial model base_SubCooledWater
   input SpecificEnthalpy h;//(stateSelect=StateSelect.prefer) "specific enthalpy, pref state";
 
   Temperature T "temperature";
-  SpecificEnergy e;
+  SpecificEnergy e(stateSelect=StateSelect.avoid);
   
-  Density d "density";
+  Density d(stateSelect=StateSelect.avoid) "density";
   SpecificHeatCapacity c "specific heat";
   ThermalConductivity lambda "thermal conductivity";
   DynamicViscosity mu "dynamic viscosity";

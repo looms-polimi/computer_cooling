@@ -1,7 +1,7 @@
 within ComputerCooling.OnePhaseLiquidComponents.Storage;
 
 model Header
-  extends OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_HP(T(each start=TStart), n = 1);
+  extends OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_HP;
   
   replaceable model medium = Media.SubCooledWater_Incompressible;
   medium m;
@@ -9,16 +9,14 @@ model Header
   parameter Volume V=0.1;
   
 equation
-  //liquid coordinates
   m.p = pwh_a.p;
-  m.T = T[1];
-  
-  dp = 0; //no pressure drops
+  m.T = T;
+  dp  = 0;
   
   //energy equations (heatflow)
   der(V*m.d*m.e) =  pwh_a.w*actualStream(pwh_a.h)
                    +pwh_b.w*actualStream(pwh_b.h)
-                   +Qport[1];
+                   +Qport;
   
   //enthalpy
   hoa = m.h;

@@ -1,13 +1,13 @@
 within ComputerCooling.Tutorial.T04_Application_examples;
 
-model AE006_example_controlled_circuit_04
+model AE007_example_controlled_circuit_04
   ComputerCooling.OnePhaseLiquidComponents.FlowControl.Pumps.CentrifugalPump pump1(dp_nom = 125000, dp_zf = 200000, w_nom = 2 / 60)  annotation(
     Placement(visible = true, transformation(origin = {-130, 30}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   ComputerCooling.HeatSources.HeatSource_Power_2D_uniform cpu1(cols = 4, rows = 5)  annotation(
     Placement(visible = true, transformation(origin = {30, 110}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression P1(y = 80 + 30 * sin(time / 10))  annotation(
     Placement(visible = true, transformation(origin = {-22, 110}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.HeatSources.HeatSource_Temperature_1D amb(R = 0.1)  annotation(
+  ComputerCooling.HeatSources.HeatSource_Temperature_1D_uniform amb(R = 0.1)  annotation(
     Placement(visible = true, transformation(origin = {-190, 148}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression Tamb(y = 293.15)  annotation(
     Placement(visible = true, transformation(origin = {-232, 148}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -200,4 +200,4 @@ protected
     experiment(StartTime = 0, StopTime = 600, Tolerance = 1e-6, Interval = 1.2),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian",
     __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"));
-end AE006_example_controlled_circuit_04;
+end AE007_example_controlled_circuit_04;

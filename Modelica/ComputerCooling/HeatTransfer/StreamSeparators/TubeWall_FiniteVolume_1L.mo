@@ -1,9 +1,9 @@
 within ComputerCooling.HeatTransfer.StreamSeparators;
 
 model TubeWall_FiniteVolume_1L
-  ComputerCooling.Interfaces.HeatPortVector hp_in(n = n) annotation(
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp_in(n = n) annotation(
     Placement(visible = true, transformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.Interfaces.HeatPortVector hp_ext(n = n) annotation(
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp_ext(n = n) annotation(
     Placement(visible = true, transformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
   replaceable record materialRecord = SolidMaterials.Copper

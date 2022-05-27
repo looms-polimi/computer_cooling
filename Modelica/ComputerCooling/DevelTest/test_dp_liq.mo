@@ -22,4 +22,8 @@ equation
     Line(points = {{-124, -10}, {-108, -10}, {-108, -8}, {-84, -8}}, color = {0, 0, 127}));
   connect(dp.pwh_b, snk.pwh_a) annotation(
     Line(points = {{24, 0}, {56, 0}}));
+annotation(
+    experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 0.002),
+    __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian",
+    __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"));
 end test_dp_liq;
