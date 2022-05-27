@@ -11,6 +11,7 @@ partial model TwoPorts_pwh_OnePort_HP
   parameter Integer n = 3 "number of volume lumps (1 on a side)";
 
   parameter Boolean pbhi=false "true if convention is pb>pa";
+  parameter Boolean massStorage=false "mass Storage exists, if true inheriting models must add a mass balance equation";
   PressureDifference dp "pressure drop according to dphi";
 
   MassFlowRate w "mass flowrate, positive if entering a";
@@ -31,7 +32,10 @@ initial equation
   
 equation
   dp    = if pbhi then pwh_b.p-pwh_a.p else pwh_a.p-pwh_b.p;
+  if not massStorage then
   0     = pwh_a.w+pwh_b.w;
+  end if; 
+  
   w     = pwh_a.w;
   hia   = inStream(pwh_a.h);
   hib   = inStream(pwh_b.h);

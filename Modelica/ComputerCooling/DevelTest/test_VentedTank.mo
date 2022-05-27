@@ -16,8 +16,8 @@ model test_VentedTank
     Placement(visible = true, transformation(origin = {-90, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.Storage.VentedTank ventedTank annotation(
     Placement(visible = true, transformation(origin = {-30, 10}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.HeatSources.HeatSource_Power heatSource_Power(n = 1)  annotation(
-    Placement(visible = true, transformation(origin = {-50, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  ComputerCooling.HeatSources.HeatSource_Power_1D heatSource_Power_1D(n = 1)  annotation(
+    Placement(visible = true, transformation(origin = {-48, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(w.y, src.w) annotation(
     Line(points = {{-129, 10}, {-125, 10}, {-125, 8}, {-115, 8}}, color = {0, 0, 127}));
@@ -29,10 +29,10 @@ equation
     Line(points = {{-66, 0}, {-54, 0}}));
   connect(ventedTank.pwh_b, dp_exit.pwh_a) annotation(
     Line(points = {{-6, 0}, {6, 0}}));
-  connect(heatSource_Power.hp, ventedTank.hp) annotation(
-    Line(points = {{-38, -50}, {-30, -50}, {-30, -10}}));
-  connect(iPcpu.y, heatSource_Power.P) annotation(
-    Line(points = {{-78, -50}, {-62, -50}}, color = {0, 0, 127}));
+  connect(iPcpu.y, heatSource_Power_1D.P_input) annotation(
+    Line(points = {{-78, -50}, {-60, -50}}, color = {0, 0, 127}));
+  connect(heatSource_Power_1D.hp, ventedTank.hp) annotation(
+    Line(points = {{-36, -50}, {-30, -50}, {-30, -10}}, color = {191, 0, 0}));
 protected
   annotation(
     experiment(StartTime = 0, StopTime = 100, Tolerance = 1e-6, Interval = 0.2),
