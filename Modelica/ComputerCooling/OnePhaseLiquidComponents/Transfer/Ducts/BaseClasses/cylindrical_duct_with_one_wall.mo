@@ -1,0 +1,6 @@
+within ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.BaseClasses;
+
+model cylindrical_duct_with_one_wall
+equation
+
+end cylindrical_duct_with_one_wall;

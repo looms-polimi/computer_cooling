@@ -1,6 +1,6 @@
 within ComputerCooling.SolidComponents;
 
-model Metal_layer_uniform_grid
+model Metal_layer_no_spread_uniform_grid
   parameter Integer rows = 4;
   parameter Integer cols = 4;
   
@@ -37,4 +37,4 @@ equation
 
 annotation(
     Icon(graphics = {Rectangle(lineColor = {252, 175, 62}, fillColor = {238, 238, 236}, fillPattern = FillPattern.HorizontalCylinder, extent = {{-100, 20}, {100, -20}}), Rectangle(origin = {0, -30}, fillPattern = FillPattern.Solid, extent = {{-100, 10}, {100, -10}})}));
-end Metal_layer_uniform_grid;
+end Metal_layer_no_spread_uniform_grid;

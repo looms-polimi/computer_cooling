@@ -4,7 +4,7 @@ model HeatSource_Power_1D_uniform
   extends Icons.HeatSourceIcon;
   Modelica.Blocks.Interfaces.RealInput P_input annotation(
     Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.Interfaces.HeatPortVectorModelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp(n = n) annotation(
+  ComputerCooling.Interfaces.HeatPortVector hp(n = n) annotation(
     Placement(visible = true, transformation(origin = {120, 1.42109e-14}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
   parameter Integer n = 3 "Number of lumps";

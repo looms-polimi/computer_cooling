@@ -57,7 +57,7 @@ equation
   
   M*der(m.e) =   pwh_a.w * (actualStream(pwh_a.h)-m.h+m.p/m.d) 
                + pwh_b.w * (actualStream(pwh_b.h)-m.h+m.p/m.d) 
-               + hp.Q_flow;
+               + Qport;
 
   
 //enthalpy

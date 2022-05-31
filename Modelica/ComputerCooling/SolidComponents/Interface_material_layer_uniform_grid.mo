@@ -1,6 +1,6 @@
 within ComputerCooling.SolidComponents;
 
-model G_layer_uniform_grid
+model Interface_material_layer_uniform_grid
   parameter Integer rows = 4;
   parameter Integer cols = 4;
   
@@ -15,7 +15,7 @@ model G_layer_uniform_grid
   
 protected
   final parameter Area A=side^2;
-  final parameter ThermalConductance Gortho=lambda*A/rows/cols/(thickness/2);
+  final parameter ThermalConductance Gortho=lambda*A/rows/cols/thickness;
   
 equation
   for i in 1:rows loop
@@ -28,4 +28,4 @@ equation
 
 annotation(
     Icon(graphics = {Rectangle( fillColor = {211, 215, 207}, fillPattern = FillPattern.Solid, extent = {{-100, 10}, {100, -10}})}));
-end G_layer_uniform_grid;
+end Interface_material_layer_uniform_grid;

@@ -2,13 +2,16 @@ within ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts;
 
 model LiquidStream_FiniteVolume
 
+  // should extend OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_HP
+  // Dstream -> D
+
   ComputerCooling.Interfaces.pwh pwh_a annotation(
     Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, -2.66454e-15}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.Interfaces.pwh pwh_b annotation(
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a surf(n=n) annotation(
     Placement(visible = true, transformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, 120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-
+ 
   parameter Length             Dstream    = 0.005 "stream diameter";
   parameter Length             L          = 1 "stream length";
   parameter Length             dz         = 0 "height difference (b-a)";  
@@ -72,7 +75,6 @@ equation
   for i in 2:n-1 loop
     wl_a[i]   =  kf*ComputerCooling.Functions.sqrtReg(m[i-1].p-m[i].p);
     wl_b[i]   =  kf*ComputerCooling.Functions.sqrtReg(m[i+1].p-m[i].p);
-    //-wl_a[i+1];//
     der(M[i]) =  wl_a[i]+wl_b[i];
     der(E[i]) =  wl_a[i]*(if wl_a[i]>0 then m[i-1].h else m[i].h)
                 +wl_b[i]*(if wl_b[i]>0 then m[i+1].h else m[i].h)

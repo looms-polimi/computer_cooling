@@ -69,19 +69,19 @@ model AE006_example_controlled_circuit_03
     Placement(visible = true, transformation(origin = {-120, -100}, extent = {{-10, -20}, {10, 20}}, rotation = 0)));
   ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_DTwb1(CSmin = 0.05, CSstart = 0.5, K = -0.2, Ti = 1) annotation(
     Placement(visible = true, transformation(origin = {-148, -62}, extent = {{-10, -20}, {10, 20}}, rotation = 0)));
-  ComputerCooling.SolidComponents.Metal_layer_uniform_grid ml1(rows = 5)  annotation(
+  ComputerCooling.SolidComponents.Metal_layer_no_spread_uniform_grid ml1(rows = 5)  annotation(
     Placement(visible = true, transformation(origin = {50, 70}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.SolidComponents.Metal_layer_uniform_grid ml2(rows = 5)  annotation(
+  ComputerCooling.SolidComponents.Metal_layer_no_spread_uniform_grid ml2(rows = 5)  annotation(
     Placement(visible = true, transformation(origin = {90, 70}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.SolidComponents.Metal_layer_uniform_grid ml3(rows = 5)  annotation(
+  ComputerCooling.SolidComponents.Metal_layer_no_spread_uniform_grid ml3(rows = 5)  annotation(
     Placement(visible = true, transformation(origin = {130, 70}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.Storage.VentedTank tank(H = 0.2, V = 0.001) annotation(
     Placement(visible = true, transformation(origin = {-210, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.SolidComponents.G_layer_uniform_grid im1(rows = 5)  annotation(
+  ComputerCooling.SolidComponents.Interface_material_layer_uniform_grid im1(rows = 5)  annotation(
     Placement(visible = true, transformation(origin = {50, 50}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.SolidComponents.G_layer_uniform_grid im2(rows = 5)  annotation(
+  ComputerCooling.SolidComponents.Interface_material_layer_uniform_grid im2(rows = 5)  annotation(
     Placement(visible = true, transformation(origin = {90, 50}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.SolidComponents.G_layer_uniform_grid im3(rows = 5)  annotation(
+  ComputerCooling.SolidComponents.Interface_material_layer_uniform_grid im3(rows = 5)  annotation(
     Placement(visible = true, transformation(origin = {130, 50}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(extrapolation = Modelica.Blocks.Types.Extrapolation.HoldLastPoint, fileName = Modelica.Utilities.Files.loadResource("modelica://ComputerCooling/Resources/Data/clover-parallel-powertrace.txt"), smoothness = Modelica.Blocks.Types.Smoothness.ContinuousDerivative, tableName = "data", tableOnFile = true, timeEvents = Modelica.Blocks.Types.TimeEvents.NoTimeEvents, verboseRead = true) annotation(
     Placement(visible = true, transformation(origin = {-70, 170}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

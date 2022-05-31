@@ -2,6 +2,8 @@ within ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts;
 
 model LiquidStream_FiniteVolume_GenericSection_uniform_w
 
+  // should extend OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_HP
+
   ComputerCooling.Interfaces.pwh pwh_a annotation(
     Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, -2.66454e-15}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.Interfaces.pwh pwh_b annotation(
