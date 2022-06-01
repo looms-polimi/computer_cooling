@@ -205,7 +205,7 @@ equation
 protected
   annotation(
     Diagram(coordinateSystem(extent = {{-300, -200}, {300, 200}})),
-    experiment(StartTime = 0, StopTime = 7200, Tolerance = 1e-06, Interval = 2),
+    experiment(StartTime = 0, StopTime = 14400, Tolerance = 1e-06, Interval = 4),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian",
     __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl", noEquidistantTimeGrid = "()", noEventEmit = "()", noRestart = "()", noRootFinding = "()"));
 end Complex_cooling_circuit_with_controls;
