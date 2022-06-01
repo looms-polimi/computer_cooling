@@ -32,21 +32,19 @@ model Complex_cooling_circuit_with_controls
   ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D_cylindrical_uniform_w radiator2(Dstream = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {-170, 130}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression spDTwb(y = 273.15 + 40) annotation(
-    Placement(visible = true, transformation(origin = {-248, -52}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_DTwb3(CSmin = 0.02, CSstart = 0.5, K = -0.1, Ti = 4) annotation(
-    Placement(visible = true, transformation(origin = {-128, -146}, extent = {{-10, -20}, {10, 20}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression spp(y = 273.15 + 35) annotation(
-    Placement(visible = true, transformation(origin = {-240, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-230, -66}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_Twb3(CSmin = 0.02, CSstart = 0.5, K = -0.1, Ti = 4) annotation(
+    Placement(visible = true, transformation(origin = {-108, -160}, extent = {{-10, -20}, {10, 20}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w wb1t(Ac = 0.003 ^ 2, L = 0.4, dp_nom = 25000, per = 4 * 0.003, w_nom = 0.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {170, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w wb3t(Ac = 0.003 ^ 2, L = 0.4, dp_nom = 25000, per = 4 * 0.003, w_nom = 0.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {170, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w wb2t(Ac = 0.003 ^ 2, L = 0.4, dp_nom = 25000, per = 4 * 0.003, w_nom = 0.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {170, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_DTwb2(CSmin = 0.02, CSstart = 0.5, K = -0.1, Ti = 4) annotation(
-    Placement(visible = true, transformation(origin = {-158, -106}, extent = {{-10, -20}, {10, 20}}, rotation = 0)));
-  ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_DTwb1(CSmin = 0.02, CSstart = 0.5, K = -0.1, Ti = 4) annotation(
-    Placement(visible = true, transformation(origin = {-188, -66}, extent = {{-10, -20}, {10, 20}}, rotation = 0)));
+  ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_Twb2(CSmin = 0.02, CSstart = 0.5, K = -0.1, Ti = 4) annotation(
+    Placement(visible = true, transformation(origin = {-140, -120}, extent = {{-10, -20}, {10, 20}}, rotation = 0)));
+  ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_Twb1(CSmin = 0.02, CSstart = 0.5, K = -0.1, Ti = 4) annotation(
+    Placement(visible = true, transformation(origin = {-170, -80}, extent = {{-10, -20}, {10, 20}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.Storage.VentedTank tank(H = 0.2, V = 0.001) annotation(
     Placement(visible = true, transformation(origin = {-210, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.CombiTimeTable ptrace2(extrapolation = Modelica.Blocks.Types.Extrapolation.Periodic, fileName = Modelica.Utilities.Files.loadResource("modelica://ComputerCooling/Resources/Data/clover-parallel-powertrace-500ms.txt"), smoothness = Modelica.Blocks.Types.Smoothness.LinearSegments, startTime = 20, tableName = "data", tableOnFile = true, timeEvents = Modelica.Blocks.Types.TimeEvents.AtDiscontinuities, timeScale = 1.5, verboseRead = true) annotation(
@@ -56,7 +54,7 @@ model Complex_cooling_circuit_with_controls
   ComputerCooling.OnePhaseLiquidComponents.FlowControl.Valves.ValveModulating_TwoPort valvewb2(dp_nom(displayUnit = "bar") = 25000, w_nom = 0.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {-60, 10}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.FlowControl.Valves.ValveModulating_TwoPort valvewb3(dp_nom = 25000, w_nom = 0.5 / 60) annotation(
-    Placement(visible = true, transformation(origin = {-42, -10}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-40, -10}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   Modelica.Thermal.HeatTransfer.Sensors.TemperatureSensor sTspreader1 annotation(
     Placement(visible = true, transformation(origin = {70, -30}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Thermal.HeatTransfer.Sensors.TemperatureSensor sTspreader2 annotation(
@@ -85,14 +83,10 @@ model Complex_cooling_circuit_with_controls
     Placement(visible = true, transformation(origin = {90, 70}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   ComputerCooling.SolidComponents.material_layer_uniform_grid_Pnom_DTnom spreader1(DTnom = 10, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {50, 70}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_Tradin(CSmin = 0.05, CSstart = 0.5, K = -0.02, Ti = 20) annotation(
-    Placement(visible = true, transformation(origin = {-184, -8}, extent = {{-10, -20}, {10, 20}}, rotation = 0)));
-  ComputerCooling.Sensors.TemperatureSensor_liquid sTradin(unitCelsius = false) annotation(
-    Placement(visible = true, transformation(origin = {-160, -34}, extent = {{-10, 10}, {10, -10}}, rotation = -90)));
   OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D_cylindrical_uniform_w radiator3(Dstream = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {-150, 110}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.RealExpression realExpression(y = 1)  annotation(
-    Placement(visible = true, transformation(origin = {-122, 72}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Blocks.Math.Add3 add3(k1 = 1 / 3, k2 = 1 / 3, k3 = 1 / 3)  annotation(
+    Placement(visible = true, transformation(origin = {20, -74}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(Tamb.y, amb.T_input) annotation(
     Line(points = {{-267, 170}, {-242, 170}}, color = {0, 0, 127}));
@@ -118,36 +112,36 @@ equation
     Line(points = {{102, 10}, {158, 10}}));
   connect(wb3.pwh_b, wb3t.pwh_a) annotation(
     Line(points = {{142, -10}, {158, -10}}));
-  connect(PI_DTwb1.SP, spDTwb.y) annotation(
-    Line(points = {{-198.2, -52}, {-237.2, -52}}, color = {0, 0, 127}));
-  connect(spDTwb.y, PI_DTwb2.SP) annotation(
-    Line(points = {{-237, -52}, {-218, -52}, {-218, -92}, {-168, -92}}, color = {0, 0, 127}));
-  connect(spDTwb.y, PI_DTwb3.SP) annotation(
-    Line(points = {{-237, -52}, {-218, -52}, {-218, -132}, {-138, -132}}, color = {0, 0, 127}));
+  connect(PI_Twb1.SP, spDTwb.y) annotation(
+    Line(points = {{-180, -66}, {-219, -66}}, color = {0, 0, 127}));
+  connect(spDTwb.y, PI_Twb2.SP) annotation(
+    Line(points = {{-219, -66}, {-192, -66}, {-192, -106}, {-150, -106}}, color = {0, 0, 127}));
+  connect(spDTwb.y, PI_Twb3.SP) annotation(
+    Line(points = {{-219, -66}, {-192, -66}, {-192, -146}, {-118, -146}}, color = {0, 0, 127}));
   connect(wb3t.pwh_b, wb2t.pwh_b) annotation(
     Line(points = {{182, -10}, {200, -10}, {200, 10}, {182, 10}}));
   connect(wb2t.pwh_b, wb1t.pwh_b) annotation(
     Line(points = {{182, 10}, {200, 10}, {200, 30}, {182, 30}}));
   connect(tank.pwh_b, duct123.pwh_a) annotation(
     Line(points = {{-198, 30}, {-182, 30}}));
-  connect(PI_DTwb1.CS, valvewb1.cmd) annotation(
-    Line(points = {{-178, -52}, {-80, -52}, {-80, 20}}, color = {0, 0, 127}));
-  connect(PI_DTwb2.CS, valvewb2.cmd) annotation(
-    Line(points = {{-148, -92}, {-60, -92}, {-60, 0}}, color = {0, 0, 127}));
-  connect(PI_DTwb3.CS, valvewb3.cmd) annotation(
-    Line(points = {{-118, -132}, {-42, -132}, {-42, -20}}, color = {0, 0, 127}));
+  connect(PI_Twb1.CS, valvewb1.cmd) annotation(
+    Line(points = {{-160, -66}, {-80, -66}, {-80, 20}}, color = {0, 0, 127}));
+  connect(PI_Twb2.CS, valvewb2.cmd) annotation(
+    Line(points = {{-130, -106}, {-60, -106}, {-60, 0}}, color = {0, 0, 127}));
+  connect(PI_Twb3.CS, valvewb3.cmd) annotation(
+    Line(points = {{-98, -146}, {-40, -146}, {-40, -20}}, color = {0, 0, 127}));
   connect(valvewb1.pwh_b, p1wb1.pwh_a) annotation(
     Line(points = {{-68, 30}, {-2, 30}}));
   connect(valvewb2.pwh_b, p2wb2.pwh_a) annotation(
     Line(points = {{-48, 10}, {-2, 10}}));
   connect(valvewb3.pwh_b, p3wb3.pwh_a) annotation(
-    Line(points = {{-30, -10}, {-2, -10}}));
-  connect(sTspreader1.T, PI_DTwb1.PV) annotation(
-    Line(points = {{70, -40}, {70, -172}, {-176, -172}, {-176, -56}, {-198, -56}}, color = {0, 0, 127}));
-  connect(sTspreader2.T, PI_DTwb2.PV) annotation(
-    Line(points = {{108, -60}, {108, -176}, {-172, -176}, {-172, -96}, {-168, -96}}, color = {0, 0, 127}));
-  connect(sTspreader3.T, PI_DTwb3.PV) annotation(
-    Line(points = {{150, -80}, {150, -180}, {-168, -180}, {-168, -136}, {-138, -136}}, color = {0, 0, 127}));
+    Line(points = {{-28, -10}, {-2, -10}}));
+  connect(sTspreader1.T, PI_Twb1.PV) annotation(
+    Line(points = {{70, -40}, {70, -184}, {-186, -184}, {-186, -70}, {-180, -70}}, color = {0, 0, 127}));
+  connect(sTspreader2.T, PI_Twb2.PV) annotation(
+    Line(points = {{108, -60}, {108, -188}, {-156, -188}, {-156, -110}, {-150, -110}}, color = {0, 0, 127}));
+  connect(sTspreader3.T, PI_Twb3.PV) annotation(
+    Line(points = {{150, -80}, {150, -192}, {-126, -192}, {-126, -150}, {-118, -150}}, color = {0, 0, 127}));
   connect(ptrace1.y[1], g1.u) annotation(
     Line(points = {{-79, 130}, {-42, 130}}, color = {0, 0, 127}));
   connect(ptrace2.y[1], g2.u) annotation(
@@ -157,7 +151,7 @@ equation
   connect(valvewb2.pwh_a, valvewb1.pwh_a) annotation(
     Line(points = {{-72, 10}, {-100, 10}, {-100, 30}, {-92, 30}}));
   connect(valvewb3.pwh_a, valvewb1.pwh_a) annotation(
-    Line(points = {{-54, -10}, {-100, -10}, {-100, 30}, {-92, 30}}));
+    Line(points = {{-52, -10}, {-100, -10}, {-100, 30}, {-92, 30}}));
   connect(pump1.pwh_b, valvewb1.pwh_a) annotation(
     Line(points = {{-118, 30}, {-92, 30}}));
   connect(cpu1.hp, chip1.cpu_side) annotation(
@@ -184,8 +178,6 @@ equation
     Line(points = {{90, 74}, {90, 80}, {108, 80}, {108, -40}}, color = {191, 0, 0}));
   connect(spreader3.cpu_side.port[2, 2], sTspreader3.port) annotation(
     Line(points = {{130, 74}, {130, 80}, {150, 80}, {150, -60}}, color = {191, 0, 0}));
-  connect(spp.y, PI_Tradin.SP) annotation(
-    Line(points = {{-228, 6}, {-194, 6}}, color = {0, 0, 127}));
   connect(radiator3.pwh_a, wb1t.pwh_b) annotation(
     Line(points = {{-138, 110}, {200, 110}, {200, 30}, {182, 30}}));
   connect(radiator3.pwh_b, tank.pwh_a) annotation(
@@ -196,18 +188,20 @@ equation
     Line(points = {{-182, 130}, {-216, 130}, {-216, 110}, {-162, 110}}));
   connect(amb.hp, radiator3.hp) annotation(
     Line(points = {{-218, 170}, {-150, 170}, {-150, 122}}, color = {191, 0, 0}));
-  connect(sTradin.out, PI_Tradin.PV) annotation(
-    Line(points = {{-172, -34}, {-218, -34}, {-218, 2}, {-194, 2}}, color = {0, 0, 127}));
-  connect(pump1.pwh_b, sTradin.pwh) annotation(
-    Line(points = {{-118, 30}, {-160, 30}, {-160, -22}}));
-  connect(g1.y, cpu1.P_input) annotation(
-    Line(points = {{-18, 130}, {18, 130}}, color = {0, 0, 127}));
-  connect(g2.y, cpu2.P_input) annotation(
-    Line(points = {{12, 150}, {58, 150}}, color = {0, 0, 127}));
+  connect(PI_Twb1.CS, add3.u1) annotation(
+    Line(points = {{-160, -66}, {8, -66}}, color = {0, 0, 127}));
+  connect(PI_Twb2.CS, add3.u2) annotation(
+    Line(points = {{-130, -106}, {-60, -106}, {-60, -74}, {8, -74}}, color = {0, 0, 127}));
+  connect(PI_Twb3.CS, add3.u3) annotation(
+    Line(points = {{-98, -146}, {-40, -146}, {-40, -82}, {8, -82}}, color = {0, 0, 127}));
+  connect(add3.y, pump1.cmd) annotation(
+    Line(points = {{32, -74}, {48, -74}, {48, -28}, {-148, -28}, {-148, 22}, {-142, 22}}, color = {0, 0, 127}));
   connect(g3.y, cpu3.P_input) annotation(
     Line(points = {{42, 170}, {98, 170}}, color = {0, 0, 127}));
-  connect(realExpression.y, pump1.cmd) annotation(
-    Line(points = {{-110, 72}, {-94, 72}, {-94, 56}, {-154, 56}, {-154, 22}, {-142, 22}}, color = {0, 0, 127}));
+  connect(g2.y, cpu2.P_input) annotation(
+    Line(points = {{12, 150}, {58, 150}}, color = {0, 0, 127}));
+  connect(g1.y, cpu1.P_input) annotation(
+    Line(points = {{-18, 130}, {18, 130}}, color = {0, 0, 127}));
 protected
   annotation(
     Diagram(coordinateSystem(extent = {{-300, -200}, {300, 200}})),
