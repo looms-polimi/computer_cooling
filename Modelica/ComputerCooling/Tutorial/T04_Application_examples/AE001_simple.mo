@@ -15,7 +15,7 @@ model AE001_simple
     Placement(visible = true, transformation(origin = {70, 18}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D radiator(L = 3, W = 0.015,dp_nom = 7000, fluidHeats = true, n = 10, w_nom = 0.25)  annotation(
     Placement(visible = true, transformation(origin = {-70, 30}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  ComputerCooling.HeatSources.HeatSource_Temperature_1D amb(R = 0.5, n = 10)  annotation(
+  ComputerCooling.HeatSources.HeatSource_Temperature_1D_uniform amb(R = 0.5, n = 10)  annotation(
     Placement(visible = true, transformation(origin = {-110, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression Tamb(y = 293.15)  annotation(
     Placement(visible = true, transformation(origin = {-150, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

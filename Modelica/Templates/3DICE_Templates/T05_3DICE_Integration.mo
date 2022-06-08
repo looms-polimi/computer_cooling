@@ -78,16 +78,16 @@ package T05_3DICE_Integration
       Line(points = {{-84, 60}, {-98, 60}}));
     connect(pressuriserIdeal.pwh_b, pump.pwh_a) annotation(
       Line(points = {{-146, 60}, {-160, 60}, {-160, -60}, {-124, -60}}));
-    connect(waterBlock.mHP, base.top) annotation(
-      Line(points = {{-4, -20}, {64, -20}}, color = {191, 0, 0}));
-    connect(waterBlock.pwh_b, coolantOutletTemp.pwh) annotation(
-      Line(points = {{-20, 4}, {-20, 50}, {18, 50}}));
-    connect(waterBlock.pwh_a, coolantInletTemp.pwh) annotation(
-      Line(points = {{-20, -44}, {8, -44}, {8, 10}, {18, 10}}));
-    connect(waterBlock.pwh_b, tube_cold.pwh_a) annotation(
-      Line(points = {{-20, 4}, {-20, 60}, {-36, 60}}));
     connect(pump.pwh_b, waterBlock.pwh_a) annotation(
       Line(points = {{-76, -60}, {-20, -60}, {-20, -44}}));
+    connect(waterBlock.pwh_b, tube_cold.pwh_a) annotation(
+      Line(points = {{-20, 4}, {-20, 60}, {-36, 60}}));
+    connect(waterBlock.pwh_a, coolantInletTemp.pwh) annotation(
+      Line(points = {{-20, -44}, {8, -44}, {8, 10}, {18, 10}}));
+    connect(waterBlock.pwh_b, coolantOutletTemp.pwh) annotation(
+      Line(points = {{-20, 4}, {-20, 50}, {18, 50}}));
+    connect(waterBlock.mHP, base.top) annotation(
+      Line(points = {{-4, -20}, {64, -20}}, color = {191, 0, 0}));
     annotation(
       Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
       Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}})));
