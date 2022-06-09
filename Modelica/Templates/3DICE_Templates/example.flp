@@ -1,7 +1,208 @@
+// Mapped to power[13]
+HEATER_1_D_a:
+	position 280, 7960 ;
+	dimension 2000, 925 ;
+	power values
+	2.57;
 
-// Example floorplan file for simulating the heatsink
+HEATER_1_D_b:
+	position 280, 9035 ;
+	dimension 2000, 925 ;
+	power values
+	2.57;
 
-HEATER:
-	position 0, 0 ;
-	dimension 10240, 10240 ;
-	power values 0,20,20,20,20,20;
+// Mapped to power[9]
+HEATER_1_C_a:
+	position 2840, 7960 ;
+	dimension 2000, 925 ;
+	power values
+	2.49;
+
+HEATER_1_C_b:
+	position 2840, 9035 ;
+	dimension 2000, 925 ;
+	power values
+	2.49;
+
+// Mapped to power[5]
+HEATER_1_B_a:
+	position 5400, 7960 ;
+	dimension 2000, 925 ;
+	power values
+	0;
+
+HEATER_1_B_b:
+	position 5400, 9035 ;
+	dimension 2000, 925 ;
+	power values
+	0;
+
+// Mapped to power[1]
+HEATER_1_A_a:
+	position 7960, 7960 ;
+	dimension 2000, 925 ;
+	power values
+	2.3;
+
+HEATER_1_A_b:
+	position 7960, 9035 ;
+	dimension 2000, 925 ;
+	power values
+	2.3;
+
+// Mapped to power[14]
+HEATER_2_D_a:
+	position 280, 5400 ;
+	dimension 2000, 925 ;
+	power values
+	2.53;
+
+HEATER_2_D_b:
+	position 280, 6475 ;
+	dimension 2000, 925 ;
+	power values
+	2.53;
+
+// Mapped to power[10]
+HEATER_2_C_a:
+	position 2840, 5400 ;
+	dimension 2000, 925 ;
+	power values
+	2.5;
+
+HEATER_2_C_b:
+	position 2840, 6475 ;
+	dimension 2000, 925 ;
+	power values
+	2.5;
+
+// Mapped to power[6]
+HEATER_2_B_a:
+	position 5400, 5400 ;
+	dimension 2000, 925 ;
+	power values
+	0;
+
+HEATER_2_B_b:
+	position 5400, 6475 ;
+	dimension 2000, 925 ;
+	power values
+	0;
+
+// Mapped to power[2]
+HEATER_2_A_a:
+	position 7960, 5400 ;
+	dimension 2000, 925 ;
+	power values
+	2.55;
+
+HEATER_2_A_b:
+	position 7960, 6475 ;
+	dimension 2000, 925 ;
+	power values
+	2.55;
+
+// Mapped to power[15]
+HEATER_3_D_a:
+	position 280, 2840 ;
+	dimension 2000, 925 ;
+	power values
+	2.575;
+
+HEATER_3_D_b:
+	position 280, 3915 ;
+	dimension 2000, 925 ;
+	power values
+	2.575;
+
+// Mapped to power[11]
+HEATER_3_C_a:
+	position 2840, 2840 ;
+	dimension 2000, 925 ;
+	power values
+	2.48;
+
+HEATER_3_C_b:
+	position 2840, 3915 ;
+	dimension 2000, 925 ;
+	power values
+	2.48;
+
+// Mapped to power[7]
+HEATER_3_B_a:
+	position 5400, 2840 ;
+	dimension 2000, 925 ;
+	power values
+	0;
+
+HEATER_3_B_b:
+	position 5400, 3915 ;
+	dimension 2000, 925 ;
+	power values
+	0;
+
+// Mapped to power[3]
+HEATER_3_A_a:
+	position 7960, 2840 ;
+	dimension 2000, 925 ;
+	power values
+	2.485;
+
+HEATER_3_A_b:
+	position 7960, 3915 ;
+	dimension 2000, 925 ;
+	power values
+	2.485;
+
+// Mapped to power[16]
+HEATER_4_D_a:
+	position 280, 280 ;
+	dimension 2000, 925 ;
+	power values
+	2.57;
+
+HEATER_4_D_b:
+	position 280, 1355 ;
+	dimension 2000, 925 ;
+	power values
+	2.57;
+
+// Mapped to power[12]
+HEATER_4_C_a:
+	position 2840, 280 ;
+	dimension 2000, 925 ;
+	power values
+	2.49;
+
+HEATER_4_C_b:
+	position 2840, 1355 ;
+	dimension 2000, 925 ;
+	power values
+	2.49;
+
+// Mapped to power[8]
+HEATER_4_B_a:
+	position 5400, 280 ;
+	dimension 2000, 925 ;
+	power values
+	0;
+
+HEATER_4_B_b:
+	position 5400, 1355 ;
+	dimension 2000, 925 ;
+	power values
+	0;
+
+// Mapped to power[4]
+HEATER_4_A_a:
+	position 7960, 280 ;
+	dimension 2000, 925 ;
+	power values
+	2.3;
+
+HEATER_4_A_b:
+	position 7960, 1355 ;
+	dimension 2000, 925 ;
+	power values
+	2.3;
+

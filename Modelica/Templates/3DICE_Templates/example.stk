@@ -4,13 +4,13 @@ material SILICON :
 	thermal conductivity 8.8e-5 ;
 	volumetric heat capacity 1.63566e-12 ;
 
-material SILICONE :
-	thermal conductivity 2e-5 ;
-	volumetric heat capacity 1e-11 ;
+material THERMALCOMPOUND :
+	thermal conductivity 0.9e-5 ;
+	volumetric heat capacity 2.7e-12 ;
 
 top pluggable heat sink :
-	spreader length 10240 , width 10240 , height 500 ;
-	material SILICONE ;
+	spreader length 10240 , width 10240 , height 200 ;
+	material THERMALCOMPOUND ;
 
 	// Plugin parameters are: spreaderX0 spreaderY0 airTemperature fanSpeedFilename
 	// Modelica uses SI units, so spreaderX0 and spreaderY0 are in metres.
@@ -21,7 +21,8 @@ top pluggable heat sink :
 
 dimensions :
 	chip length 10240 , width  10240 ;
-	cell length   512 , width    512 ;
+ 	cell length   512 , width    512 ;
+// 	cell length    32 , width     32 ;
 
 die TTC :
 	layer 610 SILICON ;
@@ -37,3 +38,4 @@ solver:
 output:
 	// Print the temperature at the center of the die
 	T ( D1, 5120, 5120, "trace.txt", step );
+	Tmap (D1, "map.txt", final );
