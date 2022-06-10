@@ -21,7 +21,7 @@ top pluggable heat sink :
 
 dimensions :
 	chip length 10240 , width  10240 ;
- 	cell length   512 , width    512 ;
+	cell length   160 , width    160 ;
 // 	cell length    32 , width     32 ;
 
 die TTC :
@@ -32,10 +32,11 @@ stack:
 	die  D1  TTC  floorplan "example.flp" ;
 
 solver:
-	transient step 0.01, slot 50 ;
+	transient step 0.01, slot 60 ;
 	initial temperature 300 ;
 
 output:
 	// Print the temperature at the center of the die
-	T ( D1, 5120, 5120, "trace.txt", step );
-	Tmap (D1, "map.txt", final );
+	T ( D1, 5120, 5120, "results/trace.txt", step );
+	// Print the temperature map at the end of the simulation
+	Tmap (D1, "results/map.txt", final );

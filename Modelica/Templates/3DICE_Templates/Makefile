@@ -19,7 +19,7 @@ $(DUMMY): $(SRC)
 	rm -rf $(OBJ)
 	$(foreach O,$(OBJ),unzip -q $(O).fmu -d $(O);)
 	$(foreach O,$(OBJ),rm -f $(O).fmu;)
-	$(foreach O,$(OBJ_UNDERSCORE),rm -f $(O)_FMU.* $(O).log;)
+	$(foreach O,$(OBJ_UNDERSCORE),rm -f $(O)_FMU.* $(O).log $(O)_info.json;)
 	touch $(DUMMY)
 
 clean:
