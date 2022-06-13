@@ -1,5 +1,10 @@
-HeatSource_Power_2D_uniform
-HeatSource_Power_0D
-HeatSource_Power_1D_uniform
-HeatSource_Temperature_1D_uniform
-HeatSource_Temperature_0D
+Fixed_Power_0D
+Prescribed_Power_0D
+Fixed_Power_1D_uniform
+Prescribed_Power_1D_uniform
+Fixed_Power_2D_uniform
+Prescribed_Power_2D_uniform
+Prescribed_Temperature_0D
+Fixed_Temperature_0D
+Prescribed_Temperature_1D_uniform
+Fixed_Temperature_1D_uniform
