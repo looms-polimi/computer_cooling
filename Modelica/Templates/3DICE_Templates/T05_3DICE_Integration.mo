@@ -260,6 +260,8 @@ package T05_3DICE_Integration
       Placement(visible = true, transformation(origin = {-140, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_pT snk annotation(
       Placement(visible = true, transformation(origin = {-140, 20}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  ComputerCooling.SolidComponents.material_layer_uniform_grid_Pnom_DTnom metal(DTnom = 8, Pnom = 60, cols = baseCols, rows = baseRows)  annotation(
+      Placement(visible = true, transformation(origin = {36, -20}, extent = {{-18, -18}, {18, 18}}, rotation = 90)));
   protected
     parameter Modelica.SIunits.SpecificHeatCapacity cp = 384.6 "copper properties";
     parameter Modelica.SIunits.Density rho = 8960 "copper properties";
@@ -273,8 +275,6 @@ package T05_3DICE_Integration
   equation
     connect(bottom, base.pGen.port) annotation(
       Line(points = {{1, -91}, {0, -91}, {0, -120}, {136, -120}, {136, -92}}, color = {191, 0, 0}));
-    connect(waterBlock.mHP, base.top) annotation(
-      Line(points = {{-4, -20}, {64, -20}}, color = {191, 0, 0}));
     connect(waterBlock.pwh_b, coolantOutletTemp.pwh) annotation(
       Line(points = {{-20, 4}, {-20, 50}, {18, 50}}));
     connect(waterBlock.pwh_a, coolantInletTemp.pwh) annotation(
@@ -283,6 +283,10 @@ package T05_3DICE_Integration
       Line(points = {{-116, -60}, {-20, -60}, {-20, -44}}));
     connect(snk.pwh_a, waterBlock.pwh_b) annotation(
       Line(points = {{-116, 20}, {-20, 20}, {-20, 4}}));
+  connect(metal.cpu_side, base.top) annotation(
+      Line(points = {{41, -20}, {64, -20}}, color = {191, 0, 0}));
+  connect(waterBlock.mHP, metal.sink_side) annotation(
+      Line(points = {{-4, -20}, {31, -20}}, color = {191, 0, 0}));
     annotation(
       Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
       Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
