@@ -32,7 +32,7 @@ stack:
 	die  D1  TTC  floorplan "example.flp" ;
 
 solver:
-	transient step 0.01, slot 60 ;
+	transient step 0.015, slot 25 ;
 	initial temperature 300 ;
 
 output:
