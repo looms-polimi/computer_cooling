@@ -96,7 +96,7 @@ package T05_3DICE_Integration
   end T05_Heatsink;
 
   model T05_Interface3DICE
-    extends HeatsinkBlocks.PartialModels.Interface3DICE(redeclare T05_Heatsink_newwb sink);
+    extends HeatsinkBlocks.PartialModels.Interface3DICE(redeclare T05_Heatsink_newwb_chiller_fast sink);
   end T05_Interface3DICE;
 
   model T05_Heatsink_newwb
