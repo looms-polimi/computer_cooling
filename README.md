@@ -21,6 +21,7 @@ sudo apt install pkg-config
 ```
 
 ## Download 3D-ICE
+3D-ICE needs to be downloaded in the parent directory of the computer_cooling directory, so that the two directories are side by side.
 ```
 git clone https://github.com/esl-epfl/3d-ice.git
 cd 3d-ice
@@ -41,6 +42,9 @@ To use the template, you need to copy it outside of the computer_cooling git rep
 ```
 cp -r computer_cooling/Modelica/Templates/3DICE_Templates MyHeatSink
 ```
+After this command, the 3d-ice, computer_cooling and MyHeatSink directories shall all be side by side
+
+![Directory structure](directory.png)
 
 ## Start simulation with 3D-ICE
 ```
