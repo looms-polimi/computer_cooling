@@ -3,9 +3,9 @@ within ComputerCooling.Tutorial.T04_Application_examples;
 model Complex_cooling_circuit_with_controls
   ComputerCooling.OnePhaseLiquidComponents.FlowControl.Pumps.CentrifugalPump pump1(dp_nom = 99999.99999999999, dp_zf = 200000, w_nom = 1.75 / 60) annotation(
     Placement(visible = true, transformation(origin = {-110, 30}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.HeatSources.HeatSource_Power_2D_uniform cpu1(cols = 4, rows = 5) annotation(
+  ComputerCooling.HeatSources.Prescribed_Power_2D_uniform cpu1(cols = 4, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {30, 130}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.HeatSources.HeatSource_Temperature_1D_uniform amb(R = 0.1) annotation(
+  ComputerCooling.HeatSources.Prescribed_Temperature_1D_uniform amb(R = 0.1) annotation(
     Placement(visible = true, transformation(origin = {-210, 170}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression Tamb(y = 293.15) annotation(
     Placement(visible = true, transformation(origin = {-278, 170}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -23,9 +23,9 @@ model Complex_cooling_circuit_with_controls
     Placement(visible = true, transformation(origin = {10, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w duct123(Ac = 0.006 ^ 2, L = 2, dp_nom = 20000, n = 3, per = 4 * 0.006, w_nom = 1.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {-150, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.HeatSources.HeatSource_Power_2D_uniform cpu2(cols = 4, rows = 5) annotation(
+  ComputerCooling.HeatSources.Prescribed_Power_2D_uniform cpu2(cols = 4, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {70, 150}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.HeatSources.HeatSource_Power_2D_uniform cpu3(cols = 4, rows = 5) annotation(
+  ComputerCooling.HeatSources.Prescribed_Power_2D_uniform cpu3(cols = 4, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {110, 170}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D_cylindrical_uniform_w radiator1(Dstream = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {-180, 140}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));

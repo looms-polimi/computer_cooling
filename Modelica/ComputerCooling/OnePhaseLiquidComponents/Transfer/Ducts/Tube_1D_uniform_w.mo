@@ -6,7 +6,7 @@ model Tube_1D_uniform_w
     Placement(visible = true, transformation(origin = {-120, -40}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.Interfaces.pwh pwh_b annotation(
     Placement(visible = true, transformation(origin = {120, -40}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp(n = n) annotation(
+  ComputerCooling.Interfaces.HeatPortVector hp(n = n) annotation(
     Placement(visible = true, transformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, 120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
   ComputerCooling.HeatTransfer.StreamSeparators.TubeWall_FiniteVolume_1L wall_1L(L = L, W = W, t = t, n = n, TStart = TStart, 

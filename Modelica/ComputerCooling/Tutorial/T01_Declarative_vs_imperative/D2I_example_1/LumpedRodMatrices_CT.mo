@@ -5,7 +5,7 @@ function LumpedRodMatrices_CT "continuous-time rod model matrices"
   input HeatCapacity C;
   input ThermalConductance G;
   input Integer lumps;
-  output Time A[lumps,lumps];
+  output Real A[lumps,lumps];
   output Real B[lumps,2];
 algorithm
   A                :=  zeros(lumps,lumps);

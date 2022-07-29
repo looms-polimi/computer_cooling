@@ -39,8 +39,8 @@ extends OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_VHP(massStorag
    liquidStream Stream (redeclare replaceable model medium=medium, redeclare replaceable model HTCoefficient=HTCoefficient, L=L, D=D, w_nom=w_nom, dp_nom=dp_nom, TStart=TStart, n=n, fluidHeats=fluidHeats, dz=dz); 
    
 equation
-  connect(hp, Wall.hp_ext);
-  connect(Stream.hp, Wall.hp_in);
+  connect(surf, Wall.hp_ext);
+  connect(Stream.surf, Wall.hp_in);
   connect(pwh_a, Stream.pwh_a); 
   connect(Stream.pwh_b, pwh_b);
    

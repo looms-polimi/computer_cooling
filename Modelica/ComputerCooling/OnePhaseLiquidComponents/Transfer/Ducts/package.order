@@ -1,6 +1,4 @@
 BaseClasses
-Tube_1D
-Tube_2D
 LiquidStream_FiniteVolume_GenericSection_uniform_w
 LiquidStream_FiniteVolume_GenericSection
 LiquidStream_FiniteVolume_Cylindrical

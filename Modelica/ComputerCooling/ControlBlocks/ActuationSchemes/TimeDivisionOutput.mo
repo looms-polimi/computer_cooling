@@ -6,7 +6,7 @@ model TimeDivisionOutput
   Placement(visible = true,transformation(extent = {{-100, -20}, {-60, 20}}, rotation = 0), iconTransformation(extent = {{-140, -20}, {-100, 20}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput TDO annotation(
   Placement(visible = true,transformation(extent = {{46, -20}, {86, 20}}, rotation = 0), iconTransformation(extent = {{100, -20}, {140, 20}}, rotation = 0)));
-  parameter SI.Time Ttdo = 1 "TDO timebase";
+  parameter Time Ttdo = 1 "TDO timebase";
   discrete Real tdo;
   discrete Real timeNextEv;
 equation

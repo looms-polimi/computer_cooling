@@ -32,9 +32,9 @@ equation
   
   E = (m_dry + m_vap) * (air.h - air.p / air.d);
   der(E) = wa * actualStream(pwhx_a.h) + wb * actualStream(pwhx_b.h)
-         + hp.Q_flow[1];
+         + hp.port[1].Q_flow;
             
-  air.T = hp.T[1];
+  air.T = hp.port[1].T;
   hoa = air.h;
   hob = air.h;
   xoa = air.x;
