@@ -47,8 +47,13 @@ After this command, the 3d-ice, computer_cooling and MyHeatSink directories shal
 ![Directory structure](directory.png)
 
 ## Start simulation with 3D-ICE
+You may want to edit the simulation spatial resolution in the '.stk' file, it is the 'cell length' parameter. A 160um resolution is good for fast simulations with draft image quality, while 32um yields high resolution images at a slower simulation speed.
 ```
 cd MyHeatSink
 chmod +x simulate.sh
 ./simulate.sh
 ```
+
+## Results visualization
+
+You can run the scripts in the 'scripts' directory. You need [Scilab](https://www.scilab.org/) to run them.
