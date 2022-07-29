@@ -1,4 +1,4 @@
-within ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts;
+within ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts;
 
 model Tube_2D
 
@@ -12,7 +12,7 @@ model Tube_2D
   ComputerCooling.HeatTransfer.StreamSeparators.TubeWall_FiniteVolume_MultiL wall_multiL(L = L, W = W, t = t, TStart = TStart, n = n, l = l,
   redeclare replaceable record materialRecord = materialRecord) annotation(
     Placement(visible = true, transformation(origin = {0, 20}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume liquidStream(Dstream = Dstream, L = L, dz = dz, w_nom = w_nom, dp_nom = dp_nom, TStart = TStart, n = n, fluidHeats = fluidHeats,
+  ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume liquidStream(Dstream = Dstream, L = L, dz = dz, w_nom = w_nom, dp_nom = dp_nom, TStart = TStart, n = n, fluidHeats = fluidHeats,
   redeclare replaceable model medium = medium,
   redeclare replaceable model HTCoefficient = HTCoefficient) annotation(
     Placement(visible = true, transformation(origin = {0, -40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));

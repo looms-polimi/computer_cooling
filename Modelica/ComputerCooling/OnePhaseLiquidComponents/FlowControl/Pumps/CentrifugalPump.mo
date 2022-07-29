@@ -1,7 +1,7 @@
-within ComputerCooling.OnePhaseLiquidComponents.FlowControl.Pumps;
+within ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pumps;
 
 model CentrifugalPump
-  extends OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh(final pbhi = true, w(start = w_nom/1000));
+  extends IncompressibleLiquidComponents.BaseClasses.TwoPorts_pwh(final pbhi = true, w(start = w_nom/1000));
   
   replaceable model medium = Media.SubCooledWater_Incompressible;
   medium m;

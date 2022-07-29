@@ -1,29 +1,12 @@
 package ComputerCooling
 extends Modelica.Icons.Package;
 import Modelica.SIunits.*;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        model medium = Media.SubCooledWater_Incompressible;
+        record materialRecord = SolidMaterials.Copper;
+        model HTCoefficient = HeatTransfer.HeatTransferModels.DittusBoelter;
+          
+          type JunctionTFlow = enumeration(DoubleBranching "Double branching, up to sides", SimpleBranching_bOut "Simple branching, side b to side c & up", SimpleBranching_cOut "Simple branching, side c to side b & up", SimpleConfluence_bIn "Simple confluence, side c & up to side b", SimpleConfluence_cIn "Simple confluence, side b & up to side c", DoubleConfluence "Double confluence, sides to up");
+          
 
   annotation(
     uses(Modelica(version = "3.2.3")),

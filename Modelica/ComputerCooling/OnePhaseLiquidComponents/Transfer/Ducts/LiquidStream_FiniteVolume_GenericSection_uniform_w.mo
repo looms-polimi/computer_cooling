@@ -1,4 +1,4 @@
-within ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts;
+within ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts;
 
 model LiquidStream_FiniteVolume_GenericSection_uniform_w
   extends BaseClasses.base_LiquidStream_FiniteVolume;

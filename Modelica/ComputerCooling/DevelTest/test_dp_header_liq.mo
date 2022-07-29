@@ -3,19 +3,19 @@ within ComputerCooling.DevelTest;
 model test_dp_header_liq
   extends Icons.TestModel;
   
-  ComputerCooling.OnePhaseLiquidComponents.FlowControl.PressureDrops.DpQuadratic_NominalPoint dp1(dp_nom = 49999.99999999999, w_nom = 1) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.FlowControl.PressureDrops.DpQuadratic_NominalPoint dp1(dp_nom = 49999.99999999999, w_nom = 1) annotation(
     Placement(visible = true, transformation(origin = {-60, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryPrescribed_pT src annotation(
+  ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryPrescribed_pT src annotation(
     Placement(visible = true, transformation(origin = {-122, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression ip(y = 2e5) annotation(
     Placement(visible = true, transformation(origin = {-192, 28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression iT(y = 273.15 + 25) annotation(
     Placement(visible = true, transformation(origin = {-198, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.FlowControl.PressureDrops.DpQuadratic_NominalPoint dp2(dp_nom = 49999.99999999999, w_nom = 1) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.FlowControl.PressureDrops.DpQuadratic_NominalPoint dp2(dp_nom = 49999.99999999999, w_nom = 1) annotation(
     Placement(visible = true, transformation(origin = {60, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Storage.Header h(TStart = 273.15 + 20) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Storage.Header h(TStart = 273.15 + 20) annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_wT snk(w = -0.1)  annotation(
+  ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryFixed_wT snk(w = -0.1)  annotation(
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression iPh(y = 2500 + 500 * sin(time)) annotation(
     Placement(visible = true, transformation(origin = {-70, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

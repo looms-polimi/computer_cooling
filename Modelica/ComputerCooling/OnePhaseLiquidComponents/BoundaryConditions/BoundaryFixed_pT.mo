@@ -1,4 +1,4 @@
-within ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions;
+within ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions;
 
 model BoundaryFixed_pT
   extends Icons.BoundaryConditionsIcon;

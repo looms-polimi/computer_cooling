@@ -1,7 +1,7 @@
-within ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts;
+within ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts;
 
 model LiquidStream_FiniteVolume_Cylindrical
-  extends OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection(Ac=Modelica.Constants.pi * (D/2)^2,per=Modelica.Constants.pi * D);
+  extends IncompressibleLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection(Ac=Modelica.Constants.pi * (D/2)^2,per=Modelica.Constants.pi * D);
   
   parameter Length  D = 0.005 "stream diameter";
   

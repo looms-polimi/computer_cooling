@@ -1,4 +1,4 @@
-within ComputerCooling.OnePhaseLiquidComponents.FlowControl;
+within ComputerCooling.IncompressibleLiquidComponents.FlowControl;
 
 package Valves
   extends Modelica.Icons.Package;

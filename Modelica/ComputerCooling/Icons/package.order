@@ -3,7 +3,7 @@ MoistAirConnectorIcon
 BaseClassesIcons
 BoundaryConditionsIcon
 MoistAirComponentsIcon
-OnePhaseLiquidComponentsIcon
+IncompressibleLiquidComponentsIcon
 LFlowControlIcon
 PumpsIcon
 SolidIcon

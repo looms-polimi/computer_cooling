@@ -1,4 +1,4 @@
-within ComputerCooling.OnePhaseLiquidComponents.Transfer.Junctions;
+within ComputerCooling.IncompressibleLiquidComponents.Transfer.Junctions;
 
 model JunctionT
   ComputerCooling.Interfaces.pwh pwh_a annotation(
@@ -15,11 +15,11 @@ model JunctionT
   parameter MassFlowRate w_nom_a = 0.1 "Nominal flow entering connector a (N)";
   parameter MassFlowRate w_nom_b = 0.1 "Nominal flow entering connector b (W)";
   parameter MassFlowRate w_nom_c = 0.1 "Nominal flow entering connector c (E)";
-  ComputerCooling.OnePhaseLiquidComponents.FlowControl.PressureDrops.DpLinear_NominalPoint dpLin_a(dp_nom = dp_nom_a, w_nom = w_nom_a) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.FlowControl.PressureDrops.DpLinear_NominalPoint dpLin_a(dp_nom = dp_nom_a, w_nom = w_nom_a) annotation(
     Placement(visible = true, transformation(origin = {0, 60}, extent = {{-20, -20}, {20, 20}}, rotation = -90)));
-  ComputerCooling.OnePhaseLiquidComponents.FlowControl.PressureDrops.DpLinear_NominalPoint dpLin_b(dp_nom = dp_nom_b, w_nom = w_nom_b) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.FlowControl.PressureDrops.DpLinear_NominalPoint dpLin_b(dp_nom = dp_nom_b, w_nom = w_nom_b) annotation(
     Placement(visible = true, transformation(origin = {-40, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.FlowControl.PressureDrops.DpLinear_NominalPoint dpLin_c(dp_nom = dp_nom_c, w_nom = w_nom_c) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.FlowControl.PressureDrops.DpLinear_NominalPoint dpLin_c(dp_nom = dp_nom_c, w_nom = w_nom_c) annotation(
     Placement(visible = true, transformation(origin = {40, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
 protected
   parameter Real kab = if junctionTFlow == JunctionTFlow.DoubleBranching then 2 else if junctionTFlow == JunctionTFlow.SimpleBranching_bOut then 0.001 else if junctionTFlow == JunctionTFlow.SimpleBranching_cOut then -0.8 else if junctionTFlow == JunctionTFlow.SimpleConfluence_bIn then -0.001 else if junctionTFlow == JunctionTFlow.SimpleConfluence_cIn then 0.4 else if junctionTFlow == JunctionTFlow.DoubleConfluence then -0.5 else 0;

@@ -1,4 +1,4 @@
-within ComputerCooling.OnePhaseLiquidComponents.FlowControl.Pressurisers;
+within ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pressurisers;
 
 model ExpansionVessel
   ComputerCooling.Interfaces.pwh pwh_a annotation(

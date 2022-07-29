@@ -1,7 +1,7 @@
-within ComputerCooling.OnePhaseLiquidComponents.Storage;
+within ComputerCooling.IncompressibleLiquidComponents.Storage;
 
 model Header
-  extends OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_HP;
+  extends IncompressibleLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_HP;
   
   replaceable model medium = Media.SubCooledWater_Incompressible;
   medium m;

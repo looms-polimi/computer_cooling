@@ -1,4 +1,4 @@
-within ComputerCooling.OnePhaseLiquidComponents.BaseClasses;
+within ComputerCooling.IncompressibleLiquidComponents.BaseClasses;
 
 partial model TwoPorts_pwh_OnePort_HP
   ComputerCooling.Interfaces.pwh pwh_a annotation(

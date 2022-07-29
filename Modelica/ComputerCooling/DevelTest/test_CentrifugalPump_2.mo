@@ -2,15 +2,15 @@ within ComputerCooling.DevelTest;
 
 model test_CentrifugalPump_2
   extends Icons.TestModel;
-  ComputerCooling.OnePhaseLiquidComponents.FlowControl.Pumps.CentrifugalPump centrifugalPump(dp_nom = 99999.99999999999, w_nom = 1) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pumps.CentrifugalPump centrifugalPump(dp_nom = 99999.99999999999, w_nom = 1) annotation(
     Placement(visible = true, transformation(origin = {-14, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression cmd(y = 1) annotation(
     Placement(visible = true, transformation(origin = {-82, 32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_pT src(p = 99999.99999999999) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryFixed_pT src(p = 99999.99999999999) annotation(
     Placement(visible = true, transformation(origin = {-120, -1.77636e-15}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.FlowControl.PressureDrops.DpLinear_NominalPoint dp_downstream(w_nom = 1) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.FlowControl.PressureDrops.DpLinear_NominalPoint dp_downstream(w_nom = 1) annotation(
     Placement(visible = true, transformation(origin = {60, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_pT snk(p = 99999.99999999999) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryFixed_pT snk(p = 99999.99999999999) annotation(
     Placement(visible = true, transformation(origin = {142, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
 equation
   connect(centrifugalPump.pwh_b, dp_downstream.pwh_a) annotation(

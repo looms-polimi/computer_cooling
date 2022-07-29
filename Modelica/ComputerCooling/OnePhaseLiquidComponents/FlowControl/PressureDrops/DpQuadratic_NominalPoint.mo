@@ -1,8 +1,8 @@
-within ComputerCooling.OnePhaseLiquidComponents.FlowControl.PressureDrops;
+within ComputerCooling.IncompressibleLiquidComponents.FlowControl.PressureDrops;
 
 model DpQuadratic_NominalPoint
   extends Icons.PressureDropsIcon;
-  extends OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh;
+  extends IncompressibleLiquidComponents.BaseClasses.TwoPorts_pwh;
   
   parameter PressureDifference dp_nom = 1e5;
   parameter MassFlowRate w_nom = 0.1;

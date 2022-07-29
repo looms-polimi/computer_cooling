@@ -1,7 +1,7 @@
-within ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.BaseClasses;
+within ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts.BaseClasses;
 
 model cylindrical_duct_with_one_wall
-extends OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_VHP(massStorage=true);
+extends IncompressibleLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_VHP(massStorage=true);
 
 
   parameter Length             D          = 0.005 "stream diameter";

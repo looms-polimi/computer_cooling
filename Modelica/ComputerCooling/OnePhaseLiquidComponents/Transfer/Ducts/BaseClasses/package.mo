@@ -1,4 +1,4 @@
-within ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts;
+within ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts;
 
 package BaseClasses
   extends Modelica.Icons.Package;

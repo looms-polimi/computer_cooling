@@ -1,4 +1,4 @@
-within ComputerCooling.OnePhaseLiquidComponents;
+within ComputerCooling.IncompressibleLiquidComponents;
 
 package FlowControl
   extends Modelica.Icons.Package;

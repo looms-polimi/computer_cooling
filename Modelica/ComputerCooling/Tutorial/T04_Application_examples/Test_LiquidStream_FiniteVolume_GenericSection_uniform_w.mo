@@ -3,13 +3,13 @@ within ComputerCooling.Tutorial.T04_Application_examples;
 model Test_LiquidStream_FiniteVolume_GenericSection_uniform_w
   Modelica.Blocks.Sources.RealExpression win(y = 0.5 / 60)  annotation(
     Placement(visible = true, transformation(origin = {-130, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryPrescribed_pT snk annotation(
+  ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryPrescribed_pT snk annotation(
     Placement(visible = true, transformation(origin = {50, -10}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression psnk(y = 1e5) annotation(
     Placement(visible = true, transformation(origin = {108, 26}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression Tsnk(y = 273.15 + 20) annotation(
     Placement(visible = true, transformation(origin = {104, -22}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w lstream(dp_nom = 20000, w_nom = 0.5 / 60)  annotation(
+  IncompressibleLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w lstream(dp_nom = 20000, w_nom = 0.5 / 60)  annotation(
     Placement(visible = true, transformation(origin = {-2, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression Tin(y = 273.15 + 20) annotation(
     Placement(visible = true, transformation(origin = {-130, -32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -17,7 +17,7 @@ model Test_LiquidStream_FiniteVolume_GenericSection_uniform_w
     Placement(visible = true, transformation(origin = {-50, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression P(y = 10) annotation(
     Placement(visible = true, transformation(origin = {-130, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryPrescribed_wT src annotation(
+  ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryPrescribed_wT src annotation(
     Placement(visible = true, transformation(origin = {-50, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(snk.T, Tsnk.y) annotation(

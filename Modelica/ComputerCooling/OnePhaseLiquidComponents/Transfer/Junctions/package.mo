@@ -1,4 +1,4 @@
-within ComputerCooling.OnePhaseLiquidComponents.Transfer;
+within ComputerCooling.IncompressibleLiquidComponents.Transfer;
 
 package Junctions
   extends Modelica.Icons.Package;

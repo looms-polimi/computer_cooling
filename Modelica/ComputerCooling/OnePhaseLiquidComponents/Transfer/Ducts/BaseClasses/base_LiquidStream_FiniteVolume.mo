@@ -1,7 +1,7 @@
-within ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.BaseClasses;
+within ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts.BaseClasses;
 
 partial model base_LiquidStream_FiniteVolume
-  extends OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_VHP(massStorage=true);
+  extends IncompressibleLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_VHP(massStorage=true);
 
   parameter Length             L          = 1 "stream length";
   parameter Area               Ac         = 5*0.001*0.003+0.005*0.002 "stream cross area";

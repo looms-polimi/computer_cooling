@@ -1,7 +1,7 @@
-within ComputerCooling.OnePhaseLiquidComponents.FlowControl.Pumps;
+within ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pumps;
 
 model VolumetricPump
-  extends OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh(final pbhi = true);
+  extends IncompressibleLiquidComponents.BaseClasses.TwoPorts_pwh(final pbhi = true);
   replaceable model medium = Media.SubCooledWater_Incompressible;
   medium m;
   

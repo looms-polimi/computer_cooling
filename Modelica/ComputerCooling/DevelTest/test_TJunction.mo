@@ -3,17 +3,17 @@ within ComputerCooling.DevelTest;
 model test_TJunction
   extends Icons.TestModel;
   
-  OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_wT src_b(w = 0.2) annotation(
+  IncompressibleLiquidComponents.BoundaryConditions.BoundaryFixed_wT src_b(w = 0.2) annotation(
     Placement(visible = true, transformation(origin = {-80, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  OnePhaseLiquidComponents.Transfer.Junctions.JunctionT junctionT(junctionTFlow = ComputerCooling.OnePhaseLiquidComponents.Transfer.Junctions.JunctionT.JunctionTFlow.SimpleConfluence_cIn, w_nom_a = 1, w_nom_b = 0.2, w_nom_c = -1.2) annotation(
+  IncompressibleLiquidComponents.Transfer.Junctions.JunctionT junctionT(junctionTFlow = ComputerCooling.IncompressibleLiquidComponents.Transfer.Junctions.JunctionT.JunctionTFlow.SimpleConfluence_cIn, w_nom_a = 1, w_nom_b = 0.2, w_nom_c = -1.2) annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_pT snk_c(p(displayUnit = "Pa") = -1) annotation(
+  IncompressibleLiquidComponents.BoundaryConditions.BoundaryFixed_pT snk_c(p(displayUnit = "Pa") = -1) annotation(
     Placement(visible = true, transformation(origin = {80, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression w(y = sin(0.1 * time)) annotation(
     Placement(visible = true, transformation(origin = {-90, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression T(y = 273.15 + 20) annotation(
     Placement(visible = true, transformation(origin = {-90, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryPrescribed_wT boundaryPrescribed_wT annotation(
+  ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryPrescribed_wT boundaryPrescribed_wT annotation(
     Placement(visible = true, transformation(origin = {-40, 60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 equation
   connect(src_b.pwh_a, junctionT.pwh_b) annotation(

@@ -1,7 +1,7 @@
-within ComputerCooling.OnePhaseLiquidComponents.Storage;
+within ComputerCooling.IncompressibleLiquidComponents.Storage;
 
 model VentedTank
-  extends OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_HP(massStorage=true);
+  extends IncompressibleLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_HP(massStorage=true);
 
   replaceable model medium = Media.SubCooledWater_Incompressible;
   medium m;

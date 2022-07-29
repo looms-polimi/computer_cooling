@@ -1,4 +1,4 @@
-within ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts;
+within ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts;
 
 model Tube_1D_cylindrical_uniform_w
 
@@ -12,7 +12,7 @@ model Tube_1D_cylindrical_uniform_w
   ComputerCooling.HeatTransfer.StreamSeparators.TubeWall_FiniteVolume_cylindrical_MultiL wall( 
   redeclare replaceable record materialRecord = materialRecord,L = L, TStart = TStart, di = Dstream, l = l, n = n, t = t) annotation(
     Placement(visible = true, transformation(origin = {0, 20}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w liquidStream(L = L, Ac=Modelica.Constants.pi*Dstream^2/4,per=Modelica.Constants.pi*Dstream, w_nom = w_nom, dp_nom = dp_nom, TStart = TStart, n = n, fluidHeats = fluidHeats, gamma_corr=gammai_corr,
+  ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w liquidStream(L = L, Ac=Modelica.Constants.pi*Dstream^2/4,per=Modelica.Constants.pi*Dstream, w_nom = w_nom, dp_nom = dp_nom, TStart = TStart, n = n, fluidHeats = fluidHeats, gamma_corr=gammai_corr,
   redeclare replaceable model medium = medium,
   redeclare replaceable model HTCoefficient = HTCoefficient) annotation(
     Placement(visible = true, transformation(origin = {0, -40}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));

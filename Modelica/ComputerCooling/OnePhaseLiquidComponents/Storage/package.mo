@@ -1,4 +1,4 @@
-within ComputerCooling.OnePhaseLiquidComponents;
+within ComputerCooling.IncompressibleLiquidComponents;
 
 package Storage
   extends Modelica.Icons.Package;

@@ -1,7 +1,7 @@
-within ComputerCooling.OnePhaseLiquidComponents.Transfer;
+within ComputerCooling.IncompressibleLiquidComponents.Transfer;
 
 model WaterBlock_GenericSection_uniform_w
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w channels[m](redeclare each model medium = medium, redeclare each model HTCoefficient = HTCoefficient,each  L = L, each n=n, each Ac=Ac/m,each per=per/m, each TStart = TStart,each  dp_nom = dp_nom, each fluidHeats = false, each  w_nom = w_nom / m) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w channels[m](redeclare each model medium = medium, redeclare each model HTCoefficient = HTCoefficient,each  L = L, each n=n, each Ac=Ac/m,each per=per/m, each TStart = TStart,each  dp_nom = dp_nom, each fluidHeats = false, each  w_nom = w_nom / m) annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
   parameter Integer            m          = 4 "number of liquid channels";

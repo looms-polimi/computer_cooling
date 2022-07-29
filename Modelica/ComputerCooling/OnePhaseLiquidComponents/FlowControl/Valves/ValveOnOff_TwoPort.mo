@@ -1,7 +1,7 @@
-within ComputerCooling.OnePhaseLiquidComponents.FlowControl.Valves;
+within ComputerCooling.IncompressibleLiquidComponents.FlowControl.Valves;
 
 model ValveOnOff_TwoPort
-  extends OnePhaseLiquidComponents.BaseClasses.TwoPorts_pwh;
+  extends IncompressibleLiquidComponents.BaseClasses.TwoPorts_pwh;
   
   parameter PressureDifference dp_nom = 5e4 "nominal pressure difference at w_nom and cmd = 1";
   parameter MassFlowRate w_nom = 1 "nominal mass flow rate at dp_nom and cmd = 1";

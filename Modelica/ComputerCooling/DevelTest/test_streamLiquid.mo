@@ -2,13 +2,13 @@ within ComputerCooling.DevelTest;
 
 model test_streamLiquid
   extends Icons.TestModel;
-  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_pT boundaryFixed_pT(p(displayUnit = "bar") = 110000) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryFixed_pT boundaryFixed_pT(p(displayUnit = "bar") = 110000) annotation(
     Placement(visible = true, transformation(origin = {-80, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_wT snk(w = -0.1)  annotation(
+  ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryFixed_wT snk(w = -0.1)  annotation(
     Placement(visible = true, transformation(origin = {71, -1}, extent = {{-19, -19}, {19, 19}}, rotation = 180)));
   Modelica.Blocks.Sources.RealExpression iPcpu(y = 273.15 + 30 + 5 * sin(0.1 * time)) annotation(
     Placement(visible = true, transformation(origin = {-72, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_Cylindrical liquidStream_FiniteVolume_Cylindrical annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_Cylindrical liquidStream_FiniteVolume_Cylindrical annotation(
     Placement(visible = true, transformation(origin = {-7, -1}, extent = {{-21, -21}, {21, 21}}, rotation = 0)));
   HeatSources.Prescribed_Temperature_1D_uniform prescribed_Temperature_1D_uniform annotation(
     Placement(visible = true, transformation(origin = {-34, -46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

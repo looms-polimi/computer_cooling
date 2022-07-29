@@ -1,7 +1,7 @@
-within ComputerCooling.OnePhaseLiquidComponents.Transfer;
+within ComputerCooling.IncompressibleLiquidComponents.Transfer;
 
 model WaterBlock
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D tube_1D[m]( redeclare each replaceable record materialRecord = materialRecord, redeclare each replaceable model medium = medium, redeclare each replaceable model HTCoefficient = HTCoefficient, each Dstream = D,each  L = L, each TStart = TStart,each  W = 3.14 * D,each  dp_nom = dp_nom,each  dz = 0, each fluidHeats = false, each n = n,each  t = t,each  w_nom = w_nom / m) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts.Tube_1D tube_1D[m]( redeclare each replaceable record materialRecord = materialRecord, redeclare each replaceable model medium = medium, redeclare each replaceable model HTCoefficient = HTCoefficient, each Dstream = D,each  L = L, each TStart = TStart,each  W = 3.14 * D,each  dp_nom = dp_nom,each  dz = 0, each fluidHeats = false, each n = n,each  t = t,each  w_nom = w_nom / m) annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   parameter Integer m = 5 "number of liquid channels";
   parameter Length D = 0.005 "one channel diameter";

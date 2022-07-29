@@ -1,4 +1,4 @@
-within ComputerCooling.OnePhaseLiquidComponents;
+within ComputerCooling.IncompressibleLiquidComponents;
 
 package BaseClasses
   extends Modelica.Icons.Package;

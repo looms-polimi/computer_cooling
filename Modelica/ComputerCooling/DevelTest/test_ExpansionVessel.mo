@@ -3,17 +3,17 @@ within ComputerCooling.DevelTest;
 model test_ExpansionVessel
   extends Icons.TestModel;
   
-  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryPrescribed_wT src annotation(
+  ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryPrescribed_wT src annotation(
     Placement(visible = true, transformation(origin = {-80, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression w(y = 12 - 0.1 * time) annotation(
     Placement(visible = true, transformation(origin = {-130, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression T(y = 273.15 + 10 * time) annotation(
     Placement(visible = true, transformation(origin = {-130, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.FlowControl.PressureDrops.DpLinear_NominalPoint dp_exit(dp_nom = 98099.99999999999, w_nom = 0.1) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.FlowControl.PressureDrops.DpLinear_NominalPoint dp_exit(dp_nom = 98099.99999999999, w_nom = 0.1) annotation(
     Placement(visible = true, transformation(origin = {40, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryFixed_pT snk(T = 274.15, p(displayUnit = "Pa") = -1) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryFixed_pT snk(T = 274.15, p(displayUnit = "Pa") = -1) annotation(
     Placement(visible = true, transformation(origin = {100, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.FlowControl.Pressurisers.ExpansionVessel expansionVessel annotation(
+  ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pressurisers.ExpansionVessel expansionVessel annotation(
     Placement(visible = true, transformation(origin = {-20, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 equation
   connect(dp_exit.pwh_b, snk.pwh_a) annotation(
