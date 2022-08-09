@@ -3,7 +3,7 @@ within ComputerCooling.Tutorial.T04_Application_examples;
 model Test_waterblock_uniform_w
   Modelica.Blocks.Sources.RealExpression win(y = 0.6 / 60)  annotation(
     Placement(visible = true, transformation(origin = {-130, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryPrescribed_pT snk annotation(
+  ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryPrescribed_pT snk annotation(
     Placement(visible = true, transformation(origin = {50, -10}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression psnk(y = 1e5) annotation(
     Placement(visible = true, transformation(origin = {108, 26}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
@@ -11,11 +11,11 @@ model Test_waterblock_uniform_w
     Placement(visible = true, transformation(origin = {104, -22}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression Tin(y = 273.15 + 20) annotation(
     Placement(visible = true, transformation(origin = {-130, -32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.BoundaryConditions.BoundaryPrescribed_wT src annotation(
+  ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryPrescribed_wT src annotation(
     Placement(visible = true, transformation(origin = {-50, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.WaterBlock_GenericSection_uniform_w wb annotation(
+  ComputerCooling.IncompressibleLiquidComponents.WaterBlocks.WaterBlock_GenericSection_uniform_w wb annotation(
     Placement(visible = true, transformation(origin = {0, -10}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  HeatSources.HeatSource_Power_2D_uniform pwr(cols = 4, rows = 5) annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_2D_uniform pwr(cols = 4, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {-34, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression P(y = 80 + 20 * sin(time)) annotation(
     Placement(visible = true, transformation(origin = {-130, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

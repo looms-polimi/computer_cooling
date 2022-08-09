@@ -1,29 +1,11 @@
 package ComputerCooling
 extends Modelica.Icons.Package;
 import Modelica.SIunits.*;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+       
+       
+       
+        
+         
 
   annotation(
     uses(Modelica(version = "3.2.3")),

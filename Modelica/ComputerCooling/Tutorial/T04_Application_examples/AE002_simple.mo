@@ -1,25 +1,25 @@
 within ComputerCooling.Tutorial.T04_Application_examples;
 
 model AE002_simple
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D tube1(W = 0.015, dp_nom = 7000, w_nom = 0.25)  annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D tube1(W = 0.015, dp_nom = 7000, w_nom = 0.25)  annotation(
     Placement(visible = true, transformation(origin = {-50, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.FlowControl.Pumps.CentrifugalPump pump1(dp_nom = 20000, w_nom = 0.5)  annotation(
+  ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pumps.CentrifugalPump pump1(dp_nom = 20000, w_nom = 0.5)  annotation(
     Placement(visible = true, transformation(origin = {-90, -10}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.WaterBlock waterblock1(D = 0.0005, L = 0.04, W = 0.04,dp_nom = 999.9999999999999, w_nom = 0.25)  annotation(
+  ComputerCooling.IncompressibleLiquidComponents.WaterBlocks.WaterBlock waterblock1(D = 0.0005, L = 0.04, W = 0.04,dp_nom = 999.9999999999999, w_nom = 0.25)  annotation(
     Placement(visible = true, transformation(origin = {10, -10}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.HeatSources.HeatSource_Power_2D_uniform power1(cols = 5, rows = 3)  annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_2D_uniform power1(cols = 5, rows = 3)  annotation(
     Placement(visible = true, transformation(origin = {22, 18}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression DTsp(y = 0.3) annotation(
     Placement(visible = true, transformation(origin = {-170, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression P(y = 100)  annotation(
     Placement(visible = true, transformation(origin = {70, 18}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D radiator(L = 3, W = 0.015,dp_nom = 7000, fluidHeats = true, n = 10, w_nom = 0.25)  annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D radiator(L = 3, W = 0.015,dp_nom = 7000, fluidHeats = true, n = 10, w_nom = 0.25)  annotation(
     Placement(visible = true, transformation(origin = {-70, 30}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  ComputerCooling.HeatSources.HeatSource_Temperature_1D amb(R = 0.5, n = 10)  annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Temperature_1D_uniform amb(R = 0.5, n = 10)  annotation(
     Placement(visible = true, transformation(origin = {-110, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression Tamb(y = 293.15)  annotation(
     Placement(visible = true, transformation(origin = {-150, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.FlowControl.Pressurisers.ExpansionVessel expansionVessel(V = 0.001)  annotation(
+  ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pressurisers.ExpansionVessel expansionVessel(V = 0.001)  annotation(
     Placement(visible = true, transformation(origin = {-148, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.Sensors.TemperatureDifferenceSensor_liquid DTwb1 annotation(
     Placement(visible = true, transformation(origin = {10, -30}, extent = {{10, 10}, {-10, -10}}, rotation = 0)));

@@ -17,8 +17,8 @@ model test_fan_Axial
     Placement(visible = true, transformation(origin = {60, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression iPh(y = 2500 + 1000 * time * sin(time)) annotation(
     Placement(visible = true, transformation(origin = {-70, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.HeatSources.HeatSource_Power heatSource_Power(n = 1)  annotation(
-    Placement(visible = true, transformation(origin = {-30, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HeatTransfer.BoundaryConditions.Prescribed_Power_0D prescribed_Power_0D annotation(
+    Placement(visible = true, transformation(origin = {-32, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(cmd.y, axial.cmd01) annotation(
     Line(points = {{-99, 30}, {-93, 30}, {-93, 16}, {-85, 16}}, color = {0, 0, 127}));
@@ -30,9 +30,9 @@ equation
     Line(points = {{24, 0}, {36, 0}}));
   connect(dpLinear_NominalPoint.pwhx_b, snk.pwhx_a) annotation(
     Line(points = {{84, 0}, {100, 0}}));
-  connect(heatSource_Power.hp, tank.hp) annotation(
-    Line(points = {{-18, -50}, {0, -50}, {0, -16}}));
-  connect(iPh.y, heatSource_Power.P) annotation(
-    Line(points = {{-58, -50}, {-42, -50}}, color = {0, 0, 127}));
+  connect(tank.hp, prescribed_Power_0D.hp) annotation(
+    Line(points = {{0, -16}, {-20, -16}, {-20, -50}}, color = {191, 0, 0}));
+  connect(prescribed_Power_0D.P_input, iPh.y) annotation(
+    Line(points = {{-44, -50}, {-58, -50}}, color = {0, 0, 127}));
 protected
 end test_fan_Axial;

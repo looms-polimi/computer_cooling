@@ -1,53 +1,53 @@
 within ComputerCooling.Tutorial.T04_Application_examples;
 
 model AE004_example_controlled_circuit_01
-  ComputerCooling.OnePhaseLiquidComponents.FlowControl.Pumps.CentrifugalPump pump1(w_nom = 0.5 / 60)  annotation(
+  ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pumps.CentrifugalPump pump1(w_nom = 0.5 / 60)  annotation(
     Placement(visible = true, transformation(origin = {-130, 30}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.HeatSources.HeatSource_Power_2D_uniform cpu1(cols = 4, rows = 5)  annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_2D_uniform cpu1(cols = 4, rows = 5)  annotation(
     Placement(visible = true, transformation(origin = {90, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression P1(y = 100)  annotation(
     Placement(visible = true, transformation(origin = {42, -40}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.HeatSources.HeatSource_Temperature_1D amb(R = 0.05)  annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Temperature_1D_uniform amb(R = 0.05)  annotation(
     Placement(visible = true, transformation(origin = {-190, 148}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression Tamb(y = 293.15)  annotation(
     Placement(visible = true, transformation(origin = {-232, 148}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Storage.VentedTank tank(H = 0.2, V = 0.001)  annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Storage.VentedTank tank(H = 0.2, V = 0.001)  annotation(
     Placement(visible = true, transformation(origin = {-232, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.WaterBlock_GenericSection_uniform_w wb1 annotation(
+  ComputerCooling.IncompressibleLiquidComponents.WaterBlocks.WaterBlock_GenericSection_uniform_w wb1 annotation(
     Placement(visible = true, transformation(origin = {110, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w duct1(Ac = 0.003 ^ 2, L = 1, dp_nom = 49999.99999999999, per = 4 * 0.003, w_nom = 0.5 / 60)  annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.FluidStream.LiquidStream_FiniteVolume_GenericSection_uniform_w duct1(Ac = 0.003 ^ 2, L = 1, dp_nom = 49999.99999999999, per = 4 * 0.003, w_nom = 0.5 / 60)  annotation(
     Placement(visible = true, transformation(origin = {-90, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression realExpression(y = 0.5) annotation(
     Placement(visible = true, transformation(origin = {-244, -42}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.WaterBlock_GenericSection_uniform_w wb2 annotation(
+  ComputerCooling.IncompressibleLiquidComponents.WaterBlocks.WaterBlock_GenericSection_uniform_w wb2 annotation(
     Placement(visible = true, transformation(origin = {150, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.WaterBlock_GenericSection_uniform_w wb3 annotation(
+  ComputerCooling.IncompressibleLiquidComponents.WaterBlocks.WaterBlock_GenericSection_uniform_w wb3 annotation(
     Placement(visible = true, transformation(origin = {190, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.FlowControl.Pumps.CentrifugalPump pump2(w_nom = 0.5 / 60)  annotation(
+  ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pumps.CentrifugalPump pump2(w_nom = 0.5 / 60)  annotation(
     Placement(visible = true, transformation(origin = {-130, 10}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.FlowControl.Pumps.CentrifugalPump pump3(w_nom = 0.5 / 60)  annotation(
+  ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pumps.CentrifugalPump pump3(w_nom = 0.5 / 60)  annotation(
     Placement(visible = true, transformation(origin = {-130, -10}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w duct2(Ac = 0.003 ^ 2, L = 1, dp_nom = 49999.99999999999, per = 4 * 0.003, w_nom = 0.5 / 60) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.FluidStream.LiquidStream_FiniteVolume_GenericSection_uniform_w duct2(Ac = 0.003 ^ 2, L = 1, dp_nom = 49999.99999999999, per = 4 * 0.003, w_nom = 0.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {-90, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w duct3(Ac = 0.003 ^ 2, L = 1, dp_nom = 49999.99999999999, per = 4 * 0.003, w_nom = 0.5 / 60) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.FluidStream.LiquidStream_FiniteVolume_GenericSection_uniform_w duct3(Ac = 0.003 ^ 2, L = 1, dp_nom = 49999.99999999999, per = 4 * 0.003, w_nom = 0.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {-90, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_GenericSection_uniform_w duct123(Ac = 0.006 ^ 2, L = 2, dp_nom = 20000, n = 3, per = 4 * 0.006, w_nom = 1.5 / 60) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.FluidStream.LiquidStream_FiniteVolume_GenericSection_uniform_w duct123(Ac = 0.006 ^ 2, L = 2, dp_nom = 20000, n = 3, per = 4 * 0.006, w_nom = 1.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {-190, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.HeatSources.HeatSource_Power_2D_uniform cpu2(cols = 4, rows = 5) annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_2D_uniform cpu2(cols = 4, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {130, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression P2(y = 100) annotation(
     Placement(visible = true, transformation(origin = {62, -50}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.HeatSources.HeatSource_Power_2D_uniform cpu3(cols = 4, rows = 5) annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_2D_uniform cpu3(cols = 4, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {170, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression P3(y = 100) annotation(
     Placement(visible = true, transformation(origin = {82, -60}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D_cylindrical_uniform_w radiator1(Dstream = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60)  annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D_cylindrical_uniform_w radiator1(Dstream = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60)  annotation(
     Placement(visible = true, transformation(origin = {-150, 130}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   ComputerCooling.Sensors.TemperatureSensor_liquid sTwbo(unitCelsius = true)  annotation(
     Placement(visible = true, transformation(origin = {220, -92}, extent = {{-10, 10}, {10, -10}}, rotation = -90)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D_cylindrical_uniform_w radiator2(Dstream = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D_cylindrical_uniform_w radiator2(Dstream = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {-130, 110}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  ComputerCooling.OnePhaseLiquidComponents.Transfer.Ducts.Tube_1D_cylindrical_uniform_w radiator3(Dstream = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D_cylindrical_uniform_w radiator3(Dstream = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {-110, 90}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   ComputerCooling.Sensors.TemperatureSensor_liquid sTro(unitCelsius = true) annotation(
     Placement(visible = true, transformation(origin = {-180, 66}, extent = {{-10, 10}, {10, -10}}, rotation = -90)));
