@@ -3,7 +3,6 @@ MoistAirConnectorIcon
 BaseClassesIcons
 BoundaryConditionsIcon
 MoistAirComponentsIcon
-OnePhaseLiquidComponentsIcon
 LFlowControlIcon
 PumpsIcon
 SolidIcon
@@ -29,3 +28,4 @@ BlocksPackage
 AnalogueController200x200
 AnaloguePackage
 DigitalPackage
+IncompressibleLiquidComponentsIcon

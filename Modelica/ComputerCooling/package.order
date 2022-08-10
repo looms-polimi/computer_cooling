@@ -5,7 +5,7 @@ Interfaces
 SolidMaterials
 Media
 SolidComponents
-OnePhaseLiquidComponents
+IncompressibleLiquidComponents
 IdealGasComponents
 MoistAirComponents
 HeatTransfer
