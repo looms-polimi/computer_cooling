@@ -1,6 +1,6 @@
 within ComputerCooling.IncompressibleLiquidComponents;
 
-package Transfer
+package Ducts
   extends Modelica.Icons.Package;
   extends Icons.DuctIcon;
-end Transfer;
+end Ducts;

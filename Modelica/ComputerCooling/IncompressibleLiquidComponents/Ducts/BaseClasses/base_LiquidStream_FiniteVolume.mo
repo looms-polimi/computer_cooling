@@ -1,6 +1,6 @@
-within ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts.BaseClasses;
+within ComputerCooling.IncompressibleLiquidComponents.Ducts.BaseClasses;
 
-partial model base_LiquidStream_FiniteVolume "strem of incompressible liquid"
+partial model base_LiquidStream_FiniteVolume "stream of incompressible liquid"
   extends IncompressibleLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_VHP(massStorage=true);
 
   parameter Length             L          = 1 "stream length";
@@ -11,6 +11,7 @@ partial model base_LiquidStream_FiniteVolume "strem of incompressible liquid"
   parameter PressureDifference dp_nom     = 1000 "nominal friction pressure drop";
   parameter Temperature        TStart     = 273.15 + 20 "initial temperature";
   parameter Boolean            fluidHeats = false "stream (nominally) heats the outside";
+  parameter Real gamma_corr = 1 "multiplicative correction on ccht";
   
   /* liquid model (one per lump) */
   replaceable model medium = Media.SubCooledWater_Incompressible
@@ -21,7 +22,7 @@ partial model base_LiquidStream_FiniteVolume "strem of incompressible liquid"
   replaceable model HTCoefficient = HeatTransfer.HeatTransferModels.DittusBoelter
               constrainedby HeatTransfer.BaseClasses.base_HeatTransfer_pwh;
   HTCoefficient HT[n] (redeclare replaceable model medium = medium,
-                       each D = Ac/per,                                 //?
+                       each D = Ac/per,                                
                        each fluidHeats = fluidHeats);    
                        
   Temperature Tst[n](each start = TStart,each fixed=true);  

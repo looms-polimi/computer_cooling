@@ -3,4 +3,6 @@ BaseClasses
 BoundaryConditions
 FlowControl
 Storage
-Transfer
+Ducts
+Junctions
+WaterBlocks

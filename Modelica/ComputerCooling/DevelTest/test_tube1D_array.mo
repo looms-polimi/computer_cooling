@@ -2,23 +2,23 @@ within ComputerCooling.DevelTest;
 
 model test_tube1D_array
   extends Icons.TestModel;
-  //  IncompressibleLiquidComponents.Transfer.Ducts.Tube_1D tube_1D[3](each n = 5) annotation(
+  //  IncompressibleLiquidComponents.Ducts.Tube_1D tube_1D[3](each n = 5) annotation(
   //    Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression iPh(y = 100 * (1 + 100 * sin(0.1 * time))) annotation(
     Placement(visible = true, transformation(origin = {-110, 90}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.HeatSources.Prescribed_Power_1D_uniform heatSrc(n = 5) annotation(
     Placement(visible = true, transformation(origin = {-50, 90}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts.Tube_1D tube_1D(n = 5) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D tube_1D(n = 5) annotation(
     Placement(visible = true, transformation(origin = {0, 60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryFixed_pT boundaryFixed_pT(p (displayUnit = "Pa") = 105000)  annotation(
     Placement(visible = true, transformation(origin = {-140, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryFixed_pT boundaryFixed_pT1(p(displayUnit = "Pa") ) annotation(
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
-  ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts.Tube_1D tube_1D1(n = 5) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D tube_1D1(n = 5) annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.HeatSources.Prescribed_Power_1D_uniform heatSource_Power(n = 5) annotation(
     Placement(visible = true, transformation(origin = {-50, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts.Tube_1D tube_1D2(n = 5) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D tube_1D2(n = 5) annotation(
     Placement(visible = true, transformation(origin = {0, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.HeatSources.Prescribed_Power_1D_uniform heatSource_Power1(n = 5) annotation(
     Placement(visible = true, transformation(origin = {-50, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

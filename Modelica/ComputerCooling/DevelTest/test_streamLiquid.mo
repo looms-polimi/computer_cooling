@@ -10,7 +10,7 @@ model test_streamLiquid
     Placement(visible = true, transformation(origin = {-72, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.HeatSources.Prescribed_Temperature_1D_uniform prescribed_Temperature_1D_uniform annotation(
     Placement(visible = true, transformation(origin = {-30, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts.LiquidStream_FiniteVolume_Cylindrical liquidStream_FiniteVolume_Cylindrical annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.LiquidStream_FiniteVolume_Cylindrical liquidStream_FiniteVolume_Cylindrical annotation(
     Placement(visible = true, transformation(origin = {-6, 8.88178e-16}, extent = {{-22, -22}, {22, 22}}, rotation = 0)));
 equation
   connect(boundaryFixed_pT.pwh_a, liquidStream_FiniteVolume_Cylindrical.pwh_a) annotation(

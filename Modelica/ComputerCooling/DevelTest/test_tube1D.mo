@@ -13,7 +13,7 @@ model test_tube1D
     Placement(visible = true, transformation(origin = {80, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 180)));
   ComputerCooling.HeatSources.Prescribed_Temperature_1D_uniform prescribed_Temperature_1D_uniform(R = 0, n = 3)  annotation(
     Placement(visible = true, transformation(origin = {-28, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts.Tube_1D_cylindrical tube_1D_cylindrical annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D_cylindrical tube_1D_cylindrical annotation(
     Placement(visible = true, transformation(origin = {-5, -1}, extent = {{-21, -21}, {21, 21}}, rotation = 0)));
 equation
   connect(iPh.y, prescribed_Temperature_1D_uniform.T_input) annotation(

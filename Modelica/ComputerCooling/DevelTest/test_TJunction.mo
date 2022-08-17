@@ -5,7 +5,7 @@ model test_TJunction
   
   IncompressibleLiquidComponents.BoundaryConditions.BoundaryFixed_wT src_b(w = 0.2) annotation(
     Placement(visible = true, transformation(origin = {-80, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  IncompressibleLiquidComponents.Transfer.Junctions.JunctionT junctionT(junctionTFlow = ComputerCooling.IncompressibleLiquidComponents.Transfer.Junctions.JunctionT.JunctionTFlow.SimpleConfluence_cIn, w_nom_a = 1, w_nom_b = 0.2, w_nom_c = -1.2) annotation(
+  IncompressibleLiquidComponents.Junctions.JunctionT junctionT(junctionTFlow = ComputerCooling.IncompressibleLiquidComponents.Junctions.JunctionT.JunctionTFlow.SimpleConfluence_cIn, w_nom_a = 1, w_nom_b = 0.2, w_nom_c = -1.2) annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   IncompressibleLiquidComponents.BoundaryConditions.BoundaryFixed_pT snk_c(p(displayUnit = "Pa") = -1) annotation(
     Placement(visible = true, transformation(origin = {80, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));

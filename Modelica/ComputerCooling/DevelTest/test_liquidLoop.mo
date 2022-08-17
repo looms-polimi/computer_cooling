@@ -8,7 +8,7 @@ model test_liquidLoop
     Placement(visible = true, transformation(origin = {-34, 32}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pumps.CentrifugalPump pump(dp_nom = 49999.99999999999, w_nom = 2) annotation(
     Placement(visible = true, transformation(origin = {26, -48}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts.Tube_1D tube_cold(L = 1, TStart (displayUnit = "K") = 300, W = 3.14 * 0.006 / 2, dp_nom(displayUnit = "bar") = 12500, fluidHeats = true, n = 5, t = 0.0005, w_nom = 0.002) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D tube_cold(L = 1, TStart (displayUnit = "K") = 300, W = 3.14 * 0.006 / 2, dp_nom(displayUnit = "bar") = 12500, fluidHeats = true, n = 5, t = 0.0005, w_nom = 0.002) annotation(
     Placement(visible = true, transformation(origin = {26, 32}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
 equation
   connect(tube_cold.pwh_b, pressuriserIdeal.pwh_a) annotation(

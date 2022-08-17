@@ -1,4 +1,4 @@
-within ComputerCooling.IncompressibleLiquidComponents.Transfer.Junctions;
+within ComputerCooling.IncompressibleLiquidComponents.Junctions;
 
 model JunctionT
   ComputerCooling.Interfaces.pwh pwh_a annotation(

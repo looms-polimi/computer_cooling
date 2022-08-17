@@ -1,11 +1,9 @@
-within ComputerCooling.IncompressibleLiquidComponents.Transfer.Ducts;
+within ComputerCooling.IncompressibleLiquidComponents.Ducts;
 
 model LiquidStream_FiniteVolume_GenericSection
   extends BaseClasses.base_LiquidStream_FiniteVolume;
   
-  
-  parameter Real gamma_corr = 1 "multiplicative correction on ccht";
-  
+
   Mass M(stateSelect=StateSelect.avoid);
  
  
