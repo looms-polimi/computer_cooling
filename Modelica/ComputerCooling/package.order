@@ -10,7 +10,6 @@ IdealGasComponents
 MoistAirComponents
 HeatTransfer
 ThermalMachines
-HeatSources
 Sensors
 ControlBlocks
 DevelTest

@@ -1,4 +1,4 @@
-within ComputerCooling.HeatSources;
+within ComputerCooling.HeatTransfer.BoundaryConditions;
 
 model Fixed_Temperature_1D_uniform
   ComputerCooling.Interfaces.HeatPortVector hp(n = n) annotation(

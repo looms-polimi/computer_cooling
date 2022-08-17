@@ -15,7 +15,7 @@ model test_VentedTank
     Placement(visible = true, transformation(origin = {-90, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.Storage.VentedTank ventedTank(V = 0.005)  annotation(
     Placement(visible = true, transformation(origin = {-30, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.HeatSources.Prescribed_Temperature_0D heatSource_Temperature_0D(R = 2)  annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Temperature_0D heatSource_Temperature_0D(R = 2)  annotation(
     Placement(visible = true, transformation(origin = {-50, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryFixed_pT snk annotation(
     Placement(visible = true, transformation(origin = {100, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));

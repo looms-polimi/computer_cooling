@@ -2,7 +2,7 @@ within ComputerCooling.DevelTest;
 
 model test_coolingCircuit_powerInput
   extends Icons.TestModel;
-  ComputerCooling.HeatSources.Prescribed_Power_1D_uniform heatSource_processor(n = 5) annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_1D_uniform heatSource_processor(n = 5) annotation(
     Placement(visible = true, transformation(origin = {20, -20}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   IncompressibleLiquidComponents.Ducts.Tube_1D tube_hot(L = 0.1, dp_nom(displayUnit = "bar") = 100, n = 5) annotation(
     Placement(visible = true, transformation(origin = {60, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
@@ -10,7 +10,7 @@ model test_coolingCircuit_powerInput
     Placement(visible = true, transformation(origin = {-30, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   IncompressibleLiquidComponents.Ducts.Tube_1D tube_cold(dp_nom = 100, fluidHeats = true, n = 5) annotation(
     Placement(visible = true, transformation(origin = {60, 60}, extent = {{20, 20}, {-20, -20}}, rotation = 0)));
-  ComputerCooling.HeatSources.Prescribed_Temperature_1D_uniform heatSource_cooling(n = 5) annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Temperature_1D_uniform heatSource_cooling(n = 5) annotation(
     Placement(visible = true, transformation(origin = {20, 20}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression temp(y = 273.15 + 20) annotation(
     Placement(visible = true, transformation(origin = {-30, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

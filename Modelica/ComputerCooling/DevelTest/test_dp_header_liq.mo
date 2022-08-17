@@ -19,7 +19,7 @@ model test_dp_header_liq
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression iPh(y = 2500 + 500 * sin(time)) annotation(
     Placement(visible = true, transformation(origin = {-70, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.HeatSources.Prescribed_Power_0D heatSource_Power_0D annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_0D heatSource_Power_0D annotation(
     Placement(visible = true, transformation(origin = {-30, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(src.pwh_a, dp1.pwh_a) annotation(

@@ -1,4 +1,4 @@
-within ComputerCooling.HeatSources;
+within ComputerCooling.HeatTransfer.BoundaryConditions;
 
 model Fixed_Temperature_0D
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a hp annotation(

@@ -8,7 +8,7 @@ model test_streamLiquid
     Placement(visible = true, transformation(origin = {71, -1}, extent = {{-19, -19}, {19, 19}}, rotation = 180)));
   Modelica.Blocks.Sources.RealExpression iPcpu(y = 273.15 + 30 + 5 * sin(0.1 * time)) annotation(
     Placement(visible = true, transformation(origin = {-72, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.HeatSources.Prescribed_Temperature_1D_uniform prescribed_Temperature_1D_uniform annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Temperature_1D_uniform prescribed_Temperature_1D_uniform annotation(
     Placement(visible = true, transformation(origin = {-30, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.Ducts.LiquidStream_FiniteVolume_Cylindrical liquidStream_FiniteVolume_Cylindrical annotation(
     Placement(visible = true, transformation(origin = {-6, 8.88178e-16}, extent = {{-22, -22}, {22, 22}}, rotation = 0)));

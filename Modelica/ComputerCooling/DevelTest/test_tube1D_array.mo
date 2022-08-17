@@ -6,7 +6,7 @@ model test_tube1D_array
   //    Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression iPh(y = 100 * (1 + 100 * sin(0.1 * time))) annotation(
     Placement(visible = true, transformation(origin = {-110, 90}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.HeatSources.Prescribed_Power_1D_uniform heatSrc(n = 5) annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_1D_uniform heatSrc(n = 5) annotation(
     Placement(visible = true, transformation(origin = {-50, 90}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D tube_1D(n = 5) annotation(
     Placement(visible = true, transformation(origin = {0, 60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
@@ -16,11 +16,11 @@ model test_tube1D_array
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D tube_1D1(n = 5) annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.HeatSources.Prescribed_Power_1D_uniform heatSource_Power(n = 5) annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_1D_uniform heatSource_Power(n = 5) annotation(
     Placement(visible = true, transformation(origin = {-50, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D tube_1D2(n = 5) annotation(
     Placement(visible = true, transformation(origin = {0, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.HeatSources.Prescribed_Power_1D_uniform heatSource_Power1(n = 5) annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_1D_uniform heatSource_Power1(n = 5) annotation(
     Placement(visible = true, transformation(origin = {-50, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
 //  for i in 1:3 loop

@@ -1,4 +1,4 @@
-within ComputerCooling.HeatSources;
+within ComputerCooling.HeatTransfer.BoundaryConditions;
 
 model Prescribed_Temperature_0D
   Modelica.Blocks.Interfaces.RealInput T_input annotation(

@@ -19,7 +19,7 @@ model test_airCircuit_01
     Placement(visible = true, transformation(origin = {-90, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.MoistAirComponents.Volumes.Tank tank  annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.HeatSources.Prescribed_Power_1D_uniform heatSource_Power(n = 1)  annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_1D_uniform heatSource_Power(n = 1)  annotation(
     Placement(visible = true, transformation(origin = {-50, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(dpLinear_NominalPoint.pwhx_b, snk.pwhx_a) annotation(

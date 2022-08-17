@@ -1,4 +1,4 @@
-within ComputerCooling.HeatSources;
+within ComputerCooling.HeatTransfer.BoundaryConditions;
 
 model Prescribed_Power_0D
   extends Icons.HeatSourceIcon;

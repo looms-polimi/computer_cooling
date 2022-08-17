@@ -42,7 +42,7 @@ package T05_3DICE_Integration
       Placement(visible = true, transformation(origin = {70, 100}, extent = {{30, -20}, {-30, 20}}, rotation = 0)));
   ComputerCooling.Sensors.TemperatureSensor_liquid coolantOutletTemp annotation(
       Placement(visible = true, transformation(origin = {30, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.HeatSources.Prescribed_Temperature_1D_uniform heatSource_cooling(R = 1 / 2.36, n = 5) annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Temperature_1D_uniform heatSource_cooling(R = 1 / 2.36, n = 5) annotation(
       Placement(visible = true, transformation(origin = {0, 100}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pumps.CentrifugalPump pump(dp_nom = 50000, w_nom = 0.002) annotation(
       Placement(visible = true, transformation(origin = {-100, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
@@ -120,7 +120,7 @@ package T05_3DICE_Integration
       Placement(visible = true, transformation(origin = {70, 100}, extent = {{30, -20}, {-30, 20}}, rotation = 0)));
   ComputerCooling.Sensors.TemperatureSensor_liquid coolantOutletTemp(unitCelsius = true)  annotation(
       Placement(visible = true, transformation(origin = {30, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.HeatSources.Prescribed_Temperature_1D_uniform heatSource_cooling(R = 1 / 20, n = 5) annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Temperature_1D_uniform heatSource_cooling(R = 1 / 20, n = 5) annotation(
       Placement(visible = true, transformation(origin = {0, 100}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pumps.CentrifugalPump pump(dp_nom = 50000, w_nom = 0.002) annotation(
       Placement(visible = true, transformation(origin = {-100, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));

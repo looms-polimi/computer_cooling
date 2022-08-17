@@ -17,7 +17,7 @@ model test_fan_Axial
     Placement(visible = true, transformation(origin = {60, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression iPh(y = 2500 + 1000 * time * sin(time)) annotation(
     Placement(visible = true, transformation(origin = {-70, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.HeatSources.Prescribed_Power_1D_uniform heatSource_Power(n = 1)  annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_1D_uniform heatSource_Power(n = 1)  annotation(
     Placement(visible = true, transformation(origin = {-30, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(cmd.y, axial.cmd01) annotation(
