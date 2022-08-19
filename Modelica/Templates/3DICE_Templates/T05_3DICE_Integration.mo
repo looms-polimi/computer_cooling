@@ -52,7 +52,7 @@ package T05_3DICE_Integration
       Placement(visible = true, transformation(origin = {-146, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pressurisers.PressuriserIdeal pressuriserIdeal annotation(
       Placement(visible = true, transformation(origin = {-122, 60}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
-  ComputerCooling.IncompressibleLiquidComponents.WaterBlocks.WaterBlock_GenericSection_uniform_w waterBlock(D = 0.002, L = 0.03, TStart = initialTemperature, W = 3.14 * 0.003 / 2, dp_nom(displayUnit = "Pa") = 25000, m = baseCols, n = baseRows, t = 0.0005, w_nom = 0.0002) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.WaterBlocks.WaterBlock waterBlock(D = 0.002, L = 0.03, TStart = initialTemperature, W = 3.14 * 0.003 / 2, dp_nom(displayUnit = "Pa") = 25000, m = baseCols, n = baseRows, t = 0.0005, w_nom = 0.0002) annotation(
       Placement(visible = true, transformation(origin = {-20, -20}, extent = {{-20, -20}, {20, 20}}, rotation = 90)));
   protected
     parameter Modelica.SIunits.SpecificHeatCapacity cp = 384.6 "copper properties";
@@ -72,7 +72,7 @@ package T05_3DICE_Integration
       Line(points = {{30, 62}, {48, 62}, {48, 50}, {58, 50}}, color = {0, 0, 127}));
     connect(temp.y, heatSource_cooling.T_input) annotation(
       Line(points = {{37, 100}, {24, 100}}, color = {0, 0, 127}));
-    connect(heatSource_cooling.hp, tube_cold.hp) annotation(
+    connect(heatSource_cooling.hp, tube_cold.surf) annotation(
       Line(points = {{-24, 100}, {-60, 100}, {-60, 84}}));
     connect(cmd.y, pump.cmd) annotation(
       Line(points = {{-135, -44}, {-124, -44}}, color = {0, 0, 127}));
@@ -124,7 +124,7 @@ package T05_3DICE_Integration
       Placement(visible = true, transformation(origin = {0, 100}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pumps.CentrifugalPump pump(dp_nom = 50000, w_nom = 0.002) annotation(
       Placement(visible = true, transformation(origin = {-100, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D tube_cold(Dstream = 0.003,L = 0.5, TStart = initialTemperature, W = 3.14 * 0.003 / 2, dp_nom(displayUnit = "Pa") = 25000, fluidHeats = true, n = 5, t = 0.0002, w_nom = 0.002) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D tube_cold(D = 0.003,L = 0.5, TStart = initialTemperature, W = 3.14 * 0.003 / 2, dp_nom(displayUnit = "Pa") = 25000, fluidHeats = true, n = 5, t = 0.0002, w_nom = 0.002) annotation(
       Placement(visible = true, transformation(origin = {-60, 60}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression cmd(y = 1) annotation(
       Placement(visible = true, transformation(origin = {-146, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -151,11 +151,11 @@ package T05_3DICE_Integration
       Line(points={{30,62},{48,62},{48,50.5},{58,50.5}},      color = {0, 0, 127}));
     connect(temp.y, heatSource_cooling.T_input) annotation(
       Line(points = {{37, 100}, {24, 100}}, color = {0, 0, 127}));
-    connect(heatSource_cooling.hp, tube_cold.hp) annotation(
+  connect(heatSource_cooling.hp, tube_cold.surf) annotation(
       Line(points = {{-24, 100}, {-60, 100}, {-60, 84}}));
     connect(cmd.y, pump.cmd) annotation(
       Line(points = {{-135, -44}, {-124, -44}}, color = {0, 0, 127}));
-    connect(tube_cold.pwh_b, pressuriserIdeal.pwh_a) annotation(
+  connect(tube_cold.pwh_b, pressuriserIdeal.pwh_a) annotation(
       Line(points = {{-84, 60}, {-98, 60}}));
     connect(pressuriserIdeal.pwh_b, pump.pwh_a) annotation(
       Line(points = {{-146, 60}, {-160, 60}, {-160, -60}, {-124, -60}}));

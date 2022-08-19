@@ -22,7 +22,7 @@ equation
     Line(points = {{-56, 0}, {-30, 0}}));
   connect(tube_1D_cylindrical.pwh_b, snk.pwh_a) annotation(
     Line(points = {{20, 0}, {56, 0}}));
-  connect(tube_1D_cylindrical.hp, prescribed_Temperature_1D_uniform.hp) annotation(
+  connect(tube_1D_cylindrical.surf, prescribed_Temperature_1D_uniform.hp) annotation(
     Line(points = {{-6, -14}, {-16, -14}, {-16, -50}}, color = {191, 0, 0}));
 protected
 end test_tube1D;

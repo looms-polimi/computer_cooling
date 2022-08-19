@@ -28,11 +28,11 @@ equation
 //    connect(tube_1D[i].pwh_b, snk.pwh_a);
 //    connect(tube_1D[i].hp, heatSrc.hp);
 //  end for;
-  connect(heatSrc.hp, tube_1D.hp) annotation(
+  connect(heatSrc.hp, tube_1D.surf) annotation(
     Line(points = {{-38, 90}, {0, 90}, {0, 84}}));
-  connect(heatSource_Power.hp, tube_1D1.hp) annotation(
+  connect(heatSource_Power.hp, tube_1D1.surf) annotation(
     Line(points = {{-38, 30}, {0, 30}, {0, 24}}));
-  connect(heatSource_Power1.hp, tube_1D2.hp) annotation(
+  connect(heatSource_Power1.hp, tube_1D2.surf) annotation(
     Line(points = {{-38, -30}, {0, -30}, {0, -36}}));
   connect(boundaryFixed_pT.pwh_a, tube_1D.pwh_a) annotation(
     Line(points = {{-116, 0}, {-100, 0}, {-100, 60}, {-24, 60}}));

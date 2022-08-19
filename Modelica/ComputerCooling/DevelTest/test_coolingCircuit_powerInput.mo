@@ -27,9 +27,9 @@ equation
     Line(points = {{36, 60}, {-16, 60}}));
   connect(cmd.y, pump.cmd) annotation(
     Line(points = {{-73, -44}, {-64, -44}}, color = {0, 0, 127}));
-  connect(heatSource_cooling.hp, tube_cold.hp) annotation(
+  connect(heatSource_cooling.hp, tube_cold.surf) annotation(
     Line(points = {{44, 20}, {60, 20}, {60, 36}}));
-  connect(heatSource_processor.hp, tube_hot.hp) annotation(
+  connect(heatSource_processor.hp, tube_hot.surf) annotation(
     Line(points = {{44, -20}, {60, -20}, {60, -36}}));
   connect(tube_hot.pwh_b, tube_cold.pwh_a) annotation(
     Line(points = {{84, -60}, {100, -60}, {100, 60}, {84, 60}}));
