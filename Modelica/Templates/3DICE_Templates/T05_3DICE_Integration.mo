@@ -88,7 +88,7 @@ package T05_3DICE_Integration
       Line(points = {{-20, -44}, {8, -44}, {8, 10}, {18, 10}}));
     connect(waterBlock.pwh_b, coolantOutletTemp.pwh) annotation(
       Line(points = {{-20, 4}, {-20, 50}, {18, 50}}));
-    connect(waterBlock.mHP, base.top) annotation(
+    connect(waterBlock.surf, base.top) annotation(
       Line(points = {{-4, -20}, {64, -20}}, color = {191, 0, 0}));
     annotation(
       Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
@@ -159,7 +159,7 @@ package T05_3DICE_Integration
       Line(points = {{-84, 60}, {-98, 60}}));
     connect(pressuriserIdeal.pwh_b, pump.pwh_a) annotation(
       Line(points = {{-146, 60}, {-160, 60}, {-160, -60}, {-124, -60}}));
-  connect(waterBlock.mHP, base.top) annotation(
+  connect(waterBlock.surf, base.top) annotation(
       Line(points = {{-4, -20}, {64, -20}}, color = {191, 0, 0}));
   connect(waterBlock.pwh_b, coolantOutletTemp.pwh) annotation(
       Line(points = {{-20, 4}, {-20, 50}, {18, 50}}));
@@ -219,7 +219,7 @@ package T05_3DICE_Integration
       Line(points = {{30, 22}, {48, 22}, {48, 49.5}, {58, 49.5}}, color = {0, 0, 127}));
     connect(coolantOutletTemp.out, recorder.data[2]) annotation(
       Line(points = {{30, 62}, {48, 62}, {48, 50.5}, {58, 50.5}}, color = {0, 0, 127}));
-    connect(waterBlock.mHP, base.top) annotation(
+    connect(waterBlock.surf, base.top) annotation(
       Line(points = {{-4, -20}, {64, -20}}, color = {191, 0, 0}));
     connect(waterBlock.pwh_b, coolantOutletTemp.pwh) annotation(
       Line(points = {{-20, 4}, {-20, 50}, {18, 50}}));
@@ -285,7 +285,7 @@ package T05_3DICE_Integration
       Line(points = {{-116, 20}, {-20, 20}, {-20, 4}}));
   connect(metal.cpu_side, base.top) annotation(
       Line(points = {{41, -20}, {64, -20}}, color = {191, 0, 0}));
-  connect(waterBlock.mHP, metal.sink_side) annotation(
+  connect(waterBlock.surf, metal.sink_side) annotation(
       Line(points = {{-4, -20}, {31, -20}}, color = {191, 0, 0}));
     annotation(
       Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),

@@ -1,6 +1,8 @@
 within ComputerCooling.IncompressibleLiquidComponents.WaterBlocks;
 
 model WaterBlock_GenericSection_uniform_w
+  extends IncompressibleLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_MHP(massStorage = true, rows = n, cols = m);
+  
   ComputerCooling.IncompressibleLiquidComponents.Ducts.LiquidStream_FiniteVolume_GenericSection channels[m](redeclare each model medium = medium, redeclare each model HTCoefficient = HTCoefficient,each  L = L, each n=n, each Ac=Ac/m,each per=per/m, each TStart = TStart,each  dp_nom = dp_nom, each fluidHeats = false, each  w_nom = w_nom / m) annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
@@ -18,13 +20,6 @@ model WaterBlock_GenericSection_uniform_w
   replaceable model medium = Media.SubCooledWater_Incompressible;
   replaceable model HTCoefficient = HeatTransfer.HeatTransferModels.DittusBoelter;
 
-  ComputerCooling.Interfaces.pwh pwh_a annotation(
-    Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.Interfaces.pwh pwh_b annotation(
-    Placement(visible = true, transformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Interfaces.HeatPortMatrix mHP(rows = n, cols = m) annotation(
-    Placement(visible = true, transformation(origin = {-2, 86}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-1.11022e-16, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-
 equation
   for i in 1:m loop
     connect(pwh_a, channels[i].pwh_a);
@@ -32,7 +27,7 @@ equation
   end for;
   for i in 1:n loop
     for j in 1:m loop
-      connect(channels[j].surf.port[i], mHP.port[i, j]);
+      connect(channels[j].surf.port[i], surf.port[i, j]);
     end for;
   end for;
   annotation(

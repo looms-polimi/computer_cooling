@@ -166,11 +166,11 @@ equation
     Line(points = {{90, 76}, {90, 63}}, color = {191, 0, 0}));
   connect(chip3.sink_side, spreader3.cpu_side) annotation(
     Line(points = {{130, 76}, {130, 63}}, color = {191, 0, 0}));
-  connect(spreader1.sink_side, wb1.mHP) annotation(
+  connect(spreader1.sink_side, wb1.surf) annotation(
     Line(points = {{50, 55}, {50, 38}}, color = {191, 0, 0}));
-  connect(spreader2.sink_side, wb2.mHP) annotation(
+  connect(spreader2.sink_side, wb2.surf) annotation(
     Line(points = {{90, 57}, {90, 18}}, color = {191, 0, 0}));
-  connect(spreader3.sink_side, wb3.mHP) annotation(
+  connect(spreader3.sink_side, wb3.surf) annotation(
     Line(points = {{130, 57}, {130, -2}}, color = {191, 0, 0}));
   connect(spreader1.cpu_side.port[2, 2], sTspreader1.port) annotation(
     Line(points = {{50, 61}, {50, 70}, {70, 70}, {70, -20}}, color = {191, 0, 0}));
