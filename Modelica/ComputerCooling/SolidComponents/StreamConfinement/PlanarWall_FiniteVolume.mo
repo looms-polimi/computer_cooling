@@ -1,4 +1,4 @@
-within ComputerCooling.HeatTransfer.StreamSeparators;
+within ComputerCooling.SolidComponents.StreamConfinement;
 
 model PlanarWall_FiniteVolume
   extends BaseClasses.Base_StreamSeparator;
@@ -8,25 +8,25 @@ model PlanarWall_FiniteVolume
 protected
   final parameter Area A = W * (L / n);
   final parameter ThermalConductance G = material.lambda * A / t ;
-  final parameter HeatCapacity C_layer = material.c * material.d * A * t / l;
+  final parameter HeatCapacity C_layer = material.c * material.d * A * t / m;
 
 equation       
 
   for i in 1:n loop
     hp_in.port[i].Q_flow    = G/2 * (hp_in.port[i].T - T[i,1]);
     
-    if l>1 then
+    if m>1 then
       C_layer * der(T[i,1])   = hp_in.port[i].Q_flow - G * (T[i,1]-T[i,2]);
       
-      for j in 2:l-1 loop
+      for j in 2:m-1 loop
         C_layer * der(T[i,j]) = G * (T[i,j-1]-T[i,j]) - G * (T[i,j]-T[i,j+1]);
       end for;
       
-      C_layer * der(T[i,l])   = G * (T[i,l-1]-T[i,l]) + hp_ext.port[i].Q_flow;
+      C_layer * der(T[i,m])   = G * (T[i,m-1]-T[i,m]) + hp_ext.port[i].Q_flow;
       else 
-      C_layer * der(T[i,l]) = hp_in.port[i].Q_flow + hp_ext.port[i].Q_flow;
+      C_layer * der(T[i,m]) = hp_in.port[i].Q_flow + hp_ext.port[i].Q_flow;
     end if;
-    hp_ext.port[i].Q_flow   = G/2 * (hp_ext.port[i].T - T[i,l]);
+    hp_ext.port[i].Q_flow   = G/2 * (hp_ext.port[i].T - T[i,m]);
     
   end for;
 

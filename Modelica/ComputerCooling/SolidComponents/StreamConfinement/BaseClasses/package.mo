@@ -1,4 +1,4 @@
-within ComputerCooling.HeatTransfer.StreamSeparators;
+within ComputerCooling.SolidComponents.StreamConfinement;
 
 package BaseClasses
   extends Modelica.Icons.Package;
