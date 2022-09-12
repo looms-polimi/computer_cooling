@@ -7,7 +7,7 @@ model PlanarWall_FiniteVolume
   
 protected
   final parameter Area A = W * (L / n);
-  final parameter ThermalConductance G = material.lambda * A / t ;
+  final parameter ThermalConductance G = material.lambda * A /(t/m) ;
   final parameter HeatCapacity C_layer = material.c * material.d * A * t / m;
 
 equation       

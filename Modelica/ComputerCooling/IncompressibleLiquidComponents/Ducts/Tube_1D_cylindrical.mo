@@ -6,6 +6,7 @@ model Tube_1D_cylindrical
   ComputerCooling.HeatTransfer.StreamSeparators.TubeWall_FiniteVolume_cylindrical_MultiL wall( 
   redeclare replaceable record materialRecord = materialRecord,L = L, TStart = TStart, di = D, l = l, n = n, t = t) annotation(
     Placement(visible = true, transformation(origin = {0, -38}, extent = {{-20, 20}, {20, -20}}, rotation = 0)));
+  
   ComputerCooling.IncompressibleLiquidComponents.Ducts.LiquidStream_FiniteVolume_Cylindrical liquidStream(L = L, D=D, w_nom = w_nom, dp_nom = dp_nom, TStart = TStart, n = n, fluidHeats = fluidHeats, gamma_corr=gamma_corr,dz=dz,
   redeclare replaceable model medium = medium,
   redeclare replaceable model HTCoefficient = HTCoefficient) annotation(

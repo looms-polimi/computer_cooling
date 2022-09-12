@@ -1,3 +1,7 @@
 sqrtReg
 sqrtReg_der
 Clamp
+matrix_area
+unid_fcf_distances
+trid_fcf_conductances
+trid_heatCapacity

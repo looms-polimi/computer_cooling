@@ -3,6 +3,10 @@ within ComputerCooling.IncompressibleLiquidComponents.Ducts;
 model Tube_1D
   extends IncompressibleLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_VHP(massStorage = true);
   
+  ComputerCooling.HeatTransfer.StreamSeparators.TubeWall_FiniteVolume_1L wall_1L(L = L, TStart = TStart, W = W, n = n, t = t) annotation(
+    Placement(visible = true, transformation(origin = {0, -38}, extent = {{-20, 20}, {20, -20}}, rotation = 0)));
+
+  
   ComputerCooling.IncompressibleLiquidComponents.Ducts.LiquidStream_FiniteVolume_Cylindrical liquidStream(L = L, D=D, w_nom = w_nom, dp_nom = dp_nom, TStart = TStart, n = n, fluidHeats = fluidHeats, dz=dz, gamma_corr=gamma_corr,
   redeclare replaceable model medium = medium,
   redeclare replaceable model HTCoefficient = HTCoefficient) annotation(
@@ -24,8 +28,7 @@ model Tube_1D
     constrainedby SolidMaterials.BaseClasses.Base_solid_constant_props;
   replaceable model medium = Media.SubCooledWater_Incompressible;
   replaceable model HTCoefficient = HeatTransfer.HeatTransferModels.DittusBoelter;
-  ComputerCooling.HeatTransfer.StreamSeparators.TubeWall_FiniteVolume_1L wall_1L(L = L, TStart = TStart, W = W, n = n, t = t) annotation(
-    Placement(visible = true, transformation(origin = {0, -38}, extent = {{-20, 20}, {20, -20}}, rotation = 0)));
+
 equation
   connect(pwh_a, liquidStream.pwh_a) annotation(
     Line(points = {{-120, 0}, {-24, 0}}));
