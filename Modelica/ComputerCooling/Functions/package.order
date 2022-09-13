@@ -5,3 +5,5 @@ matrix_area
 unid_fcf_distances
 trid_fcf_conductances
 trid_heatCapacity
+cylindrical_fcf_conductances
+cylindrical_heatCapacity

@@ -12,9 +12,11 @@ protected
   final parameter ThermalConductance G = material.lambda
                                          * 2*Modelica.Constants.pi*L
                                          / log(re/ri);
-                                         
+  //final parameter ThermalConductance G[:] = ComputerCooling.Functions.cylindrical_fcf_conductances(material.lambda, L, ri, t, m);                                       
   final parameter HeatCapacity C = material.c * material.d*Vwall;
   final parameter HeatCapacity C_layer = C / m;
+  
+  //final parameter HeatCapacity C[:] = ComputerCooling.Functions.cylindrical_heatCapacity(material.c, material.d, L, ri, t, m);
 
 equation
 
