@@ -3,8 +3,8 @@ within ComputerCooling.Functions;
 function matrix_area
   extends Modelica.Icons.Function;
   
-  input Real x[4] "lump dimensions along x";
-  input Real y[4] "lump dimensions along y";
+  input Real x[:] "lump dimensions along x";
+  input Real y[:] "lump dimensions along y";
   output Real A[size(x,1),size(y,1)];
   
 protected

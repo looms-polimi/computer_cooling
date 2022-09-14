@@ -2,48 +2,47 @@ within ComputerCooling.SolidComponents;
 
 model PlanarWall_MultiLayer_StructuredGrid
 
-  ComputerCooling.Interfaces.HeatPortMatrix hp_in(rows = d, cols = w) annotation(
-    Placement(visible = true, transformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.Interfaces.HeatPortMatrix hp_ext(rows = d, cols = w) annotation(
-    Placement(visible = true, transformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-
    replaceable record material = SolidMaterials.Copper
               constrainedby SolidMaterials.BaseClasses.Base_solid_constant_props;
               
-   parameter Integer w = 4 "Number of lumps along width (1 left <---> w right)" annotation(
-    Evaluate = true);
-   parameter Integer d = 4 "Number of lumps along depth (1 front <---> d rear)" annotation(
-    Evaluate = true);
-   parameter Integer t = 4 "Number of lumps along thickness (1 botton <---> t top)" annotation(
-    Evaluate = true);
- 
-   parameter Length[:] d_w = 0.01/10*ones(w) "lump dimensions along width (left->right)";
-   parameter Length[:] d_d = 0.01/10*ones(d) "lump dimensions along depth (front->rear)";
-   parameter Length[:] d_t = 0.01/10*ones(t) "lump dimensions along thickness (bottom->top)";
-   //parameter Length[:] d_w = {0.2,0.3} "lump dimensions along width (left->right)";
-   //parameter Length[:] d_d = {0.1,0.4} "lump dimensions along depth (front->rear)";
-   //parameter Length[:] d_t = {0.5,0.6} "lump dimensions along thickness (bottom->top)";
-  
+   parameter Length[:] d_w = 0.01*ones(5) "lump dimensions along width (left->right)";
+   parameter Length[:] d_d = 0.01*ones(4) "lump dimensions along depth (front->rear)";
+   parameter Length[:] d_t = 0.01*ones(3) "lump dimensions along thickness (bottom->top)";
    parameter Temperature TStart = 273.15 + 20 "Starting temperature";
+   
+   ComputerCooling.Interfaces.HeatPortMatrix hp_in(rows = d, cols = w) annotation(
+    Placement(visible = true, transformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+   ComputerCooling.Interfaces.HeatPortMatrix hp_ext(rows = d, cols = w) annotation(
+    Placement(visible = true, transformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+
+ 
    Temperature T[w, d, t](each start = TStart, each fixed = true);
    
 protected 
+
+  final parameter Integer w = size(d_w,1) "Number of lumps along width (1 left <---> w right)" annotation(
+    Evaluate = true);
+  final parameter Integer d = size(d_d,1) "Number of lumps along depth (1 front <---> d rear)" annotation(
+    Evaluate = true);
+  final parameter Integer t = size(d_t,1) "Number of lumps along thickness (1 botton <---> t top)" annotation(
+    Evaluate = true);
+
   
   final parameter Area A_w[d, t] = ComputerCooling.Functions.matrix_area(d_d, d_t) "Section areas along width";
   final parameter Area A_d[w, t] = ComputerCooling.Functions.matrix_area(d_w, d_t) "Section areas along depth";
   final parameter Area A_t[w, d] = ComputerCooling.Functions.matrix_area(d_w, d_d) "Section areas along thickness";
   
-  final parameter Length dist_w[:] = ComputerCooling.Functions.unid_fcf_distances(d_w) "Distances along width"; 
-  final parameter Length dist_d[:] = ComputerCooling.Functions.unid_fcf_distances(d_d) "Distances along depth";
-  final parameter Length dist_t[:] = ComputerCooling.Functions.unid_fcf_distances(d_t) "Distances along thickness";
+  final parameter Length dist_w[w+1] = ComputerCooling.Functions.unid_fcf_distances(d_w) "Distances along width"; 
+  final parameter Length dist_d[d+1] = ComputerCooling.Functions.unid_fcf_distances(d_d) "Distances along depth";
+  final parameter Length dist_t[t+1] = ComputerCooling.Functions.unid_fcf_distances(d_t) "Distances along thickness";
   
   //Thermal conductance G[distances along heat direction, Area]
-  final parameter ThermalConductance G_w[:,:,:] = ComputerCooling.Functions.trid_fcf_conductances(material.lambda, A_w, dist_w);  
-  final parameter ThermalConductance G_d[:,:,:] = ComputerCooling.Functions.trid_fcf_conductances(material.lambda, A_d, dist_d);
-  final parameter ThermalConductance G_t[:,:,:] = ComputerCooling.Functions.trid_fcf_conductances(material.lambda, A_t, dist_t);
+  final parameter ThermalConductance G_w[w+1,d,t] = ComputerCooling.Functions.trid_fcf_conductances(material.lambda, A_w, dist_w);  
+  final parameter ThermalConductance G_d[d+1,w,t] = ComputerCooling.Functions.trid_fcf_conductances(material.lambda, A_d, dist_d);
+  final parameter ThermalConductance G_t[t+1,w,d] = ComputerCooling.Functions.trid_fcf_conductances(material.lambda, A_t, dist_t);
   
   //Heat capacities of each volume lump
-  final parameter HeatCapacity C[:,:,:] = ComputerCooling.Functions.trid_heatCapacity(material.c, material.d, d_w, d_d, d_t);
+  final parameter HeatCapacity C[w,d,t] = ComputerCooling.Functions.trid_heatCapacity(material.c, material.d, d_w, d_d, d_t);
   
 equation
 

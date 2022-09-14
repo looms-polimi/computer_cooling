@@ -3,7 +3,7 @@ within ComputerCooling.Functions;
 function unid_fcf_distances "face-centres-face"
   extends Modelica.Icons.Function;
   
-  input Real s[4] "lump dimensions";
+  input Real s[:] "lump dimensions";
   output Real d[size(s,1) + 1];
 
 protected

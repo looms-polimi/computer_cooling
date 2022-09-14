@@ -19,3 +19,4 @@ test_CentrifugalPump_2
 test_CentrifugalPump_3
 test_CentrifugalPump_4
 test_Waterblock
+test_structured_grid_cube

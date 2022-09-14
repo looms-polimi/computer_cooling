@@ -4,8 +4,8 @@ function trid_fcf_conductances "Computing conductances tridimensionally"
 extends Modelica.Icons.Function;
 
 input Real lambda;
-input Real A[4,4] "areas";
-input Real d[5] "distances";
+input Real A[:,:] "areas";
+input Real d[:] "distances";
 output Real G[size(d,1), size(A,1), size(A,2)];
 
 algorithm
