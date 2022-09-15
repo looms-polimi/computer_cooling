@@ -8,33 +8,26 @@ model CylindricalWall_FiniteVolume
 protected
   final parameter Length ri=D/2;
   final parameter Length re=(D+2*t)/2;
-  final parameter Volume Vwall = Modelica.Constants.pi*(re^2-ri^2)*L;
-  final parameter ThermalConductance G = material.lambda
-                                         * 2*Modelica.Constants.pi*L
-                                         / log(re/ri);
-  //final parameter ThermalConductance G[:] = ComputerCooling.Functions.cylindrical_fcf_conductances(material.lambda, L, ri, t, m);                                       
-  final parameter HeatCapacity C = material.c * material.d*Vwall;
-  final parameter HeatCapacity C_layer = C / m;
-  
-  //final parameter HeatCapacity C[:] = ComputerCooling.Functions.cylindrical_heatCapacity(material.c, material.d, L, ri, t, m);
+  final parameter ThermalConductance G[m+1] = ComputerCooling.Functions.cylindrical_fcf_conductances(material.lambda, L/n, ri, t, m);                                        
+  final parameter HeatCapacity C[m] = ComputerCooling.Functions.cylindrical_heatCapacity(material.c, material.d, L/n, ri, t, m);
 
 equation
 
   for i in 1:n loop
-    hp_in.port[i].Q_flow    = 2*G * (hp_in.port[i].T - T[i,1]);
+    hp_in.port[i].Q_flow    = G[1] * (hp_in.port[i].T - T[i,1]);
     
     if m>1 then
-      C_layer * der(T[i,1])   = hp_in.port[i].Q_flow - G * (T[i,1]-T[i,2]);
+      C[1] * der(T[i,1])   = hp_in.port[i].Q_flow - G[2] * (T[i,1]-T[i,2]);
       
       for j in 2:m-1 loop
-        C_layer * der(T[i,j]) = G * (T[i,j-1]-T[i,j]) - G * (T[i,j]-T[i,j+1]);
+        C[j] * der(T[i,j]) = G[j] * (T[i,j-1]-T[i,j]) - G[j+1] * (T[i,j]-T[i,j+1]);
       end for;
       
-      C_layer * der(T[i,m])   = G * (T[i,m-1]-T[i,m]) + hp_ext.port[i].Q_flow;
+      C[m] * der(T[i,m])   = G[m] * (T[i,m-1]-T[i,m]) + hp_ext.port[i].Q_flow;
       else 
-      C_layer * der(T[i,m]) = hp_in.port[i].Q_flow + hp_ext.port[i].Q_flow;
+      C[1] * der(T[i,m]) = hp_in.port[i].Q_flow + hp_ext.port[i].Q_flow;
     end if;
-    hp_ext.port[i].Q_flow   = 2*G * (hp_ext.port[i].T - T[i,m]);
+    hp_ext.port[i].Q_flow   = G[m+1] * (hp_ext.port[i].T - T[i,m]);
     
   end for;
 

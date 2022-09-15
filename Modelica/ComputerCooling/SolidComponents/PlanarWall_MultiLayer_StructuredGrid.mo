@@ -10,9 +10,9 @@ model PlanarWall_MultiLayer_StructuredGrid
    parameter Length[:] d_t = 0.01*ones(3) "lump dimensions along thickness (bottom->top)";
    parameter Temperature TStart = 273.15 + 20 "Starting temperature";
    
-   ComputerCooling.Interfaces.HeatPortMatrix hp_in(rows = d, cols = w) annotation(
+   ComputerCooling.Interfaces.HeatPortMatrix hp_in(rows = w, cols = d) annotation(
     Placement(visible = true, transformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-   ComputerCooling.Interfaces.HeatPortMatrix hp_ext(rows = d, cols = w) annotation(
+   ComputerCooling.Interfaces.HeatPortMatrix hp_ext(rows = w, cols = d) annotation(
     Placement(visible = true, transformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
  

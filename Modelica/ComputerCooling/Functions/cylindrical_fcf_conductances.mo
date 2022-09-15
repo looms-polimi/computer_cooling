@@ -4,9 +4,9 @@ function cylindrical_fcf_conductances "Computing conductances of a cylindrical w
   extends Modelica.Icons.Function;
 
   input Real lambda;
-  input Real L;
+  input Real l "single lump length";
   input Real ri;
-  input Integer t "total thickness of the cylinder";
+  input Real t "total thickness of the cylinder";
   input Integer m;
   output Real G[m+1];
 
@@ -22,10 +22,10 @@ algorithm
     i_r[i]:=i_r[i-1]+l_t;
   end for;
   
-  G[1]:=lambda*2*Modelica.Constants.pi*L/log(i_r[1]/ri);
+  G[1]:=lambda*2*Modelica.Constants.pi*l/log(i_r[1]/ri);
   for i in 2:m loop
-    G[i]:=lambda*2*Modelica.Constants.pi*L/log(i_r[i]/i_r[i-1]);
+    G[i]:=lambda*2*Modelica.Constants.pi*l/log(i_r[i]/i_r[i-1]);
   end for;
-  G[m+1]:=lambda*2*Modelica.Constants.pi*L/log(re/i_r[m]);
+  G[m+1]:=lambda*2*Modelica.Constants.pi*l/log(re/i_r[m]);
   
 end cylindrical_fcf_conductances;
