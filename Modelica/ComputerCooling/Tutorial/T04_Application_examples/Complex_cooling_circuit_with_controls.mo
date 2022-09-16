@@ -27,9 +27,9 @@ model Complex_cooling_circuit_with_controls
     Placement(visible = true, transformation(origin = {70, 150}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_2D_uniform cpu3(cols = 4, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {110, 170}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D_cylindrical radiator1(D = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D_Cylindrical radiator1(D = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {-180, 140}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D_cylindrical radiator2(D = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D_Cylindrical radiator2(D = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {-160, 120}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression spDTwb(y = 273.15 + 40) annotation(
     Placement(visible = true, transformation(origin = {-210, -46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -83,7 +83,7 @@ model Complex_cooling_circuit_with_controls
     Placement(visible = true, transformation(origin = {90, 60}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   ComputerCooling.SolidComponents.material_layer_uniform_grid_Pnom_DTnom spreader1(DTnom = 10, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {50, 58}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
-  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D_cylindrical radiator3(D = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D_Cylindrical radiator3(D = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60) annotation(
     Placement(visible = true, transformation(origin = {-140, 100}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Add3 add3(k1 = 1 / 3, k2 = 1 / 3, k3 = 1 / 3)  annotation(
     Placement(visible = true, transformation(origin = {-130, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));

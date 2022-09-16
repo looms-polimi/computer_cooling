@@ -1,7 +1,7 @@
 within ComputerCooling.SolidComponents.StreamConfinement;
 
 model CylindricalWall_FiniteVolume
-  extends BaseClasses.Base_StreamSeparator;
+  extends BaseClasses.Base_StreamConfinement;
   
   parameter Length D = 1  "internal diameter";
   

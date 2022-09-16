@@ -1,6 +1,6 @@
 within ComputerCooling.SolidComponents.StreamConfinement.BaseClasses;
 
-partial model Base_StreamSeparator
+partial model Base_StreamConfinement
   
   ComputerCooling.Interfaces.HeatPortVector hp_in(n = n) annotation(
     Placement(visible = true, transformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
@@ -20,4 +20,4 @@ partial model Base_StreamSeparator
   parameter Temperature TStart = 273.15 + 20 "Starting temperature";
   Temperature T[n, m](each start = TStart, each fixed = true);
 
-end Base_StreamSeparator;
+end Base_StreamConfinement;

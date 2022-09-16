@@ -3,7 +3,7 @@ within ComputerCooling.IncompressibleLiquidComponents.WaterBlocks;
 model WaterBlock
   extends IncompressibleLiquidComponents.BaseClasses.TwoPorts_pwh_OnePort_MHP(massStorage = true, rows = n, cols = m);
   
-  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D tube_1D[m](redeclare each replaceable record materialRecord = materialRecord, redeclare each replaceable model medium = medium, redeclare each replaceable model HTCoefficient = HTCoefficient, each D = D, each L = L, each TStart = TStart, each W = 3.14 * D, each dp_nom = dp_nom, each dz = 0, each fluidHeats = false, each n = n, each t = t, each w_nom = w_nom / m) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D_GenericSection tube_1D[m](redeclare each replaceable record materialRecord = materialRecord, redeclare each replaceable model medium = medium, redeclare each replaceable model HTCoefficient = HTCoefficient, each D = D, each L = L, each TStart = TStart, each W = 3.14 * D, each dp_nom = dp_nom, each dz = 0, each fluidHeats = false, each n = n, each t = t, each w_nom = w_nom / m) annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   
   parameter Integer            m          = 5 "number of liquid channels";

@@ -1,7 +1,7 @@
 within ComputerCooling.SolidComponents.StreamConfinement;
 
 model PlanarWall_FiniteVolume
-  extends BaseClasses.Base_StreamSeparator;
+  extends BaseClasses.Base_StreamConfinement;
   
   parameter Length W  = 1 "Wall width";
   

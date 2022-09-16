@@ -46,7 +46,7 @@ package T05_3DICE_Integration
       Placement(visible = true, transformation(origin = {0, 100}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pumps.CentrifugalPump pump(dp_nom = 50000, w_nom = 0.002) annotation(
       Placement(visible = true, transformation(origin = {-100, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D tube_cold(L = 1, TStart = initialTemperature, W = 3.14 * 0.006 / 2, dp_nom(displayUnit = "Pa") = 25000, fluidHeats = true, n = 5, t = 0.0005, w_nom = 0.002) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D_GenericSection tube_cold(L = 1, TStart = initialTemperature, W = 3.14 * 0.006 / 2, dp_nom(displayUnit = "Pa") = 25000, fluidHeats = true, n = 5, t = 0.0005, w_nom = 0.002) annotation(
       Placement(visible = true, transformation(origin = {-60, 60}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression cmd(y = 1) annotation(
       Placement(visible = true, transformation(origin = {-146, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -124,7 +124,7 @@ package T05_3DICE_Integration
       Placement(visible = true, transformation(origin = {0, 100}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pumps.CentrifugalPump pump(dp_nom = 50000, w_nom = 0.002) annotation(
       Placement(visible = true, transformation(origin = {-100, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D tube_cold(D = 0.003,L = 0.5, TStart = initialTemperature, W = 3.14 * 0.003 / 2, dp_nom(displayUnit = "Pa") = 25000, fluidHeats = true, n = 5, t = 0.0002, w_nom = 0.002) annotation(
+  ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D_GenericSection tube_cold(D = 0.003,L = 0.5, TStart = initialTemperature, W = 3.14 * 0.003 / 2, dp_nom(displayUnit = "Pa") = 25000, fluidHeats = true, n = 5, t = 0.0002, w_nom = 0.002) annotation(
       Placement(visible = true, transformation(origin = {-60, 60}, extent = {{20, -20}, {-20, 20}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression cmd(y = 1) annotation(
       Placement(visible = true, transformation(origin = {-146, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

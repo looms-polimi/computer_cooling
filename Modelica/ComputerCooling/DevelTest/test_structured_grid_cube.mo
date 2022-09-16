@@ -6,7 +6,7 @@ model test_structured_grid_cube
     Placement(visible = true, transformation(origin = {-74, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.SolidComponents.PlanarWall_MultiLayer_StructuredGrid wall_cube annotation(
     Placement(visible = true, transformation(origin = {10, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HeatTransfer.BoundaryConditions.Fixed_Temperature_2D_uniform Tmatrix(cols = 4, rows = 5) annotation(
+  HeatTransfer.BoundaryConditions.Prescribed_Temperature_2D_uniform Tmatrix(cols = 4, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {-32, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(Tmatrix.hp, wall_cube.hp_in) annotation(
