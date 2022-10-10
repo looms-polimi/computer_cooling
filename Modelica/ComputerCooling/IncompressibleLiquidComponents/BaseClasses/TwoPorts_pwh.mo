@@ -2,9 +2,9 @@ within ComputerCooling.IncompressibleLiquidComponents.BaseClasses;
 
 partial model TwoPorts_pwh
   ComputerCooling.Interfaces.pwh pwh_a annotation(
-    Placement(visible = true, transformation(origin = {110, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-120, -2.66454e-15}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-120, -2.66454e-15}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.Interfaces.pwh pwh_b annotation(
-    Placement(visible = true, transformation(origin = {120, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   
   parameter Boolean pbhi = false "true if convention is pb>pa";
   PressureDifference dp "pressure drop according to dphi";

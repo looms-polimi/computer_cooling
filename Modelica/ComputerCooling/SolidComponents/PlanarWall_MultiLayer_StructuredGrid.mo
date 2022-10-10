@@ -2,8 +2,10 @@ within ComputerCooling.SolidComponents;
 
 model PlanarWall_MultiLayer_StructuredGrid
 
-   replaceable record material = SolidMaterials.Copper
-              constrainedby SolidMaterials.BaseClasses.Base_solid_constant_props;
+   replaceable record Material = SolidMaterials.Copper
+               constrainedby SolidMaterials.BaseClasses.Base_solid_constant_props;
+              
+   Material material;
               
    parameter Length[:] d_w = 0.01*ones(5) "lump dimensions along width (left->right)";
    parameter Length[:] d_d = 0.01*ones(4) "lump dimensions along depth (front->rear)";
