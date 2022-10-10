@@ -1,6 +1,7 @@
 within ComputerCooling.Tutorial.T04_Application_examples;
 
 model Complex_cooling_circuit_with_controls
+  extends Icons.TutorialModel;
   ComputerCooling.IncompressibleLiquidComponents.FlowControl.Pumps.CentrifugalPump pump1(dp_nom = 99999.99999999999, dp_zf = 200000, w_nom = 1.75 / 60) annotation(
     Placement(visible = true, transformation(origin = {-110, 30}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_2D_uniform cpu1(cols = 4, rows = 5) annotation(
