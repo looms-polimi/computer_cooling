@@ -11,37 +11,37 @@ model Complex_cooling_circuit_with_controls
   Modelica.Blocks.Sources.RealExpression Tamb(y = 293.15) annotation(
     Placement(visible = true, transformation(origin = {-278, 170}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.WaterBlocks.WaterBlock_GenericSection_uniform_w wb1 annotation(
-    Placement(visible = true, transformation(origin = {50, 30}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {50, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.Ducts.LiquidStream_FiniteVolume_GenericSection p1wb1(Ac = 0.003 ^ 2, L = 0.4, dp_nom = 25000, per = 4 * 0.003, w_nom = 0.5 / 60) annotation(
-    Placement(visible = true, transformation(origin = {10, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {10, 32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.WaterBlocks.WaterBlock_GenericSection_uniform_w wb2 annotation(
-    Placement(visible = true, transformation(origin = {90, 10}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {90, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.WaterBlocks.WaterBlock_GenericSection_uniform_w wb3 annotation(
-    Placement(visible = true, transformation(origin = {130, -10}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {130, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.Ducts.LiquidStream_FiniteVolume_GenericSection p2wb2(Ac = 0.003 ^ 2, L = 0.4, dp_nom = 25000, per = 4 * 0.003, w_nom = 0.5 / 60) annotation(
-    Placement(visible = true, transformation(origin = {10, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {10, 12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.Ducts.LiquidStream_FiniteVolume_GenericSection p3wb3(Ac = 0.003 ^ 2, L = 0.4, dp_nom = 25000, per = 4 * 0.003, w_nom = 0.5 / 60) annotation(
-    Placement(visible = true, transformation(origin = {10, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {10, -8}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.Ducts.LiquidStream_FiniteVolume_GenericSection duct123(Ac = 0.006 ^ 2, L = 2, dp_nom = 20000, n = 3, per = 4 * 0.006, w_nom = 1.5 / 60) annotation(
-    Placement(visible = true, transformation(origin = {-150, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-150, 32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_2D_uniform cpu2(cols = 4, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {70, 150}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_2D_uniform cpu3(cols = 4, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {110, 170}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D_Cylindrical radiator1(D = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60) annotation(
-    Placement(visible = true, transformation(origin = {-180, 140}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-180, 142}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D_Cylindrical radiator2(D = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60) annotation(
-    Placement(visible = true, transformation(origin = {-160, 120}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-160, 122}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression spDTwb(y = 273.15 + 40) annotation(
     Placement(visible = true, transformation(origin = {-210, -46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_Twb3(CSmin = 0.02, CSstart = 0.5, K = -0.1, Ti = 4) annotation(
     Placement(visible = true, transformation(origin = {-160, -160}, extent = {{-10, -20}, {10, 20}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.Ducts.LiquidStream_FiniteVolume_GenericSection wb1t(Ac = 0.003 ^ 2, L = 0.4, dp_nom = 25000, per = 4 * 0.003, w_nom = 0.5 / 60) annotation(
-    Placement(visible = true, transformation(origin = {170, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {170, 32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.Ducts.LiquidStream_FiniteVolume_GenericSection wb3t(Ac = 0.003 ^ 2, L = 0.4, dp_nom = 25000, per = 4 * 0.003, w_nom = 0.5 / 60) annotation(
-    Placement(visible = true, transformation(origin = {170, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {170, -8}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.Ducts.LiquidStream_FiniteVolume_GenericSection wb2t(Ac = 0.003 ^ 2, L = 0.4, dp_nom = 25000, per = 4 * 0.003, w_nom = 0.5 / 60) annotation(
-    Placement(visible = true, transformation(origin = {170, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {170, 12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_Twb2(CSmin = 0.02, CSstart = 0.5, K = -0.1, Ti = 4) annotation(
     Placement(visible = true, transformation(origin = {-160, -110}, extent = {{-10, -20}, {10, 20}}, rotation = 0)));
   ComputerCooling.ControlBlocks.AnalogueControllers.PI_awfb_full PI_Twb1(CSmin = 0.02, CSstart = 0.5, K = -0.1, Ti = 4) annotation(
@@ -85,7 +85,7 @@ model Complex_cooling_circuit_with_controls
   ComputerCooling.SolidComponents.material_layer_uniform_grid_Pnom_DTnom spreader1(DTnom = 10, rows = 5) annotation(
     Placement(visible = true, transformation(origin = {50, 58}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   ComputerCooling.IncompressibleLiquidComponents.Ducts.Tube_1D_Cylindrical radiator3(D = 0.003, L = 5, dp_nom = 20000, fluidHeats = true, t = 0.0005, w_nom = 0.5 / 60) annotation(
-    Placement(visible = true, transformation(origin = {-140, 100}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-140, 102}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Add3 add3(k1 = 1 / 3, k2 = 1 / 3, k3 = 1 / 3)  annotation(
     Placement(visible = true, transformation(origin = {-130, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 equation
@@ -168,11 +168,11 @@ equation
   connect(chip3.sink_side, spreader3.cpu_side) annotation(
     Line(points = {{130, 76}, {130, 63}}, color = {191, 0, 0}));
   connect(spreader1.sink_side, wb1.surf) annotation(
-    Line(points = {{50, 55}, {50, 38}}, color = {191, 0, 0}));
+    Line(points = {{50, 55}, {50, 40}}, color = {191, 0, 0}));
   connect(spreader2.sink_side, wb2.surf) annotation(
-    Line(points = {{90, 57}, {90, 18}}, color = {191, 0, 0}));
+    Line(points = {{90, 57}, {90, 20}}, color = {191, 0, 0}));
   connect(spreader3.sink_side, wb3.surf) annotation(
-    Line(points = {{130, 57}, {130, -2}}, color = {191, 0, 0}));
+    Line(points = {{130, 57}, {130, 0}}, color = {191, 0, 0}));
   connect(spreader1.cpu_side.port[2, 2], sTspreader1.port) annotation(
     Line(points = {{50, 61}, {50, 70}, {70, 70}, {70, -20}}, color = {191, 0, 0}));
   connect(spreader2.cpu_side.port[2, 2], sTspreader2.port) annotation(

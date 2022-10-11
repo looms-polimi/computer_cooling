@@ -2,11 +2,11 @@ within ComputerCooling.IncompressibleLiquidComponents.BaseClasses;
 
 partial model TwoPorts_pwh_OnePort_VHP
   ComputerCooling.Interfaces.pwh pwh_a annotation(
-    Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, -2.66454e-15}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, -22}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.Interfaces.pwh pwh_b annotation(
-    Placement(visible = true, transformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, -22}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.Interfaces.HeatPortVector surf(n = n) annotation(
-    Placement(visible = true, transformation(origin = {0, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {0, -60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {1, -83}, extent = {{-17, -17}, {17, 17}}, rotation = 0), iconTransformation(origin = {0, 100}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
   parameter Integer n = 3 "number of volume lumps (1 on a side)";
   parameter Boolean pbhi=false "true if convention is pb>pa";

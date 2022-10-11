@@ -5,8 +5,8 @@ partial model TwoPorts_pwh_OnePort_MHP
     Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   ComputerCooling.Interfaces.pwh pwh_b annotation(
     Placement(visible = true, transformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Interfaces.HeatPortMatrix surf(rows = rows, cols = cols) annotation(
-    Placement(visible = true, transformation(origin = {-2, 86}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-1.11022e-16, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  ComputerCooling.Interfaces.HeatPortMatrix surf(rows = rows, cols = cols) annotation(
+    Placement(visible = true, transformation(origin = {-2, 86}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-1.11022e-16, 100}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
   parameter Integer rows = 3 "number of rows";
   parameter Integer cols = 3 "number of cols";
