@@ -5,7 +5,7 @@ model PlanarWall_MultiLayer_UniformGrid
   Material material;
   parameter Length l_w = 1 "Total width";
   parameter Length l_d = 1 "Total depth";
-  parameter Length l_t = 0.001 "Wall thickness";
+  parameter Length l_t = 0.001 "Total thickness";
   parameter Integer w = 5  "number of lumps along width (left->right)" annotation(
     Evaluate = true);
   parameter Integer d = 4  "number of lumps along depth (front->rear)" annotation(
