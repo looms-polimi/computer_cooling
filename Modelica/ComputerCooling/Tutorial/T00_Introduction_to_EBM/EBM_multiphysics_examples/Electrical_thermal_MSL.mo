@@ -2,7 +2,7 @@ within ComputerCooling.Tutorial.T00_Introduction_to_EBM.EBM_multiphysics_example
 
 model Electrical_thermal_MSL
   extends ComputerCooling.Icons.TutorialModel;
-  Modelica.Electrical.Analog.Basic.HeatingResistor R(R_ref = 0.02, useHeatPort = true) annotation(
+  Modelica.Electrical.Analog.Basic.Resistor R(R = 0.02, useHeatPort = true) annotation(
     Placement(visible = true, transformation(origin = {-58, 10}, extent = {{-10, 10}, {10, -10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground gnd annotation(
     Placement(visible = true, transformation(origin = {-58, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
