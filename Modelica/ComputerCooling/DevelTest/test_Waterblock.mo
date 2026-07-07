@@ -9,11 +9,11 @@ model test_Waterblock
     constrainedby SolidMaterials.BaseClasses.Base_solid_constant_props;
   ComputerCooling.IncompressibleLiquidComponents.BoundaryConditions.BoundaryFixed_wT snk(w = -0.1)  annotation(
     Placement(visible = true, transformation(origin = {80, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 180)));
-  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_2D_uniform prescribed_Power_2D_uniform(cols = 5, rows = 3)  annotation(
+  ComputerCooling.HeatTransfer.BoundaryConditions.Prescribed_Power_2D_uniform prescribed_Power_2D_uniform annotation(
     Placement(visible = true, transformation(origin = {-46, 64}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression iPh(y = 100 * (1 + 100 * sin(0.1 * time))) annotation(
     Placement(visible = true, transformation(origin = {-84, 64}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  ComputerCooling.IncompressibleLiquidComponents.WaterBlocks.WaterBlock_GenericSection_uniform_w Waterblock(m = 3)  annotation(
+  ComputerCooling.IncompressibleLiquidComponents.WaterBlocks.WaterBlock_GenericSection_uniform_w Waterblock(n = 4)  annotation(
     Placement(visible = true, transformation(origin = {1, -1}, extent = {{-21, -21}, {21, 21}}, rotation = 0)));
 equation
   connect(iPh.y, prescribed_Power_2D_uniform.P_input) annotation(
